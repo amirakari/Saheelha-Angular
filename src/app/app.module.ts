@@ -61,7 +61,7 @@ export function HttpLoaderFactory(http: HttpClient){
     NgxCaptchaModule,
     ReactiveFormsModule
   ],
-  providers: [LoginGuard, LogoutGuard],
+  providers: [LoginGuard, LogoutGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
