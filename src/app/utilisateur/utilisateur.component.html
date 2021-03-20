@@ -1,0 +1,204 @@
+<!-- END HEADER-->
+<!-- BEGIN NAVBAR-->
+
+  <div id="header-nav-offset"></div>
+
+  <!-- END NAVBAR-->
+  <div class="site-wrap js-site-wrap">
+
+    <!-- BEGIN BREADCRUMBS-->
+    <nav class="breadcrumbs">
+
+      <div class="container">
+        <ul>
+          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Home</a></li>
+          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Login</a></li>
+        </ul>
+      </div>
+      </nav>
+
+    <div class="center">
+      <div class="container">
+
+        <div class="row">
+          <section class="site">
+            <header class="site__header">
+
+              <br>
+
+              <section class="feature">
+                <div class="bg-brickwall">
+                <div>
+
+                  <div class="form__options">
+
+
+                    <li class="dropdown auth__nav-item">
+                      <button class="form__" data-toggle="dropdown" type="button" ><span class="header__span">  Créer un compte</span></button>
+                     <div class="dropdown__menu auth__dropdown--register">
+                        <!-- BEGIN AUTH REGISTER-->
+                        <br><br><br>
+                       <div *ngIf="errorMessage">{{errorMessage}}</div>
+                        <form #formulaire="ngForm" class="form form--flex form--auth js-register-form js-parsley">
+                          <div class="row">
+                            <div class="form-group form-group--col-6">
+
+                              <input type="text" ngModel name="nom" id="nom" placeholder="Nom" required class="form-control">
+                            </div>
+                            <div class="form-group form-group--col-6">
+
+                              <input type="text" ngModel name="prenom" id="prenom" placeholder="Prénom" required class="form-control">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="form-group form-group--col-6">
+
+                              <input type="email" ngModel name="mail" id="mail" placeholder="E-mail" required class="form-control">
+                            </div>
+                            <div class="form-group form-group--col-6">
+
+                              <input type="password" ngModel name="password" id="password" placeholder="Mode de passe" required class="form-control">
+                            </div>
+
+                          </div>
+                          <div class="row">
+                            <div class="form-group form-group--col-6">
+
+                              <input type="text" ngModel name="adresse" id="adresse" placeholder="Adresse" required class="form-control">
+                            </div>
+                            <div class="form-group form-group--col-6">
+
+                              <input type="text" ngModel name="numtel" id="numtel" placeholder="Numéro de téléphone" required class="form-control">
+                            </div>
+
+                          </div>
+                          <div class="row">
+                            <div class="form-group form-group--col-6">
+
+                              <select  ngModel name="type" id="type" placeholder="Type" class="form-control">
+                                <option></option>
+                                <option value="user">Utilisateur</option>
+                                <option value="fournisseur">Fournisseur</option>
+                                <option value="admin">Admin</option>
+                              </select>
+
+                            </div>
+
+
+                          </div>
+                          <form [formGroup]="aFormGroup">
+                            <ngx-recaptcha2 #captchaElem
+                                            [siteKey]="siteKey"
+                                            formControlName="recaptcha">
+                            </ngx-recaptcha2>
+                          </form>
+                          <div class="row">
+
+                            <button  type="submit" class="form__submit" (click)="addUtilisateur(formulaire)">Ajouter</button>
+                          </div>
+<br><br><br>
+                        </form>
+                        <!-- end of block .auth__form-->
+                        <!-- END AUTH REGISTER-->
+                      </div>
+                    </li></div>
+                </div>
+                <div class="container">
+                  <div class="feature__content">
+                    <div class="site__main">
+                      <div class="widget js-widget widget--main widget--no-border">
+                        <div class="widget__content">
+
+                          <div class="auth__wrap auth__wrap--login">
+                            <!-- BEGIN AUTH LOGIN-->
+
+                            <br>
+                            <form #loginformulaire="ngForm" class="form form--flex form--auth js-login-form js-parsley">
+                              <div class="row">
+                                <div class="form-group">
+
+                                  <input email ngModel name="mail" #inputMail="ngModel" type="text"   placeholder="Adresse e-mail" id="mail1" required data-parsley-trigger="keyup" data-parsley-minlength="6" data-parsley-validation-threshold="5" data-parsley-minlength-message="Login should be at least 6 chars" class="form-control">
+                                  <div class="alert alert-danger" role="alert" *ngIf="inputMail.invalid && inputMail.dirty" >
+                                   Votre  adresse  e-mail  n'est  pas  valide (Entrer une adresse de cette forme : ***@****.**)
+                                  </div>
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+
+                                  <input ngModel name="password"  #pwdInput="ngModel"  type="password"  id="password1" placeholder="Mot de passe" required class="form-control">
+                                  <div class="alert alert-danger" role="alert" *ngIf="pwdInput.invalid && pwdInput.touched" >
+                                    le mode passe doit au minimum 4 caratéres et au maximum 8 caractéres
+                                  </div>
+                                </div></div>
+                              <div class="form__remember">
+                                <input type="checkbox" id="remember-in-inline" class="in-checkbox">
+
+                                <label for="remember-in-inline" class="in-label">Remember me</label>
+
+                              </div>
+                              <button type="submit" [disabled]="loginformulaire.invalid" (click)="login(loginformulaire.value)" class="form__submit" >Connexion</button>
+                                <div class="form__options"><a href="user_restore_pass.html">Forgot password ?</a>
+                                </div>
+                                <button type="submit" class="form__submit">Login with Google</button>
+                                <button type="submit" class="form__submit">Login with Facebook</button>
+
+<br><br><br>
+
+                              <div class="row">
+
+                              </div>
+                            </form>
+                          </div></div>
+                        <!-- end of block .auth__form-->
+                        <!-- END AUTH LOGIN-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div></section>
+              </header></section>
+        </div>
+      </div>
+
+      <!-- END BREADCRUMBS-->
+      <div class="center">
+        <div class="container">
+          <div class="row">
+            <!-- BEGIN site-->
+            <div class="site site--main">
+
+
+
+
+            </div>
+          </div>
+          <!-- END site-->
+          <!-- BEGIN SIDEBAR-->
+          <div class="sidebar">
+
+          </div>
+        </div>
+        <!-- END SIDEBAR-->
+        <div class="clearfix"></div>
+
+      </div>
+    </div></div>
+
+  <!-- END CENTER SECTION-->
+  <!-- BEGIN AFTER CENTER SECTION-->
+  <!-- END AFTER CENTER SECTION-->
+
+
+  <!-- BEGIN FOOTER-->
+
+  <!-- end of block .footer-->
+  <!-- END FOOTER-->
+
+  <button type="button" class="scrollup js-scrollup"></button>
+  <!-- end of block .scrollup-->
+  <!-- BEGIN SCRIPTS and INCLUDES-->
+
+
+
+
+

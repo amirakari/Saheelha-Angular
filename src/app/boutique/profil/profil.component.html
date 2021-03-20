@@ -1,0 +1,162 @@
+
+<div class="box js-box">
+  <!-- BEGIN HEADER-->
+
+  <!-- END HEADER-->
+  <!-- BEGIN NAVBAR-->
+  <div id="header-nav-offset"></div>
+
+  <!-- END NAVBAR-->
+  <div class="site-wrap js-site-wrap">
+    <!-- BEGIN BREADCRUMBS-->
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ul>
+          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Acceuil</a></li>
+          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Ajouter Boutique</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- END BREADCRUMBS-->
+    <div class="center">
+      <div class="container">
+        <div class="row">
+          <div class="site site--main">
+
+
+            <div class="site__main">
+              <div class="widget js-widget widget--main">
+                <div class="widget__content">
+                  <form #Ajouterboutique="ngForm" class="form form--flex form--profile js-form">
+
+                    <div id="form-block-1" class="form__block js-form-block">
+
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="in-1" class="control-label">Nom de boutique</label>
+                          <input ngModel id="in-1" required name="nom" data-placeholder="---"  class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="in-4" class="control-label">Domaine</label>
+                          <select ngModel id="in-4" name="domaine" data-placeholder="Choose a Country..." required class="form-control js-in-select">
+                            <option label=" "></option>
+                            <option value="pharmacie">Pharmacie</option>
+                            <option value="boutique">Boutique</option>
+                            <option value="magasin">Magasin</option>
+                          </select>
+                          <!-- end of block .form-property__control-->
+                        </div>
+
+                        <div class="form-group">
+                          <label for="in-6" class="control-label">Mail Professionnelle</label>
+                          <input ngModel name="mailprofessionnelle" id="in-6" type="text" placeholder="" required class="form-control">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="form-block-2" class="form__block js-form-block">
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="in-7" class="control-label">Adresse</label>
+                          <input ngModel name="adresse" id="in-7" type="text" placeholder="" required  class="form-control">
+                        </div>
+
+
+
+
+
+                      </div>
+                    </div>
+
+                    <div id="form-block-3" class="form__block js-form-block">
+                      <div class="row">
+                        <div class="form-group form-group--description">
+                          <label for="in-13" class="control-label">Horaire</label>
+                          <textarea ngModel name="horaire" id="in-13" required data-parsley-trigger="keyup" data-parsley-minlength="200" data-parsley-validation-threshold="10" data-parsley-minlength-message="You need to enter at least a 200 caracters long comment.." class="form-control form-control--description"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="form-block-" class="form__block js-form-block">
+                      <div class="row">
+                        <div class="form-group form-group--social">
+                          <label for="facebook-fiel" class="control-label">Photo de profil</label>
+                          <input ngModel name="photo" id="facebook-fiel" type="text" placeholder="" required  class="form-control">
+                        </div>
+                        <div class="form-group form-group--social">
+                          <label for="twitter-fiel" class="control-label">Visite virtuelle du boutique</label>
+                          <input ngModel name="visite" id="twitter-fiel" type="text" placeholder="" required  class="form-control">
+                        </div>
+
+                      </div>
+                    </div>
+                    <header class="form__header">
+                      <h3 data-rel="#form-block-4" class="form__title js-form-title">Réseau Sociaux</h3>
+                    </header>
+                    <div id="form-block-45" class="form__block js-form-block">
+                      <div class="row">
+                        <div class="form-group form-group--social">
+                          <label for="facebook-field" class="control-label">Facebok</label>
+                          <input id="facebook-field" type="text" placeholder="" required value="http://facebook.com/youraccount" class="form-control">
+                        </div>
+                        <div class="form-group form-group--social">
+                          <label for="twitter-field" class="control-label">Instagram</label>
+                          <input id="twitter-field" type="text" placeholder="" required value="http://instagram.com/youraccount" class="form-control">
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="row">
+                      <button class="form__submit" (click)="addBoutique(Ajouterboutique)">Ajouter</button>
+                    </div>
+                  </form>
+                  <hr>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar">
+            <div class="widget js-widget widget--sidebar widget--first-no-head">
+              <div class="widget__header"><a class="widget__btn js-widget-btn widget__btn--toggle">Show profile</a>
+              </div>
+              <div class="widget__content">
+                <!-- BEGIN WORKER PROFILE-->
+                <div class="worker sidebar-advanced">
+                  <h3 class="worker__name">Jenniffer Hartnet</h3>
+                  <div class="worker__photo">
+                    <div class="worker__avatar">
+                      <svg>
+                        <use xlink:href="#icon-avatar"></use>
+                      </svg>
+                    </div>
+                    <button class="worker__avatar-upload">Upload your profile picture</button>
+                  </div>
+                  <nav class="worker__nav">
+                    <ul>
+                      <li><a (click)="gotoajout()" >Ajouter Boutique</a></li>
+                      <li><a (click)="gotoprofil()" >Profil</a></li>
+                      <li><a (click)="gotomodifier()" >Modifier profil</a></li>
+                      <li><a (click)="gotoproduit()" >Vos produits</a></li>
+                    </ul>
+                  </nav>
+                  <!-- end of block .worker__nav-->
+                </div>
+                <!-- end of block .worker__item-->
+                <!-- END WORKER PROFILE-->
+              </div>
+            </div>
+
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <!-- END CENTER SECTION-->
+    <!-- BEGIN AFTER CENTER SECTION-->
+    <!-- END AFTER CENTER SECTION-->
+    <!-- BEGIN FOOTER-->
+
+    <!-- end of block .footer-->
+    <!-- END FOOTER-->
+  </div>
+</div>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Saheelha"
+    }
+  },
+  "defaultProject": "Saheelha",
+  "cli": {
+    "analytics": "37d550e9-b6b4-487b-9094-3d9659a8d88b"
+  }
 }

@@ -4195,7 +4195,7 @@ select {
 .pagination-custom > li > a:hover,
 .pagination-custom > li > a:focus {
   color: #f3bc65;
-  background-color: none;
+  background-color:none;
   border-color: #f3bc65;
 }
 
@@ -7341,7 +7341,7 @@ body {
 }
 
 .header_color_white .navbar.header-fixed {
-  -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 2px 7px rgb(43, 43, 43);
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
 }
 
@@ -16406,7 +16406,7 @@ fieldset[disabled] .dropdown--select .dropdown-toggle {
 
 .navbar__brand-logo {
   fill: #2c3e50;
-  height: 60px;
+  height: 30px;
   width: 215px;
 }
 
@@ -16423,7 +16423,6 @@ fieldset[disabled] .dropdown--select .dropdown-toggle {
 }
 
 .navbar__wrap {
-  margin: 16px 0 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24126,10 +24125,10 @@ fieldset[disabled] .subscribe__field {
     position: absolute;
     width: 100%;
     top: 0;
-    background: url("../img/map-placeholder.jpg");
+    background: url("src/assets/img/map-placeholder.jpg");
     background-size: cover;
     height: 170px;
-    border: 8px solid #fff;
+    border: 8px solid #ffffff;
     margin: 17px 0;
     overflow: hidden;
   }
