@@ -13,5 +13,7 @@ export class ListeService {
   getBoutique(): Observable<Boutique[]>{
       return this.http.get<Boutique[]>(this.link);
     }
-  }
+  getBoutiqueByid(id: number): Observable<Boutique>{
+    return this.http.get<Boutique>(this.link + `/${id}`);
+  }}
 

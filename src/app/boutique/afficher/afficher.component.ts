@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AfficheService} from './affiche.service';
+import {Boutique} from '../../Model/Boutique';
+import {ListeService} from '../../liste-boutique/liste.service';
 
 @Component({
   selector: 'app-afficher',
@@ -7,8 +10,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./afficher.component.css']
 })
 export class AfficherComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private listeService: ListeService) { }
 
   ngOnInit(): void {
   }
@@ -21,11 +25,13 @@ export class AfficherComponent implements OnInit {
     this.router.navigate(link);
   }
   gotomodifier(){
-    const link = ['detailProduit'];
-    this.router.navigate(link);
-  }
+    }
   gotoproduit(){
     const link = ['produitboutique'];
+    this.router.navigate(link);
+  }
+  gotoabonnement(){
+    const link = ['Abonnement'];
     this.router.navigate(link);
   }
 }

@@ -139,7 +139,7 @@
                               <button type="submit" [disabled]="loginformulaire.invalid" (click)="login(loginformulaire.value)" class="form__submit" >Connexion</button>
                                 <div class="form__options"><a href="user_restore_pass.html">Forgot password ?</a>
                                 </div>
-                                <button type="submit" class="form__submit">Login with Google</button>
+                                <button type="submit" (click)="google()" class="form__submit">Login with Google</button>
                                 <button type="submit" class="form__submit">Login with Facebook</button>
 
 <br><br><br>

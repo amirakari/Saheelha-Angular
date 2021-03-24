@@ -24,6 +24,7 @@ import { ProduitBoutiqueComponent } from './boutique/produit-boutique/produit-bo
 import { ProfilutilisateurComponent } from './utilisateur/profilutilisateur/profilutilisateur.component';
 import {LoginGuard} from './guard/login.guard';
 import {LogoutGuard} from './guard/logout.guard';
+import { AbonnementComponent } from './boutique/abonnement/abonnement.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient){
     ProfilComponent,
     AfficherComponent,
     ProduitBoutiqueComponent,
-    ProfilutilisateurComponent
+    ProfilutilisateurComponent,
+    AbonnementComponent
   ],
   imports: [
     BrowserModule,

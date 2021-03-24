@@ -1,4 +1,5 @@
 export class Boutique{
+  id: number;
   nom: string;
   domaine: string;
   mailprofessionnelle: string;
@@ -7,7 +8,8 @@ export class Boutique{
   photo: string;
   visite: string;
 
-  constructor( nom, domaine, mailprofessionnelle, adresse, horaire, photo, visite) {
+  constructor( id, nom, domaine, mailprofessionnelle, adresse, horaire, photo, visite) {
+    this.id = id;
     this.nom = nom;
     this.domaine = domaine;
     this.mailprofessionnelle = mailprofessionnelle;

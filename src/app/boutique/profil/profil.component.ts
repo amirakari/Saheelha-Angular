@@ -41,12 +41,13 @@ export class ProfilComponent implements OnInit {
     const link = ['profilBoutique'];
     this.router.navigate(link);
   }
-  gotomodifier(){
-    const link = ['detailProduit'];
-    this.router.navigate(link);
-  }
+  gotomodifier(){}
   gotoproduit(){
     const link = ['produitboutique'];
+    this.router.navigate(link);
+  }
+  gotoabonnement(){
+    const link = ['Abonnement'];
     this.router.navigate(link);
   }
 }

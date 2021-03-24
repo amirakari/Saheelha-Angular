@@ -3,6 +3,8 @@ import {ListeService} from '../../liste-boutique/liste.service';
 import {Boutique} from '../../Model/Boutique';
 import {AffService} from './aff.service';
 import {Utilisateur} from '../../Model/Utilisateur';
+import {NgForm} from '@angular/forms';
+import {ImageService} from './image.service';
 
 @Component({
   selector: 'app-profilutilisateur',
@@ -11,7 +13,8 @@ import {Utilisateur} from '../../Model/Utilisateur';
 })
 export class ProfilutilisateurComponent implements OnInit {
    user: Utilisateur;
-  constructor(private profiluserservice: AffService) { }
+  constructor(private profiluserservice: AffService,
+              private imageservice: ImageService) { }
 
   ngOnInit(): void {
     this.profiluserservice.getUtilisateur().subscribe(
@@ -19,6 +22,17 @@ export class ProfilutilisateurComponent implements OnInit {
       (error) => {alert(`erreur d'accés à l'api`);
                   console.log(error); }
     );
+  }
+  getImageProfil(){
+    this.imageservice.getImageProfil().subscribe(
+      () => {
+      },
+      (error) => {
+        alert(`erreur d'accés à l'api`);
+        console.log(error);
+      }
+    );
+
   }
 
 }

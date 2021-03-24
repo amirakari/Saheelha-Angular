@@ -6,8 +6,9 @@ export class Utilisateur{
   type: string;
   mail: string;
   password: string;
+  photodeprofil: string;
 
-  constructor( nom, prenom, mail, password, adresse, numtel, type) {
+  constructor( nom, prenom, mail, password, adresse, numtel, type, photodeprofil) {
     this.nom = nom;
     this.prenom = prenom;
     this.numtel = numtel;
@@ -15,5 +16,6 @@ export class Utilisateur{
     this.type = type;
     this.mail = mail;
     this.password = password;
+    this.photodeprofil = photodeprofil;
   }
 }

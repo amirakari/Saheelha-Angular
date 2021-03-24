@@ -11,18 +11,20 @@ import {ProduitBoutiqueComponent} from './boutique/produit-boutique/produit-bout
 import {ProfilutilisateurComponent} from './utilisateur/profilutilisateur/profilutilisateur.component';
 import {LoginGuard} from './guard/login.guard';
 import {LogoutGuard} from './guard/logout.guard';
+import {AbonnementComponent} from './boutique/abonnement/abonnement.component';
 
 
 const APP_ROUTING: Routes = [
+  {path: 'profilBoutique/:id', component:  AfficherComponent, canActivate: [LoginGuard]},
   {path: 'login', component:  UtilisateurComponent, canActivate: [LogoutGuard]},
   {path: 'profilutilisateur', component: ProfilutilisateurComponent , canActivate: [LoginGuard]},
-  {path: 'profilBoutique', component:  AfficherComponent, canActivate: [LoginGuard]},
   {path: 'produitboutique', component:  ProduitBoutiqueComponent},
   {path: 'boutique', component:  ProfilComponent},
   {path: 'acceuil', component:  AcceuilComponent},
   {path: 'pageBoutique', component:  PageBoutiqueComponent},
   {path: 'listeBoutique' , component : ListeBoutiqueComponent},
   {path: 'detailProduit' , component : DetailsProduitComponent},
+  {path: 'Abonnement' , component : AbonnementComponent},
   {path: 'payementabo' , component : PayementComponent}
 ];
 export const ROUTING = RouterModule.forRoot(APP_ROUTING);

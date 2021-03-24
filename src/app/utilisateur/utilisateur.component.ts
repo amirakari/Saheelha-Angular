@@ -5,6 +5,7 @@ import {Utilisateur} from '../Model/Utilisateur';
 import {HttpClient} from '@angular/common/http';
 import {LoginService} from './login.service';
 import {Router} from '@angular/router';
+import {GoogleService} from './google.service';
 
 @Component({
   selector: 'app-utilisateur',
@@ -21,6 +22,7 @@ export class UtilisateurComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
               private loginService: LoginService,
+              private googleService: GoogleService,
               private router: Router,
               private http: HttpClient) {
     this.siteKey = '6LfcvH0aAAAAAJHHlhuW547XmFI6Mz4oga1Z_k3h';
@@ -54,5 +56,14 @@ export class UtilisateurComponent implements OnInit {
         console.log(error);
       }
   );
+  }
+  google(){
+    this.googleService.google().subscribe(
+      (response) => {
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
