@@ -20,10 +20,6 @@ export class AfficherComponent implements OnInit {
     const link = ['boutique'];
     this.router.navigate(link);
   }
-  gotoprofil(){
-    const link = ['profilBoutique'];
-    this.router.navigate(link);
-  }
   gotomodifier(){
     }
   gotoproduit(){

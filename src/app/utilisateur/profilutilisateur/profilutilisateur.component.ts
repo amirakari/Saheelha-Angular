@@ -5,6 +5,7 @@ import {AffService} from './aff.service';
 import {Utilisateur} from '../../Model/Utilisateur';
 import {NgForm} from '@angular/forms';
 import {ImageService} from './image.service';
+import {UploadService} from './upload.service';
 
 @Component({
   selector: 'app-profilutilisateur',
@@ -14,7 +15,8 @@ import {ImageService} from './image.service';
 export class ProfilutilisateurComponent implements OnInit {
    user: Utilisateur;
   constructor(private profiluserservice: AffService,
-              private imageservice: ImageService) { }
+              private imageservice: ImageService,
+              private uploadService: UploadService) { }
 
   ngOnInit(): void {
     this.profiluserservice.getUtilisateur().subscribe(
@@ -22,6 +24,19 @@ export class ProfilutilisateurComponent implements OnInit {
       (error) => {alert(`erreur d'accés à l'api`);
                   console.log(error); }
     );
+  }
+  UploadImage(formulaire: NgForm){
+    this.uploadService.UploadImage(formulaire.value).subscribe(
+      (response) => {
+        console.log(formulaire.value);
+      },
+      (error) => {
+        alert(`erreur d'accés à l'api`);
+        console.log(formulaire.value);
+        console.log(error);
+      }
+    );
+
   }
   getImageProfil(){
     this.imageservice.getImageProfil().subscribe(

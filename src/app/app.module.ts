@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -12,7 +11,6 @@ import { FooterComponent } from './footer/footer.component';
 import { PageBoutiqueComponent } from './page-boutique/page-boutique.component';
 import { DetailsProduitComponent } from './details-produit/details-produit.component';
 import { ListeBoutiqueComponent } from './liste-boutique/liste-boutique.component';
-import {ROUTING} from './app.routing';
 import {NgxCaptchaModule} from 'ngx-captcha';
 import { PayementComponent } from './payement/payement.component';
 import { HttpComponent } from './http/http.component';
@@ -25,6 +23,8 @@ import { ProfilutilisateurComponent } from './utilisateur/profilutilisateur/prof
 import {LoginGuard} from './guard/login.guard';
 import {LogoutGuard} from './guard/logout.guard';
 import { AbonnementComponent } from './boutique/abonnement/abonnement.component';
+import {APP_BASE_HREF} from '@angular/common';
+import {AppRoutingModule} from './app-routing.module';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
@@ -49,10 +49,9 @@ export function HttpLoaderFactory(http: HttpClient){
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ROUTING,
+    AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -63,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient){
     NgxCaptchaModule,
     ReactiveFormsModule
   ],
-  providers: [LoginGuard, LogoutGuard, LoginInterceptorProvider],
+  providers: [{provide: APP_BASE_HREF , useValue: '/'},
+    LoginGuard, LogoutGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

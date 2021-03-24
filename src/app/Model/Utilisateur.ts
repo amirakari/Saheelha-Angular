@@ -1,4 +1,5 @@
 export class Utilisateur{
+  id: number;
   nom: string;
   prenom: string;
   numtel: number;
@@ -8,7 +9,8 @@ export class Utilisateur{
   password: string;
   photodeprofil: string;
 
-  constructor( nom, prenom, mail, password, adresse, numtel, type, photodeprofil) {
+  constructor( id, nom, prenom, mail, password, adresse, numtel, type, photodeprofil) {
+    this.id = id;
     this.nom = nom;
     this.prenom = prenom;
     this.numtel = numtel;

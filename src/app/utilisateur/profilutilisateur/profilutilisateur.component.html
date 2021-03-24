@@ -69,7 +69,19 @@
                         <use xlink:href="#icon-avatar"></use>
                       </svg>
                     </div>
-                    <button class="worker__avatar-upload">Upload your profile picture</button>
+                    <div class="widget js-widget widget--main widget--no-margin widget--no-border widget--collapse">
+                      <div class="widget__header">
+
+                          <form #formulaire="ngForm" class="form-property__upload-border">
+                            <input ngModel name="image" type="file" multiple class="form-property__upload-btn-choose">
+                            <button  type="submit"  (click)="UploadImage(formulaire)">Changer ma photo de profil</button>
+
+                          </form>
+
+</div>
+
+
+                    </div>
                   </div>
                   <nav class="worker__nav">
                     <ul>
