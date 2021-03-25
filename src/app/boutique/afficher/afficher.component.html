@@ -28,7 +28,9 @@
 
               <div class="widget js-widget widget--dashboard">
                 <div class="widget__header">
-                  <h2 class="widget__title">Profile</h2><a href="dashboard_profile.html" class="widget__btn js-widget-btn">Edit Profile</a>
+                  <h2 class="widget__title">Profile</h2>
+                  <a  class="widget__btn js-widget-btn">Modifier Boutique</a>
+                  <a  class="widget__btn js-widget-btn" (click)="deleteBoutique()">Supprimer Boutique</a>
                 </div>
                 <div class="widget__content">
                   <div class="worker worker--profile">
@@ -36,23 +38,25 @@
                       <div class="worker__photo"><a href="agent_profile.html" class="item-photo item-photo--static"><img src="assets/media-demo/workers/worker-3.jpg" alt="Mariusz Ciesla" class="photo">
                         <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure></a></div>
                       <div class="worker__intro">
-                        <h3 class="worker__name fn">Mariusz Ciesla</h3>
-                        <div class="worker__post">Real Estate Professional</div>
-                        <button type="button" class="worker__show js-unhide">Contact agent</button><a class="worker__company"><img src="assets/media-demo/partners/logo-company-proera.png"></a><span class="worker__company-name">Pro Era West Realty</span>
+                        <h3 class="worker__name fn">{{boutique1.nom}}</h3>
+                        <div class="worker__post">{{boutique1.domaine}}</div>
                         <div class="clearfix"></div>
                         <div class="worker__contacts">
                           <div class="worker__intro-col">
-                            <div class="tel"><span class="type">Telephone</span><a href="tel:+44(0)203510334" class="uri value">+44 (0) 20 3510 334</a></div>
-                            <div class="tel"><span class="type">Mobile</span><a href="tel:+44(0)30334657220" class="uri value">+44 (0) 303 3465 7220</a></div>
+                            <div class="tel"><span class="type">Telephone</span><a href="tel:+44(0)30334657220" class="uri value">{{boutique1.user.numtel}}</a></div>
+                            <div class="tel"><span class="type">Adresse</span><a href="tel:+44(0)30334657220" class="uri value">{{boutique1.adresse}}</a></div>
                           </div>
                           <div class="worker__intro-col">
-                            <div class="email"><span class="type">Email</span><a href="mailto:mr_cs@realtyspace.com" class="uri value">mr_cs@realtyspace.com</a></div>
-                            <div class="skype"><span class="type">Skype</span><a href="skype:Ciesla_1981?call" class="uri value">Ciesla_1981</a></div>
+                            <div class="email"><span class="type">Email</span><a href="mailto:mr_cs@realtyspace.com" class="uri value">{{boutique1.mailprofessionnelle}}</a></div>
+                            <div class="skype"><span class="type">Horaire</span><a href="skype:Ciesla_1981?call" class="uri value">{{boutique1.horaire}}</a></div>
                           </div>
                           <!-- end of block .worker__contacts-->
                         </div>
                         <div class="social social--worker"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-linkedin"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
+
+
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -66,14 +70,19 @@
               <div class="widget__content">
                 <!-- BEGIN WORKER PROFILE-->
                 <div class="worker sidebar-advanced">
-                  <h3 class="worker__name">Jenniffer Hartnet</h3>
+                  <h3 class="worker__name">{{boutique1.nom}}</h3>
                   <div class="worker__photo">
                     <div class="worker__avatar">
                       <svg>
                         <use xlink:href="#icon-avatar"></use>
                       </svg>
                     </div>
-                    <button class="worker__avatar-upload">Upload your profile picture</button>
+                    <form #formulaire="ngForm" class="form-property__upload-border">
+                      <input ngModel name="image" type="file" multiple class="form-property__upload-btn-choose">
+                      <button  type="submit"  (click)="UploadImage(formulaire)">Changer ma photo de profil</button>
+
+                    </form>
+
                   </div>
                   <nav class="worker__nav">
                     <ul>

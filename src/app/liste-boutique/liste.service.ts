@@ -15,5 +15,9 @@ export class ListeService {
     }
   getBoutiqueByid(id: number): Observable<Boutique>{
     return this.http.get<Boutique>(this.link + `/${id}`);
-  }}
+  }
+  deleteboutique(id: number): Observable<Boutique>{
+    return this.http.delete<Boutique>(this.link + `/${id}`);
+  }
+}
 

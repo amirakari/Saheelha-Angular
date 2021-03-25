@@ -25,13 +25,14 @@ export class ProfilComponent implements OnInit {
     this.boutiqueService.addBoutique(Ajouterboutique.value).subscribe(
       (response) => {
         console.log(Ajouterboutique);
+        const link = ['listeBoutique'];
+        this.router.navigate(link);
       },
       (error) => {
         this.errorMessage = 'probleme de connexion à votre serveur';
         console.log(error);
       }
     );
-
   }
   gotoajout(){
     const link = ['boutique'];

@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ListeBoutiqueComponent implements OnInit {
 @Input() boutique: Boutique[];
-  boutique1: Boutique;
+  @Input() boutique1: Boutique;
   constructor(private listeService: ListeService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
@@ -21,18 +21,9 @@ export class ListeBoutiqueComponent implements OnInit {
       (error) => {alert(`erreur d'accés à l'api`);
                   console.log(error); }
     );
-    this.activatedRoute.params.subscribe(
-      (params) => {
-        this.listeService.getBoutiqueByid(params.id).subscribe(
-          (boutique) => {
-            this.boutique1 = boutique;
-          }
-        );
-      }
-    );
   }
   afficherboutique(){
-    const link = [ 'boutique' , this.boutique1.id ];
+    const link = [ 'profilBoutique' , 5 ];
     this.router.navigate(link);
   }
 }

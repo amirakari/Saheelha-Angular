@@ -1,3 +1,5 @@
+import {Utilisateur} from './Utilisateur';
+
 export class Boutique{
   id: number;
   nom: string;
@@ -7,8 +9,9 @@ export class Boutique{
   horaire: string;
   photo: string;
   visite: string;
+  user: Utilisateur;
 
-  constructor( id, nom, domaine, mailprofessionnelle, adresse, horaire, photo, visite) {
+  constructor( id, nom, domaine, mailprofessionnelle, adresse, horaire, photo, visite, user) {
     this.id = id;
     this.nom = nom;
     this.domaine = domaine;
@@ -17,5 +20,6 @@ export class Boutique{
     this.horaire = horaire;
     this.photo = photo;
     this.visite = visite;
+    this.user = user;
   }
 }
