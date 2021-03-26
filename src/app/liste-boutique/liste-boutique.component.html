@@ -66,6 +66,7 @@ becomes
                   <div class="properties__details">
                     <div class="properties__info"><a href="property_details.html" class="properties__address">
                       <span class="properties__address-street">Nom :{{boutiques.nom}}</span>
+                      <span class="properties__address-city">Identifiant :{{boutiques.id}}</span>
                       <span class="properties__address-city">Domaine :{{boutiques.domaine}}</span>
                       <span class="properties__address-city">Adresse :{{boutiques.adresse}}</span>
                       <span class="properties__address-city">Horaire :{{boutiques.horaire}}</span>
@@ -75,7 +76,7 @@ becomes
                       <div class="properties__offer">
                         <br>
                         <div class="properties__offer-column">
-                          <span  class="properties__more" (click)="afficherboutique()">Afficher Profil</span>
+                          <span  class="properties__more" (click)="afficherboutique(boutiques.id)">Afficher Profil</span>
 
                         </div>
                       </div>

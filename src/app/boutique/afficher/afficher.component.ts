@@ -33,7 +33,7 @@ export class AfficherComponent implements OnInit {
   deleteBoutique(){
     this.listeService.deleteboutique(this.boutique1.id).subscribe(
       (response) => {
-        const link = [ 'listeBoutique' ];
+        const link = [ 'boutique' ];
         this.router.navigate(link);
       }
     );

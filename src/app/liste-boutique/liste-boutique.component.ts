@@ -22,8 +22,8 @@ export class ListeBoutiqueComponent implements OnInit {
                   console.log(error); }
     );
   }
-  afficherboutique(){
-    const link = [ 'profilBoutique' , 5 ];
+  afficherboutique(id: number){
+    const link = [ 'boutique' , id ];
     this.router.navigate(link);
   }
 }

@@ -46,7 +46,7 @@
 
             <div  class="navbar__wrap">
               <ul class="navbar__nav">
-                <li class="navbar__item js-dropdown"><a [routerLink]="['acceuil']" routerLinkActive="active" class="navbar__link">Acceuil
+                <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['']" routerLinkActive="active" >Acceuil
                   <svg class="navbar__arrow">
                     <use xlink:href="#icon-arrow-right"></use>
                   </svg></a>
@@ -119,8 +119,8 @@
                       <ul class="navbar__subnav">
                         <li class="navbar__subitem active"><a [routerLink]="['pageBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Page Boutique</a></li>
 
-                        <li class="navbar__subitem"><a [routerLink]="['listeBoutique']" class="navbar__sublink js-navbar-sub-sublink">Liste des Boutiques</a></li>
-                        <li class="navbar__subitem active"><a [routerLink]="['boutique']"  class="navbar__sublink js-navbar-sub-sublink">Ajouter Boutique</a></li>
+                        <li class="navbar__subitem"><a [routerLink]="['boutique']" class="navbar__sublink js-navbar-sub-sublink">Liste des Boutiques</a></li>
+                        <li class="navbar__subitem active"><a [routerLink]="['boutique/addBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Ajouter Boutique</a></li>
 
                       </ul>
                     </div>

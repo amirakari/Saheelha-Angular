@@ -25,8 +25,8 @@ export class ProfilutilisateurComponent implements OnInit {
       (error) => {alert(`erreur d'accés à l'api`);
                   console.log(error); }
     ); }
-  UploadImage(formulaire: NgForm){
-    this.uploadService.UploadImage(formulaire.value).subscribe(
+  UploadImage(formulaire: NgForm, id: number){
+    this.uploadService.UploadImage(formulaire.value, this.user.id).subscribe(
       (response) => {
         console.log(formulaire.value);
       },

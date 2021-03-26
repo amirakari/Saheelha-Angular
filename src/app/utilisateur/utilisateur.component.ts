@@ -50,7 +50,7 @@ export class UtilisateurComponent implements OnInit {
       (response) => {
         localStorage.setItem('token', response.access_token);
         this.message = '';
-        this.router.navigate(['acceuil']);
+        this.router.navigate(['']);
       },
       (error) => {
         console.log(error);
