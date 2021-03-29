@@ -31,7 +31,7 @@
               <div class="widget__content">
                 <div class="worker worker--profile">
                   <div class="worker__item">
-                    <div class="worker__photo" ><a href="agent_profile.html" class="item-photo item-photo--static"><img src="{{user.photodeprofil}}"  class="photo">
+                    <div class="worker__photo" ><a href="agent_profile.html" class="item-photo item-photo--static"><img src="" class="photo">
                       <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure></a></div>
                     <div class="worker__intro">
                       <h3 class="worker__name fn">{{user.nom}} {{user.prenom}}</h3>
@@ -72,17 +72,22 @@
                     <div class="widget js-widget widget--main widget--no-margin widget--no-border widget--collapse">
                       <div class="widget__header">
 
-                          <form #formulaire="ngForm" class="form-property__upload-border">
-                            <input ngModel name="image" type="file" multiple class="form-property__upload-btn-choose">
-                            <button  type="submit"  (click)="UploadImage(formulaire,user.id)">Changer ma photo de profil</button>
+                          <div  class="form-property__upload-border">
+                            <input type="file" (change)="UploadImage($event)" class="form-property__upload-btn-choose">
 
-                          </form>
 
-</div>
+
+
+
+                          </div>
+
+                      </div>
 
 
                     </div>
                   </div>
+
+
                   <nav class="worker__nav">
                     <ul>
 

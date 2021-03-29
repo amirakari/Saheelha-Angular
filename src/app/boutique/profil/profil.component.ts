@@ -25,7 +25,7 @@ export class ProfilComponent implements OnInit {
     this.boutiqueService.addBoutique(Ajouterboutique.value).subscribe(
       (response) => {
         console.log(Ajouterboutique);
-        const link = ['listeBoutique'];
+        const link = ['boutique'];
         this.router.navigate(link);
       },
       (error) => {

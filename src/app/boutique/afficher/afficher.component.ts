@@ -42,14 +42,18 @@ export class AfficherComponent implements OnInit {
     const link = ['boutique'];
     this.router.navigate(link);
   }
+  gotoajoutProduit(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'ajouterProduit'];
+    this.router.navigate(link);
+  }
   gotomodifier(){
     }
   gotoproduit(){
-    const link = ['produitboutique'];
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'produitboutique'];
     this.router.navigate(link);
   }
   gotoabonnement(){
-    const link = ['Abonnement'];
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'Abonnement'];
     this.router.navigate(link);
   }
   UploadImage(formulaire: NgForm){

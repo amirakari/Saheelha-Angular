@@ -25,6 +25,8 @@ import {LogoutGuard} from './guard/logout.guard';
 import { AbonnementComponent } from './boutique/abonnement/abonnement.component';
 import {APP_BASE_HREF} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
+import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
@@ -45,7 +47,8 @@ export function HttpLoaderFactory(http: HttpClient){
     AfficherComponent,
     ProduitBoutiqueComponent,
     ProfilutilisateurComponent,
-    AbonnementComponent
+    AbonnementComponent,
+    AjouterProduitComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ export function HttpLoaderFactory(http: HttpClient){
       }
     }),
     NgxCaptchaModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [{provide: APP_BASE_HREF , useValue: '/'},
     LoginGuard, LogoutGuard, LoginInterceptorProvider],

@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ListeService} from '../../liste-boutique/liste.service';
+import {Boutique} from '../../Model/Boutique';
+import {ProduitBoutiqueService} from './produit-boutique.service';
+import {Produit} from '../../Model/Produit';
 
 @Component({
   selector: 'app-produit-boutique',
@@ -7,10 +11,19 @@ import {Router} from '@angular/router';
   styleUrls: ['./produit-boutique.component.css']
 })
 export class ProduitBoutiqueComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  @Input() boutique: Produit[];
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private listeService: ProduitBoutiqueService, ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        console.log(params.id);
+        this.listeService.getBoutique().subscribe(
+      (boutique) => { this.boutique = boutique; }
+    );
+  });
   }
   gotoajout(){
     const link = ['boutique'];

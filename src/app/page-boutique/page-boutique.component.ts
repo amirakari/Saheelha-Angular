@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {ProduitBoutiqueService} from '../boutique/produit-boutique/produit-boutique.service';
+import {Produit} from '../Model/Produit';
+import {PbService} from './pb.service';
 
 @Component({
   selector: 'app-page-boutique',
@@ -7,11 +10,18 @@ import {Router} from '@angular/router';
   styleUrls: ['./page-boutique.component.css']
 })
 export class PageBoutiqueComponent implements OnInit {
-
-  constructor(private router: Router) {
+  @Input() boutique: Produit[];
+  constructor(private router: Router,
+              private listeService: PbService, ) {
   }
 
   ngOnInit(): void {
+    this.listeService.getBoutique().subscribe(
+      (boutique) => { this.boutique = boutique;
+                      console.log(this.boutique); },
+      (error) => {alert(`erreur d'accés à l'api`);
+        }
+    );
   }
   gotodetails(){
     const link = ['detailProduit'];
