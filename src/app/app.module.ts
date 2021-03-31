@@ -27,7 +27,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
 import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {CalendarModule} from 'primeng/calendar';
+import {NgxPaginationModule} from 'ngx-pagination';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -50,22 +51,24 @@ export function HttpLoaderFactory(http: HttpClient){
     AbonnementComponent,
     AjouterProduitComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    NgxCaptchaModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        NgxCaptchaModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        CalendarModule,
+      NgxPaginationModule,
+    ],
   providers: [{provide: APP_BASE_HREF , useValue: '/'},
     LoginGuard, LogoutGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]
