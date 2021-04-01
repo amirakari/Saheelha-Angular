@@ -13,6 +13,7 @@ import {UploadService} from './upload.service';
 })
 export class AfficherComponent implements OnInit {
   boutique1: Boutique;
+  file: any;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private listeService: ListeService,
@@ -56,17 +57,18 @@ export class AfficherComponent implements OnInit {
     const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'Abonnement'];
     this.router.navigate(link);
   }
-  UploadImage(formulaire: NgForm){
-    this.uploadService.UploadImage(formulaire.value, this.boutique1.id).subscribe(
+  UploadImage(event: any){
+    this.file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('file', this.file);
+    this.uploadService.UploadImage(this.boutique1.id, formData).subscribe(
       (response) => {
-        console.log(formulaire.value);
+        console.log(this.file.name);
       },
       (error) => {
         alert(`erreur d'accés à l'api`);
-        console.log(formulaire.value);
         console.log(error);
       }
     );
-
   }
 }

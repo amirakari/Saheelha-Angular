@@ -63,29 +63,31 @@ becomes
                   <div class="listing__item">
                     <div class="properties properties--list">
                       <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="/assets/img/0602277368516-web-tete.jpg" alt=""/>
-                        <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span><span class="properties__time">Added date: 5 days ago</span>
-                        </figure></a><span class="properties__ribon">Médicament</span>
+                        <figure class="item-photo__hover item-photo__hover--params"><span class="properties__time">Réference: {{boutique.reference}}</span>
+                        </figure></a><span class="properties__ribon">{{boutique.categorie}}</span>
                       </div>
                       <!-- end of block .properties__thumb-->
                       <div class="properties__details">
-                        <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">Doliprane 1000 mg</span><span class="properties__address-city">Mornaguia, Manouba</span></a>
+                        <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">{{boutique.nom}}</span><span class="properties__address-city">{{boutique.boutique.adresse}}</span></a>
                           <div class="properties__offer">
                             <div class="properties__offer-column">
                               <div class="properties__offer-label">Prix sans remise</div>
-                              <div class="properties__offer-value"><strong> 3 dt</strong>
+                              <div class="properties__offer-value"><strong> {{boutique.prixsansremise}} </strong>
                               </div>
                             </div>
                             <div class="properties__offer-column">
                               <div class="properties__offer-label">Prix avec remise</div>
-                              <div class="properties__offer-value"><strong>1 dt</strong>
+                              <div class="properties__offer-value"><strong>{{boutique.prixavecremise}} </strong>
                               </div>
                             </div>
                           </div>
                           <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span></div>
                         </div>
                         <div class="properties__intro">
-                          <p>My home is bright and spacious. Very good transport links. Close to the Olympic village, Westfield and the centre of town. The house has all the mod cons and wifi is included. The room is for a single person occupancy.</p>
-                        </div><a href="property_details.html" class="properties__more">View details</a>
+                          Date Limite de consommation : {{boutique.DLC}}
+                          <br>
+                          <p-rating cancel="true" [(ngModel)]="val"></p-rating>
+                        </div><br><a href="property_details.html" class="properties__more">Ajouter au panier</a>
                       </div>
                       <!-- end of block .properties__info-->
 
@@ -109,7 +111,7 @@ becomes
                               <div class="comment__content">
                                 <p>Working on local and international brands, we use all available artistic means which allow us to find the best solution for our clients. Mixing photography, illustration, 3D and CGI all seamlessly together, we are able to create styled images fitted perfectly for each project.</p>
                               </div>
-                              <button class="comment__reply js-comment-reply">Reply</button>
+
                             </div>
                           </div>
                           <!-- end of block .comment__item-body-->
@@ -118,22 +120,7 @@ becomes
 
 
 
-                        <li class="comment__item">
-                          <div class="comment__item-body js-comment-item">
-                            <div class="comment__avatar"><img src="assets/media-demo/avatars/04.jpg" alt=""></div>
-                            <div class="comment__item-right">
-                              <button class="comment__item-btn">Edit</button>
-                              <button class="comment__item-btn">Delete</button>
-                            </div>
-                            <div class="comment__info"><span class="comment__author">Janiel Vasconcelos</span><span class="comment__date">Oct 3, 2014 at 3:23pm</span>
-                              <div class="comment__content">
-                                <p>Working on local and international brands, we use all available artistic means which allow us to find the best solution for our clients. Mixing photography, illustration, 3D and CGI all seamlessly together, we are able to create styled images fitted perfectly for each project.</p>
-                              </div>
-                              <button class="comment__reply js-comment-reply">Reply</button>
-                            </div>
-                          </div>
-                          <!-- end of block .comment__item-body-->
-                        </li>
+
                       </ul>
                       <div class="comment__footer">
                         <!-- BEGIN PAGINATION-->
@@ -154,17 +141,17 @@ becomes
                         <div class="comment__form">
 
                           <div class="comment__form js-form-comment-wrap">
-                            <form action="#" class="form form--flex js-parsley form--comment">
+                            <form #Ajouterboutique="ngForm" action="#" class="form form--flex js-parsley form--comment">
                               <div class="row">
 
 
-                                <div class="form-group">
+                                <div  class="form-group">
                                   <label for="in-comment-message" class="form__label control-label">Message</label>
-                                  <textarea id="in-comment-message" required class="form-control form__in form__in--textarea"></textarea>
+                                  <textarea ngModel name="message" id="in-comment-message" required class="form-control form__in form__in--textarea"></textarea>
                                 </div>
                               </div>
                               <div class="row row--buttons">
-                                <button type="submit" class="form__submit">Post comment</button>
+                                <button type="submit" class="form__submit" (click)="addCommentaire(Ajouterboutique)">Enregistrer</button>
                               </div>
                             </form>
                           </div>
@@ -205,8 +192,8 @@ becomes
             </div>
             <div class="widget__content">
               <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--sidebar-advanced">
-                <h3 class="worker__name fn">Pharmacie Amri Nejib</h3>
-                <div class="worker__post">Mornaguia</div>
+                <h3 class="worker__name fn">{{boutique.boutique.nom}}</h3>
+                <div class="worker__post">{{boutique.boutique.adresse}}</div>
                 <div class="worker__photo"><a href="agent_profile.html" class="item-photo item-photo--static"><img src="/assets/img/pharmacie.png" alt="Christopher Pakulla" class="photo"/>
                   <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure></a></div>
                 <div class="worker__intro">

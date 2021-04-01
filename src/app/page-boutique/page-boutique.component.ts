@@ -11,6 +11,8 @@ import {PbService} from './pb.service';
 })
 export class PageBoutiqueComponent implements OnInit {
   @Input() boutique: Produit[];
+  totalRecords: number;
+  page = 1;
   constructor(private router: Router,
               private listeService: PbService, ) {
   }
@@ -18,7 +20,8 @@ export class PageBoutiqueComponent implements OnInit {
   ngOnInit(): void {
     this.listeService.getBoutique().subscribe(
       (boutique) => { this.boutique = boutique;
-                      console.log(this.boutique); },
+                      console.log(this.boutique);
+                      this.totalRecords = boutique.length; },
       (error) => {alert(`erreur d'accés à l'api`);
         }
     );

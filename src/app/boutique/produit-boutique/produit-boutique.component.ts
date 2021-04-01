@@ -12,6 +12,9 @@ import {Produit} from '../../Model/Produit';
 })
 export class ProduitBoutiqueComponent implements OnInit {
   @Input() boutique: Produit[];
+  totalRecords: number;
+  page = 1;
+  val: number;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private listeService: ProduitBoutiqueService, ) { }
@@ -20,8 +23,10 @@ export class ProduitBoutiqueComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params) => {
         console.log(params.id);
-        this.listeService.getBoutique().subscribe(
-      (boutique) => { this.boutique = boutique; }
+        this.listeService.getBoutique(params.id).subscribe(
+      (boutique) => { this.boutique = boutique;
+                      this.totalRecords = boutique.length;
+                      console.log(this.boutique); }
     );
   });
   }
@@ -37,5 +42,14 @@ export class ProduitBoutiqueComponent implements OnInit {
   gotoabonnement(){
     const link = ['Abonnement'];
     this.router.navigate(link);
+  }
+  gotoDetailsProduit( produitId: number){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        const link = ['boutique' + `/${params.id}` + '/produitboutique' + `/${produitId}` ];
+        this.router.navigate(link);
+
+        console.log(params.id); });
+
   }
 }

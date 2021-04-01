@@ -1252,10 +1252,13 @@ becomes
           <div id="tab-popular" class="tab-pane in active">
             <div class="listing listing--grid"  >
 
-              <div class="listing__item" *ngFor="let boutiques of boutique">
+              <div class="listing__item" *ngFor="let boutiques of boutique | paginate:{ id: 'listing_pagination',
+              itemsPerPage: 3,
+              currentPage: page,
+              totalItems: totalRecords}">
                 <div class="properties properties--grid">
                   <div class="properties__thumb"><a   class="item-photo"><img src="/assets/img/0602277368516-web-tete.jpg" alt=""/>
-                    <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Douleur et fièvre</span> <span  class="properties__more">Plus d'information</span><span class="properties__time">Ajouter le: 09/02/2021</span><span class="properties__time">Date limite de consommation: {{boutiques.DLC}}</span><span class="properties__more">Acheter</span>
+                    <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Douleur et fièvre</span> <span  class="properties__more">Plus d'information</span><span class="properties__time">Ajouter le: 09/02/2021</span><span class="properties__time">Date limite de consommation: {{boutiques.DLC}}</span>
                     </figure></a><span class="properties__ribon">{{boutiques.categorie}}</span>
                   </div>
                   <!-- end of block .properties__thumb-->
@@ -1352,9 +1355,18 @@ becomes
           </div>
         </div>
       </div>
-
+      <div class="ui__row">
+        <!-- BEGIN PAGINATION-->
+        <nav class="listing__pagination">
+          <ul class="pagination-custom">
+            <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+          </ul>
+        </nav>
+        <!-- END PAGINATION-->
+      </div>
     </div>
   </div>
+
   <div class="widget js-widget">
     <div class="widget__content">
       <!-- BEGIN SECTION FEATURE-->

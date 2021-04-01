@@ -29,6 +29,9 @@ import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CalendarModule} from 'primeng/calendar';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CommandeComponent } from './commande/commande.component';
+import {PanelModule} from 'primeng/panel';
+import {RatingModule} from 'primeng/rating';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -49,26 +52,29 @@ export function HttpLoaderFactory(http: HttpClient){
     ProduitBoutiqueComponent,
     ProfilutilisateurComponent,
     AbonnementComponent,
-    AjouterProduitComponent
+    AjouterProduitComponent,
+    CommandeComponent
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        }),
-        NgxCaptchaModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        CalendarModule,
-      NgxPaginationModule,
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    NgxCaptchaModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    CalendarModule,
+    NgxPaginationModule,
+    PanelModule,
+    RatingModule,
+  ],
   providers: [{provide: APP_BASE_HREF , useValue: '/'},
     LoginGuard, LogoutGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]
