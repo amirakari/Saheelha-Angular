@@ -96,47 +96,48 @@ becomes
                     <!-- end of block .properties__item-->
                   </div>
 
-                  <div class="comment">
+                  <div class="comment" >
 
-                    <div class="comment__wrap">
-                      <ul class="comment__list">
-                        <li class="comment__item">
+                    <div class="comment__wrap" >
+                      <ul class="comment__list" *ngIf="commentaire">
+                        <li class="comment__item" *ngFor="let commentaires of commentaire | paginate:{ id: 'listing_pagination',
+              itemsPerPage: 2,
+              currentPage: page,
+              totalItems: totalRecords}">
                           <div class="comment__item-body js-comment-item">
                             <div class="comment__avatar"><img src="assets/media-demo/avatars/01.jpg" alt=""></div>
                             <div class="comment__item-right">
                               <button class="comment__item-btn">Edit</button>
                               <button class="comment__item-btn">Delete</button>
                             </div>
-                            <div class="comment__info"><span class="comment__author">Janiel Vasconcelos</span><span class="comment__date">Oct 3, 2014 at 3:23pm</span>
+                            <div class="comment__info"><span class="comment__author"></span><span class="comment__date">Oct 3, 2014 at 3:23pm</span>
                               <div class="comment__content">
-                                <p>Working on local and international brands, we use all available artistic means which allow us to find the best solution for our clients. Mixing photography, illustration, 3D and CGI all seamlessly together, we are able to create styled images fitted perfectly for each project.</p>
+                               {{commentaires.message}}
                               </div>
 
                             </div>
+
                           </div>
                           <!-- end of block .comment__item-body-->
                         </li>
-
+                        <div class="ui__row" >
+                          <!-- BEGIN PAGINATION-->
+                          <nav class="listing__pagination" >
+                            <ul class="pagination-custom">
+                              <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+                            </ul>
+                          </nav>
+                          <!-- END PAGINATION-->
+                        </div>
 
 
 
 
                       </ul>
+
                       <div class="comment__footer">
                         <!-- BEGIN PAGINATION-->
-                        <nav class="listing__pagination">
-                          <ul class="pagination-custom">
-                            <li><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a></li>
-                            <li><a href="#">1</a></li>
-                            <li><span>...</span></li>
-                            <li class="active-before"><a href="#">3</a></li>
-                            <li class="active"><span>4</span></li>
-                            <li class="active-after"><a href="#">5</a></li>
-                            <li><span>...</span></li>
-                            <li><a href="#">15</a></li>
-                            <li><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a></li>
-                          </ul>
-                        </nav>
+
                         <!-- END PAGINATION-->
                         <div class="comment__form">
 

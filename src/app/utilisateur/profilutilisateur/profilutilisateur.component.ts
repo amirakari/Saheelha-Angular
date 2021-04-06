@@ -6,7 +6,7 @@ import {Utilisateur} from '../../Model/Utilisateur';
 import {NgForm} from '@angular/forms';
 import {ImageService} from './image.service';
 import {UploadService} from './upload.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-profilutilisateur',
@@ -15,6 +15,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProfilutilisateurComponent implements OnInit {
   constructor(private profiluserservice: AffService,
+              private router: Router,
               private imageservice: ImageService,
               private activatedRoute: ActivatedRoute,
               private uploadService: UploadService) { }
@@ -30,7 +31,10 @@ export class ProfilutilisateurComponent implements OnInit {
                   console.log(error); }
     );
   }
-
+  gotoboutique(){
+    const link = ['profilutilisateur' + '/boutique'];
+    this.router.navigate(link);
+  }
   UploadImage(event: any){
        this.file = event.target.files[0];
        const formData = new FormData();

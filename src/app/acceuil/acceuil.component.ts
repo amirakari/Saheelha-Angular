@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
+import {Address} from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-acceuil',
@@ -8,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class AcceuilComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
   }
 

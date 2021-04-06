@@ -32,6 +32,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { CommandeComponent } from './commande/commande.component';
 import {PanelModule} from 'primeng/panel';
 import {RatingModule} from 'primeng/rating';
+import { BoutiqueUserComponent } from './utilisateur/boutique-user/boutique-user.component';
+import { GoogleMapsAngularModule } from 'google-maps-angular';
+import {AgmCoreModule} from '@agm/core';
+import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -53,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient){
     ProfilutilisateurComponent,
     AbonnementComponent,
     AjouterProduitComponent,
-    CommandeComponent
+    CommandeComponent,
+    BoutiqueUserComponent
   ],
   imports: [
     BrowserModule,
@@ -71,9 +76,14 @@ export function HttpLoaderFactory(http: HttpClient){
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CalendarModule,
+    GooglePlaceModule,
     NgxPaginationModule,
     PanelModule,
     RatingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDyKbqeWTkZVdS99nz6SO3ypKlY_sJ2HRU',
+      libraries: ['places']
+    }),
   ],
   providers: [{provide: APP_BASE_HREF , useValue: '/'},
     LoginGuard, LogoutGuard, LoginInterceptorProvider],

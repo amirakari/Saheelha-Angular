@@ -5,6 +5,7 @@ import {DetailsProduitService} from './details-produit.service';
 import {Produit} from '../Model/Produit';
 import {NgForm} from '@angular/forms';
 import {CommentaireService} from './commentaire.service';
+import {Commentaire} from '../Model/Commentaire';
 
 @Component({
   selector: 'app-details-produit',
@@ -13,7 +14,10 @@ import {CommentaireService} from './commentaire.service';
 })
 export class DetailsProduitComponent implements OnInit {
   @Input() boutique: Produit;
+  @Input() commentaire: Commentaire[];
   val: number;
+  totalRecords: number;
+  page = 1;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private listeService: DetailsProduitService,
@@ -28,6 +32,13 @@ export class DetailsProduitComponent implements OnInit {
         );
       });
     console.log(this.val);
+    this.activatedRoute.params.subscribe(
+      (params) => {
+    this.commentaireService.getBoutique(params.id).subscribe(
+      (boutique) => { this.commentaire = boutique;
+                      this.totalRecords = boutique.length;
+                      console.log(this.commentaire); }
+    ); });
   }
   addCommentaire(Ajouterboutique: NgForm){
     this.commentaireService.addBoutique(Ajouterboutique.value).subscribe(

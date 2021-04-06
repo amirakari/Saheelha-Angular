@@ -14,12 +14,16 @@ import {UploadService} from './upload.service';
 export class AfficherComponent implements OnInit {
   boutique1: Boutique;
   file: any;
+  lat: number;
+  lng: number;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private listeService: ListeService,
               private uploadService: UploadService) { }
 
   ngOnInit(): void {
+    this.lat = 36.89938215729048;
+    this.lng = 10.189356669083528;
     this.activatedRoute.params.subscribe(
       (params) => {
         console.log(params);
