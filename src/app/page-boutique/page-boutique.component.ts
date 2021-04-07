@@ -20,6 +20,7 @@ export class PageBoutiqueComponent implements OnInit {
   val: number;
   lat: number;
   lng: number;
+  inputSearchpartype: string = null;
   constructor(private router: Router,
               private listeService: PbService, ) {
   }
@@ -34,7 +35,6 @@ export class PageBoutiqueComponent implements OnInit {
     this.lng = 10.189356669083528;
     this.listeService.getBoutique().subscribe(
       (boutique) => { this.boutique = boutique;
-                      console.log(this.boutique);
                       this.totalRecords = boutique.length; },
       (error) => {alert(`erreur d'accés à l'api`);
         }
@@ -52,5 +52,24 @@ export class PageBoutiqueComponent implements OnInit {
       });
     }
   }
-
+findByName(nom){
+    console.log(nom.value);
+    this.listeService.findByName(nom).subscribe(
+      (boutique) => { this.boutique = boutique;
+                      console.log(this.boutique);
+                      this.totalRecords = boutique.length; },
+      (error) => {alert(`erreur d'accés à l'api`);
+      }
+    );
+}
+  findBytype(type){
+    console.log(type.value);
+    this.listeService.findByType(type).subscribe(
+      (boutique) => { this.boutique = boutique;
+                      console.log(this.boutique);
+                      this.totalRecords = boutique.length; },
+      (error) => {alert(`erreur d'accés à l'api`);
+      }
+    );
+  }
 }

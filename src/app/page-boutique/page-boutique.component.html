@@ -53,23 +53,30 @@ becomes
 
       <!-- BEGIN SEARCH-->
       <form action="" class="form form--flex form--search js-search-form form--wide form--map-bottom">
+
         <div class="row">
+
           <div class="form-group">
-            <label for="in-keyword" class="control-label">Nom de produit</label>
-            <input type="text" id="in-keyword" placeholder="Nom de produit" class="form-control">
+            <label class="control-label">Nom de produit</label>
+            <input type="text"  #inputSearch (keyup)="findByName(inputSearch)" placeholder="Nom de produit" class="form-control">
           </div>
-          <div class="form-group">
+          <form class="form-group">
             <label for="in-contract-type" class="control-label">Type de produit</label>
-            <select id="in-contract-type" data-placeholder="---" class="form-control">
+            <select  id="in-contract-type" data-placeholder="---" class="form-control">
               <option label=""></option>
-              <option>Médicament</option>
-              <option>Beauté et soins</option>
-              <option>Bébé / Maman</option>
-              <option>Bio / Médecines naturelles</option>
-              <option>Produit alimentaire</option>
-              <option>Autres</option>
+              <option value="médicament">Médicament</option>
+              <option value="beauté">Beauté et soins</option>
+              <option value="bébé">Bébé / Maman</option>
+              <option value="maison">Maison</option>
+              <option value="hygiéne et entretien">Hygiéne / Entretien</option>
+              <option value="brico et jardin">Brico / Jardin</option>
+              <option value="animalerie">Animalerie</option>
+              <option value="mode et loisirs">Mode / Loisirs</option>
+              <option value="librairie papeterie">Librairie / Papeterie</option>
+              <option value="bio et nature">Bio / Médecines naturelles</option>
+              <option value="alimentation">Produit alimentaire</option>
             </select>
-          </div>
+          </form>
 
           <div class="form-group"><span class="control-label">Localisation </span>
             <div class="dropdown dropdown--select">
@@ -1191,10 +1198,7 @@ becomes
           </div>
 
 
-          <div class="form-group">
-            <label for="in-datetime" class="control-label">Date limite de consomation</label>
-            <p-calendar name="" id="in-datetime" showButtonBar="true"></p-calendar>
-          </div>
+
           <div class="form-group">
             <div class="form__mode">
               <button type="button" data-mode="input" class="form__mode-btn js-input-mode"></button>
@@ -1239,7 +1243,7 @@ becomes
             <button type="button" class="form__reset js-form-reset">Reset</button>
             <button type="submit" class="form__submit">Search</button>
           </div>
-        </div>
+          </div>
       </form>
       <!-- end of block-->
       <!-- END SEARCH-->
