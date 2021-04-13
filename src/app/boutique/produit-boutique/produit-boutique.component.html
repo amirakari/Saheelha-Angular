@@ -82,14 +82,10 @@
               <div class="widget__content">
                 <!-- BEGIN WORKER PROFILE-->
                 <div class="worker sidebar-advanced">
-                  <h3 class="worker__name">Jenniffer Hartnet</h3>
+                  <h3 class="worker__name">{{boutique1.nom}}</h3>
                   <div class="worker__photo">
-                    <div class="worker__avatar">
-                      <svg>
-                        <use xlink:href="#icon-avatar"></use>
-                      </svg>
-                    </div>
-                    <button class="worker__avatar-upload">Upload your profile picture</button>
+                    <img src="http://localhost:3000/boutique/profileimage/{{boutique1.photo}}" class="photo" width="200" height="200">
+
                   </div>
                   <nav class="worker__nav">
                     <ul>

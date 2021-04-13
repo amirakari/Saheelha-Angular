@@ -1,4 +1,4 @@
-<body class="agent_profile menu-default hover-default ">
+<body class="agent_profile menu-default hover-default " xmlns="http://www.w3.org/1999/html">
 <!--
 SVG icons from sprite-inline.svg
 They are inlined in order to make them work,
@@ -37,17 +37,17 @@ becomes
     </nav>
 
 
-    <div *ngIf="lat && lng">
-      <agm-map [latitude]="lat" [longitude]="lng" >
-        <agm-marker [latitude]="lat" [longitude]="lng" >
+      <div>
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker *ngFor="let boutiques of boutique1"  [latitude]="boutiques.mapLat" [longitude]="boutiques.mapLng" >
           <agm-info-window>
-            <h3><strong>Bonjour</strong></h3>
-            <p>c'est votre position</p>
+            <h3><strong>{{boutiques.nom}}</strong></h3>
+            <p>{{boutiques.domaine}}</p>
           </agm-info-window>
         </agm-marker></agm-map>
     </div>
 
-  </div>
+ </div>
   <div class="widget js-widget widget--gray">
     <div class="widget__content">
 

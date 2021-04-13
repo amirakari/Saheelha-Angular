@@ -9,6 +9,10 @@ export class Boutique{
   horaire: string;
   photo: string;
   visite: string;
+  facebook: string;
+  instagram: string;
+  mapLat: number;
+  mapLng: number;
   user: Utilisateur;
 
   constructor( id, nom, domaine, mailprofessionnelle, adresse, horaire, photo, visite, user) {

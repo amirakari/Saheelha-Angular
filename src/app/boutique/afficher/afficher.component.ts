@@ -22,14 +22,14 @@ export class AfficherComponent implements OnInit {
               private uploadService: UploadService) { }
 
   ngOnInit(): void {
-    this.lat = 36.89938215729048;
-    this.lng = 10.189356669083528;
     this.activatedRoute.params.subscribe(
       (params) => {
         console.log(params.value);
         this.listeService.getBoutiqueByid(params.id).subscribe(
           (boutique) => {
             this.boutique1 = boutique;
+            this.lat = boutique.mapLat;
+            this.lng = boutique.mapLng;
           }
         );
       }

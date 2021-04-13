@@ -72,21 +72,8 @@
                       <div class="row">
                         <div class="form-group form-group--description">
                           <label for="in-13" class="control-label">Horaire</label>
-                          <textarea ngModel name="horaire" id="in-13" required data-parsley-trigger="keyup" data-parsley-minlength="200" data-parsley-validation-threshold="10" data-parsley-minlength-message="You need to enter at least a 200 caracters long comment.." class="form-control form-control--description"></textarea>
+                          <textarea ngModel  name="horaire" id="in-13" required data-parsley-trigger="keyup" data-parsley-minlength="200" data-parsley-validation-threshold="10" data-parsley-minlength-message="You need to enter at least a 200 caracters long comment.." class="form-control form-control--description"></textarea>
                         </div>
-                      </div>
-                    </div>
-                    <div id="form-block-" class="form__block js-form-block">
-                      <div class="row">
-                        <div class="form-group form-group--social">
-                          <label for="facebook-fiel" class="control-label">Photo de profil</label>
-                          <input ngModel name="photo" id="facebook-fiel" type="text" placeholder="" required  class="form-control">
-                        </div>
-                        <div class="form-group form-group--social">
-                          <label for="twitter-fiel" class="control-label">Visite virtuelle du boutique</label>
-                          <input ngModel name="visite" id="twitter-fiel" type="text" placeholder="" required  class="form-control">
-                        </div>
-
                       </div>
                     </div>
                     <header class="form__header">
@@ -96,11 +83,27 @@
                       <div class="row">
                         <div class="form-group form-group--social">
                           <label for="facebook-field" class="control-label">Facebok</label>
-                          <input id="facebook-field" type="text" placeholder="" required value="http://facebook.com/youraccount" class="form-control">
+                          <input ngModel name="facebook" id="facebook-field" type="text" placeholder="http://facebook.com/youraccount" required class="form-control">
                         </div>
                         <div class="form-group form-group--social">
                           <label for="twitter-field" class="control-label">Instagram</label>
-                          <input id="twitter-field" type="text" placeholder="" required value="http://instagram.com/youraccount" class="form-control">
+                          <input ngModel name="instagram" id="twitter-field" type="text" placeholder="http://instagram.com/youraccount" required  class="form-control">
+                        </div>
+
+                      </div>
+                    </div>
+                    <header class="form__header">
+                      <h3 data-rel="#form-block-4" class="form__title js-form-title">Google Maps</h3>
+                    </header>
+                    <div id="form-block-454" class="form__block js-form-block">
+                      <div class="row">
+                        <div class="form-group form-group--social">
+                          <label for="facebook-field7" class="control-label">Latitude</label>
+                          <input ngModel name="mapLat" id="facebook-field7" type="text" placeholder="36.89938215729048" required  class="form-control">
+                        </div>
+                        <div class="form-group form-group--social">
+                          <label for="twitter-field7" class="control-label">Longitude</label>
+                          <input ngModel name="mapLng" id="twitter-field7" type="text" placeholder="10.189356669083528" required class="form-control">
                         </div>
 
                       </div>

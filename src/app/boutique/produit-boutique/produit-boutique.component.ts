@@ -12,11 +12,13 @@ import {Produit} from '../../Model/Produit';
 })
 export class ProduitBoutiqueComponent implements OnInit {
   @Input() boutique: Produit[];
+  boutique1: Boutique;
   totalRecords: number;
   page = 1;
   val: number;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
+              private listemService: ListeService,
               private listeService: ProduitBoutiqueService, ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,16 @@ export class ProduitBoutiqueComponent implements OnInit {
                       console.log(this.boutique); }
     );
   });
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        console.log(params);
+        this.listemService.getBoutiqueByid(params.id).subscribe(
+          (boutique) => {
+            this.boutique1 = boutique;
+          }
+        );
+      }
+    );
   }
   gotoajout(){
     const link = ['boutique'];

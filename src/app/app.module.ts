@@ -36,6 +36,9 @@ import { BoutiqueUserComponent } from './utilisateur/boutique-user/boutique-user
 import { GoogleMapsAngularModule } from 'google-maps-angular';
 import {AgmCoreModule} from '@agm/core';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import {OrderListModule} from 'primeng/orderlist';
+import {TableModule} from 'primeng/table';
+import {DragDropModule} from 'primeng/dragdrop';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -84,6 +87,9 @@ export function HttpLoaderFactory(http: HttpClient){
       apiKey: 'AIzaSyDyKbqeWTkZVdS99nz6SO3ypKlY_sJ2HRU',
       libraries: ['places']
     }),
+    OrderListModule,
+    TableModule,
+    DragDropModule,
   ],
   providers: [{provide: APP_BASE_HREF , useValue: '/'},
     LoginGuard, LogoutGuard, LoginInterceptorProvider],

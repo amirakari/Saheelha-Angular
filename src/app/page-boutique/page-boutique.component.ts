@@ -5,6 +5,8 @@ import {Produit} from '../Model/Produit';
 import {PbService} from './pb.service';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import {Boutique} from '../Model/Boutique';
+import {ListeService} from '../liste-boutique/liste.service';
 
 
 
@@ -15,6 +17,7 @@ import {Address} from 'ngx-google-places-autocomplete/objects/address';
 })
 export class PageBoutiqueComponent implements OnInit {
   @Input() boutique: Produit[];
+  @Input() boutique1: Boutique[];
   totalRecords: number;
   page = 1;
   val: number;
@@ -22,7 +25,8 @@ export class PageBoutiqueComponent implements OnInit {
   lng: number;
   inputSearchpartype: string = null;
   constructor(private router: Router,
-              private listeService: PbService, ) {
+              private listeService: PbService,
+              private listeService1: ListeService, ) {
   }
   @ViewChild('placesRef', {static: false}) placesRef: GooglePlaceDirective;
 
@@ -31,13 +35,18 @@ export class PageBoutiqueComponent implements OnInit {
     console.log(address);
   }
   ngOnInit(): void {
-    this.lat = 36.89938215729048;
-    this.lng = 10.189356669083528;
+    this.lat = 36.87736913231115;
+    this.lng = 10.100964380174375;
     this.listeService.getBoutique().subscribe(
       (boutique) => { this.boutique = boutique;
                       this.totalRecords = boutique.length; },
       (error) => {alert(`erreur d'accés à l'api`);
         }
+    );
+    this.listeService1.getBoutique().subscribe(
+      (boutique1) => { this.boutique1 = boutique1; },
+      (error) => {alert(`erreur d'accés à l'api`);
+                  console.log(error); }
     );
   }
   gotodetails(idBoutique: number, idProduit: number){

@@ -55,13 +55,13 @@
                             <agm-map [latitude]="lat" [longitude]="lng" >
                               <agm-marker [latitude]="lat" [longitude]="lng" >
                                 <agm-info-window>
-                                  <h3><strong>Bonjour</strong></h3>
-                                  <p>c'est votre position</p>
+                                  <h3><strong>{{boutique1.nom}}</strong></h3>
+                                  <p>{{boutique1.domaine}}</p>
                                 </agm-info-window>
                               </agm-marker></agm-map>
                           </div>
                         </div>
-                        <div class="social social--worker"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-linkedin"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
+                          <div class="social social--worker"><a href="{{boutique1.facebook}}" class="social__item"><i class="fa fa-facebook"></i></a><a href="{{boutique1.instagram}}" class="social__item"><i class="fa fa-instagram"></i></a></div>
 
                         </div>
 
