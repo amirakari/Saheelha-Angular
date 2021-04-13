@@ -7,6 +7,7 @@ import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
 import {Boutique} from '../Model/Boutique';
 import {ListeService} from '../liste-boutique/liste.service';
+import {NgForm} from '@angular/forms';
 
 
 
@@ -72,13 +73,23 @@ findByName(nom){
     );
 }
   findBytype(type){
-    console.log(type.value);
+    console.log(type);
     this.listeService.findByType(type).subscribe(
       (boutique) => { this.boutique = boutique;
-                      console.log(this.boutique);
-                      this.totalRecords = boutique.length; },
+                      this.totalRecords = boutique.length;
+                      console.log(type); },
+      (error) => {alert(`erreur d'accés à l'api`);
+      }
+    );
+  }findByStatus(type){
+    console.log(type);
+    this.listeService.findByStatus(type).subscribe(
+      (boutique) => { this.boutique = boutique;
+                      this.totalRecords = boutique.length;
+                      console.log(type); },
       (error) => {alert(`erreur d'accés à l'api`);
       }
     );
   }
+
 }

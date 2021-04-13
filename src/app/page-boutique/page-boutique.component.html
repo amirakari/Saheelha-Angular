@@ -60,11 +60,11 @@ becomes
             <label class="control-label">Nom de produit</label>
             <input type="text"  #inputSearch (keyup)="findByName(inputSearch)" placeholder="Nom de produit" class="form-control">
           </div>
-          <form class="form-group">
+          <form   class="form-group">
             <label for="in-contract-type" class="control-label">Type de produit</label>
-            <select  id="in-contract-type" data-placeholder="---" class="form-control">
-              <option label=""></option>
-              <option value="médicament">Médicament</option>
+            <select #inputSearch1 (change)="findBytype(inputSearch1)" name="categorie"  id="in-contract-type" data-placeholder="---" class="form-control">
+              <option></option>
+              <option  value="médicament">Médicament</option>
               <option value="beauté">Beauté et soins</option>
               <option value="bébé">Bébé / Maman</option>
               <option value="maison">Maison</option>
@@ -1197,10 +1197,18 @@ becomes
             </div>
           </div>
 
-
+          <form class="form-group">
+            <label for="in-contract-typ" class="control-label">Status de produit</label>
+            <select #inputSearch2 (change)="findByStatus(inputSearch2)" name="status" id="in-contract-typ" data-placeholder="---" class="form-control">
+              <option></option>
+              <option value="à vendre">à vendre</option>
+              <option value="à donner">à donner</option>
+            </select>
+          </form>
 
           <div class="form-group">
             <div class="form__mode">
+
               <button type="button" data-mode="input" class="form__mode-btn js-input-mode"></button>
             </div>
 
@@ -1239,10 +1247,7 @@ becomes
               <input type="text" id="in-commision-to" placeholder="To" data-input-type="to" class="form-control js-field-range">
             </div>
           </div>
-          <div class="form__buttons form__buttons--double">
-            <button type="button" class="form__reset js-form-reset">Reset</button>
-            <button type="submit" class="form__submit">Search</button>
-          </div>
+
           </div>
       </form>
       <!-- end of block-->

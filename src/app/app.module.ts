@@ -39,6 +39,7 @@ import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import {OrderListModule} from 'primeng/orderlist';
 import {TableModule} from 'primeng/table';
 import {DragDropModule} from 'primeng/dragdrop';
+import { BoutiqueDonComponent } from './boutique/boutique-don/boutique-don.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -61,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient){
     AbonnementComponent,
     AjouterProduitComponent,
     CommandeComponent,
-    BoutiqueUserComponent
+    BoutiqueUserComponent,
+    BoutiqueDonComponent,
   ],
   imports: [
     BrowserModule,
