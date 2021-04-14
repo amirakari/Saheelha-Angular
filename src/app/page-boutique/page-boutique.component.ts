@@ -40,7 +40,8 @@ export class PageBoutiqueComponent implements OnInit {
     this.lng = 10.100964380174375;
     this.listeService.getBoutique().subscribe(
       (boutique) => { this.boutique = boutique;
-                      this.totalRecords = boutique.length; },
+                      this.totalRecords = boutique.length;
+                      console.log(this.boutique); },
       (error) => {alert(`erreur d'accés à l'api`);
         }
     );
@@ -81,12 +82,23 @@ findByName(nom){
       (error) => {alert(`erreur d'accés à l'api`);
       }
     );
-  }findByStatus(type){
+  }
+  findByStatus(type){
     console.log(type);
     this.listeService.findByStatus(type).subscribe(
       (boutique) => { this.boutique = boutique;
                       this.totalRecords = boutique.length;
                       console.log(type); },
+      (error) => {alert(`erreur d'accés à l'api`);
+      }
+    );
+  }
+  findByLocalisation(adreese){
+    console.log(adreese);
+    this.listeService.findByLocalisation(adreese).subscribe(
+      (boutique) => { this.boutique = boutique;
+                      this.totalRecords = boutique.length;
+                      console.log(adreese); },
       (error) => {alert(`erreur d'accés à l'api`);
       }
     );

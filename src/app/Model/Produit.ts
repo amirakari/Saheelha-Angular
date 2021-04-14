@@ -10,16 +10,18 @@ export class Produit{
   prixsansremise: number;
   prixavecremise: number;
   reference: string;
+  createdAt: Date;
+  quantite: number;
   boutique: Boutique;
 
-  constructor( id, categorie, DLC, nom, codeabare, prixsansremise, prixavecremise, reference, boutique) {
+  constructor( id, categorie, DLC, nom, codeabare, quantite, prixsansremise, prixavecremise, reference, boutique) {
     this.id = id;
     this.categorie = categorie;
     this.DLC = DLC;
     this.nom = nom;
     this.codeabare = codeabare;
     this.prixsansremise = prixsansremise;
-    this.prixavecremise = prixavecremise;
+    this.quantite = quantite;
     this.reference = reference;
     this.boutique = boutique;
   }
