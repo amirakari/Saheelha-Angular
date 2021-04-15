@@ -12,9 +12,10 @@ export class Produit{
   reference: string;
   createdAt: Date;
   quantite: number;
+  status: string;
   boutique: Boutique;
 
-  constructor( id, categorie, DLC, nom, codeabare, quantite, prixsansremise, prixavecremise, reference, boutique) {
+  constructor( id, categorie, DLC, nom, codeabare, status, quantite, prixsansremise, prixavecremise, reference, boutique) {
     this.id = id;
     this.categorie = categorie;
     this.DLC = DLC;
@@ -23,6 +24,7 @@ export class Produit{
     this.prixsansremise = prixsansremise;
     this.quantite = quantite;
     this.reference = reference;
+    this.status = status;
     this.boutique = boutique;
   }
 }
