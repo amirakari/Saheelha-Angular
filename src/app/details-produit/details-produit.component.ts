@@ -50,4 +50,20 @@ export class DetailsProduitComponent implements OnInit {
       }
     );
   }
+  PasserUneCommande(form: NgForm){
+    console.log(form.value);
+    this.listeService.PasserCommande(form.value, null).subscribe(
+      (response) => {
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        this.listeService.CommandeProduit(params.id, form.value, null).subscribe(
+          (boutique) => {}
+        );
+      });
+  }
 }

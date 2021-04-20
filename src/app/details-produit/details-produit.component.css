@@ -14,3 +14,10 @@
 {
   width:100%;
 }
+.image-ronde{
+  width : 70px; height : 70px;
+  border: none;
+  -moz-border-radius : 75px;
+  -webkit-border-radius : 75px;
+  border-radius : 75px;
+}

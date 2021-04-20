@@ -22849,7 +22849,7 @@ fieldset[disabled] .subscribe__field {
 }
 
 .comment__avatar {
-  width: 65px;
+  width: 0px;
   float: left;
   background: #e4e4e4;
   margin: 0 16px 11px 0;

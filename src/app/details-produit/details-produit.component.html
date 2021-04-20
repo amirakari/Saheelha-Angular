@@ -88,9 +88,9 @@ becomes
                           <br>
                           Quantité : {{boutique.quantite}}
                           <p-rating cancel="true" [(ngModel)]="val"></p-rating>
-                        </div><br><div class="Global">
-                       <div class="champ centrage"><input ngModel name="quantite" class="champ" id="in-7a" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite"><a href="property_details.html" class="properties__more">Ajouter au panier</a></div>
-                      </div></div>
+                        </div><br><form #formulaire="ngForm" class="Global">
+                       <div class="champ centrage"><input ngModel name="quantite" class="champ" id="in-7a" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite"><a  class="properties__more" (click)="PasserUneCommande(formulaire)">Passer une commande</a></div>
+                      </form></div>
                       <!-- end of block .properties__info-->
 
                     </div>
@@ -107,12 +107,14 @@ becomes
               currentPage: page,
               totalItems: totalRecords}">
                           <div class="comment__item-body js-comment-item">
-                            <div class="comment__avatar"><img src="assets/media-demo/avatars/01.jpg" alt=""></div>
+                            <div class="comment__avatar" width="6" height="5"><img src="http://localhost:3000/utilisateur/profileimage/{{commentaires.user.photodeprofil}}" width="66" height="50" class="image-ronde"alt=""></div>
                             <div class="comment__item-right">
                               <button class="comment__item-btn">Edit</button>
                               <button class="comment__item-btn">Delete</button>
                             </div>
-                            <div class="comment__info"><span class="comment__author"></span><span class="comment__date">Oct 3, 2014 at 3:23pm</span>
+                            <div class="comment__info">
+                              <span class="comment__author"></span><span class="comment__date">{{commentaires.user.nom}} {{commentaires.user.prenom}}</span>
+                              <span class="comment__author"></span><span class="comment__date">{{commentaires.createdAt}}</span>
                               <div class="comment__content">
                                {{commentaires.message}}
                               </div>
