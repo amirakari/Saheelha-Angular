@@ -88,9 +88,11 @@ becomes
                           <br>
                           Quantité : {{boutique.quantite}}
                           <p-rating cancel="true" [(ngModel)]="val"></p-rating>
-                        </div><br><form #formulaire="ngForm" class="Global">
-                       <div class="champ centrage"><input ngModel name="quantite" class="champ" id="in-7a" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite"><a  class="properties__more" (click)="PasserUneCommande(formulaire)">Passer une commande</a></div>
-                      </form></div>
+                        </div><br>
+
+                       <div class="champ centrage"><input [(ngModel)]="quantite" name="quantite" class="champ" id="in-7a" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite"><a  class="properties__more" type="submit" (click)="PasserUneCommande()">Passer une commande</a></div>
+
+                      </div>
                       <!-- end of block .properties__info-->
 
                     </div>

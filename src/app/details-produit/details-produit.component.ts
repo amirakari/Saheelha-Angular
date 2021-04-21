@@ -22,7 +22,7 @@ export class DetailsProduitComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private listeService: DetailsProduitService,
               private commentaireService: CommentaireService, ) { }
-
+quantite: any;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       (params) => {
@@ -50,9 +50,9 @@ export class DetailsProduitComponent implements OnInit {
       }
     );
   }
-  PasserUneCommande(form: NgForm){
-    console.log(form.value);
-    this.listeService.PasserCommande(form.value, null).subscribe(
+  PasserUneCommande(){
+    console.log(this.quantite);
+    this.listeService.PasserCommande(this.quantite, null).subscribe(
       (response) => {
       },
       (error) => {
@@ -61,7 +61,7 @@ export class DetailsProduitComponent implements OnInit {
     );
     this.activatedRoute.params.subscribe(
       (params) => {
-        this.listeService.CommandeProduit(params.id, form.value, null).subscribe(
+        this.listeService.CommandeProduit(params.id, this.quantite, null).subscribe(
           (boutique) => {}
         );
       });
