@@ -117,6 +117,7 @@
                               <div class="row">
                                 <div class="form-group">
 
+
                                   <input email ngModel name="mail" #inputMail="ngModel" type="text"   placeholder="Adresse e-mail" id="mail1" required data-parsley-trigger="keyup" data-parsley-minlength="6" data-parsley-validation-threshold="5" data-parsley-minlength-message="Login should be at least 6 chars" class="form-control">
                                   <div class="alert alert-danger" role="alert" *ngIf="inputMail.invalid && inputMail.dirty" >
                                    Votre  adresse  e-mail  n'est  pas  valide (Entrer une adresse de cette forme : ***@****.**)
@@ -125,22 +126,23 @@
                                 <br><br>
                                 <div class="form-group">
 
+
                                   <input ngModel name="password"  #pwdInput="ngModel"  type="password"  id="password1" placeholder="Mot de passe" required class="form-control">
+
                                   <div class="alert alert-danger" role="alert" *ngIf="pwdInput.invalid && pwdInput.touched" >
                                     le mode passe doit au minimum 4 caratéres et au maximum 8 caractéres
                                   </div>
-                                </div></div>
+                                  </div></div>
+
                               <div class="form__remember">
                                 <input type="checkbox" id="remember-in-inline" class="in-checkbox">
 
-                                <label for="remember-in-inline" class="in-label">Remember me</label>
+                                <label for="remember-in-inline" (click)="changer()" class="in-label">Afficher mot de passe</label>
 
                               </div>
                               <button type="submit" [disabled]="loginformulaire.invalid" (click)="login(loginformulaire.value)" class="form__submit" >Connexion</button>
-                                <div class="form__options"><a href="user_restore_pass.html">Forgot password ?</a>
+                                <div class="form__options"><a>Mot de passe oublié ?</a>
                                 </div>
-                                <button type="submit" (click)="google()" class="form__submit">Login with Google</button>
-                                <button type="submit" class="form__submit">Login with Facebook</button>
 
 <br><br><br>
 

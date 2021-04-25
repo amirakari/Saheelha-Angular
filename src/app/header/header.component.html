@@ -315,45 +315,15 @@
                 <!-- END AUTH RESTORE-->
               </div>
             </li>
-            <li class="dropdown auth__nav-item" *ngIf="! loginService.islogged()">
-              <button data-toggle="dropdown" type="button" class="dropdown-toggle js-auth-nav-btn auth__nav-btn">
+            <li class="dropdown auth__nav-item" *ngIf="!loginService.islogged()">
+
+              <button (click)="login()" data-toggle="dropdown" type="button" class="dropdown-toggle auth__nav-btn">
                 <svg class="auth__icon-user">
                   <use xlink:href="#icon-user"></use>
-                </svg><span class="header__span"> Log in</span>
+                </svg>
+                <span class="header__span">  Login</span>
               </button>
-              <div class="dropdown__menu auth__dropdown--login">
-                <!-- BEGIN AUTH LOGIN-->
-                <h5 class="auth__title">Login in your account</h5>
-                <form action="#" class="form form--flex form--auth js-login-form js-parsley">
-                  <div class="row">
-                    <div class="form-group">
-                      <label for="login-username-dropdown" class="control-label">Username</label>
-                      <input type="text" name="username"  id="login-username-dropdown" required data-parsley-trigger="keyup" data-parsley-minlength="6" data-parsley-validation-threshold="5" data-parsley-minlength-message="Login should be at least 6 chars" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="login-password-dropdown" class="control-label">Password</label>
-                      <input type="password" name="password" id="login-password-dropdown" required class="form-control">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form__options form__options--forgot">
-                      <button type="button" class="js-user-restore">Forgot password ?</button>
-                    </div>
-                    <button type="submit" class="form__submit">Sign in</button>
-                  </div>
-                  <div class="form__remember">
-                    <input type="checkbox" id="remember-in-dropdown" class="in-checkbox">
-                    <label for="remember-in-dropdown" class="in-label">Remember me</label>
-                  </div>
-                  <div class="row">
-                    <div class="form__options">Not a user yet?
-                      <button type="button" class="js-user-register">Get an account</button>
-                    </div>
-                  </div>
-                </form>
-                <!-- end of block .auth__form-->
-                <!-- END AUTH LOGIN-->
-              </div>
+
             </li>
             <li class="dropdown auth__nav-item" *ngIf="loginService.islogged()">
 

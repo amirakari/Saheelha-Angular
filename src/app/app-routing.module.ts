@@ -19,9 +19,11 @@ import {CommandeComponent} from './commande/commande.component';
 import {BoutiqueUserComponent} from './utilisateur/boutique-user/boutique-user.component';
 import {BoutiqueDonComponent} from './boutique/boutique-don/boutique-don.component';
 import {PdfComponent} from './pdf/pdf.component';
+import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 const Routes: Routes = [
   {path: '', component:  AcceuilComponent},
   {path: 'login', component:  UtilisateurComponent, canActivate: [LogoutGuard]},
+  {path: 'forgotPassword', component:  ForgotPasswordComponent, canActivate: [LogoutGuard]},
   {path: 'profilutilisateur', children : [
       {path: '', component: ProfilutilisateurComponent , canActivate: [LoginGuard]},
       {path: 'boutique', component: BoutiqueUserComponent , canActivate: [LoginGuard]},

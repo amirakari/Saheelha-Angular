@@ -19,6 +19,7 @@ export class UtilisateurComponent implements OnInit {
    aFormGroup: FormGroup;
   errorMessage = '';
   message = '';
+  e = true;
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
               private loginService: LoginService,
@@ -32,6 +33,14 @@ export class UtilisateurComponent implements OnInit {
     this.aFormGroup = this.formBuilder.group({
       recaptcha: ['', Validators.required]
     });
+  }
+  changer(){
+    if (this.e){
+      document.getElementById('password1').setAttribute('type', 'text');
+      this.e = false;
+    } else {
+      document.getElementById('password1').setAttribute('type', 'password');
+    }
   }
   addUtilisateur(formulaire: NgForm){
     this.userService.addUtilisateur(formulaire.value).subscribe(

@@ -41,6 +41,7 @@ import {TableModule} from 'primeng/table';
 import {DragDropModule} from 'primeng/dragdrop';
 import { BoutiqueDonComponent } from './boutique/boutique-don/boutique-don.component';
 import { PdfComponent } from './pdf/pdf.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -66,6 +67,7 @@ export function HttpLoaderFactory(http: HttpClient){
     BoutiqueUserComponent,
     BoutiqueDonComponent,
     PdfComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
