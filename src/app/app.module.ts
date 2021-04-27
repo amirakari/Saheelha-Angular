@@ -42,6 +42,8 @@ import {DragDropModule} from 'primeng/dragdrop';
 import { BoutiqueDonComponent } from './boutique/boutique-don/boutique-don.component';
 import { PdfComponent } from './pdf/pdf.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { UpdateuserComponent } from './utilisateur/updateuser/updateuser.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -68,6 +70,8 @@ export function HttpLoaderFactory(http: HttpClient){
     BoutiqueDonComponent,
     PdfComponent,
     ForgotPasswordComponent,
+    UpdateuserComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

@@ -34,6 +34,10 @@ export class UtilisateurComponent implements OnInit {
       recaptcha: ['', Validators.required]
     });
   }
+  forgotPassword(){
+    const link = ['forgotPassword'];
+    this.router.navigate(link);
+  }
   changer(){
     if (this.e){
       document.getElementById('password1').setAttribute('type', 'text');

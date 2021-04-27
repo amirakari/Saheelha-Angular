@@ -7,6 +7,8 @@ import {NgForm} from '@angular/forms';
 import {ImageService} from './image.service';
 import {UploadService} from './upload.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../user.service';
+import {LoginService} from '../login.service';
 
 @Component({
   selector: 'app-profilutilisateur',
@@ -15,6 +17,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ProfilutilisateurComponent implements OnInit {
   constructor(private profiluserservice: AffService,
+              public loginService: LoginService,
+              private userservice: UserService,
               private router: Router,
               private imageservice: ImageService,
               private activatedRoute: ActivatedRoute,
@@ -61,5 +65,20 @@ export class ProfilutilisateurComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  modifier(id: number){
+    const link = ['/profilutilisateur/update' , id];
+    this.router.navigate(link);
+  }
+  supprimerUtilisateur(id: number){
+    this.userservice.supprimertilisateur(id).subscribe(
+      (response) => {
+        console.log(id);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.loginService.logout();
   }
 }

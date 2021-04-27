@@ -18,4 +18,8 @@ link = 'http://localhost:3000/utilisateur';
   addUtilisateur(utilisateur: Utilisateur): Observable<any>{
     return  this.http.post(this.link, utilisateur);
   }
+  supprimertilisateur(id: number): Observable<any>{
+    const link = this.link + `/${id}`;
+    return  this.http.delete(link);
+  }
 }

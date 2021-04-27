@@ -20,12 +20,16 @@ import {BoutiqueUserComponent} from './utilisateur/boutique-user/boutique-user.c
 import {BoutiqueDonComponent} from './boutique/boutique-don/boutique-don.component';
 import {PdfComponent} from './pdf/pdf.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
+import {UpdateuserComponent} from './utilisateur/updateuser/updateuser.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
 const Routes: Routes = [
   {path: '', component:  AcceuilComponent},
   {path: 'login', component:  UtilisateurComponent, canActivate: [LogoutGuard]},
   {path: 'forgotPassword', component:  ForgotPasswordComponent, canActivate: [LogoutGuard]},
+  {path: 'resetPassword/:id', component:  ResetPasswordComponent, canActivate: [LogoutGuard]},
   {path: 'profilutilisateur', children : [
       {path: '', component: ProfilutilisateurComponent , canActivate: [LoginGuard]},
+      {path: 'update/:id', component: UpdateuserComponent , canActivate: [LoginGuard]},
       {path: 'boutique', component: BoutiqueUserComponent , canActivate: [LoginGuard]},
     ]},
   {path: 'pageBoutique', component:  PageBoutiqueComponent},

@@ -141,7 +141,7 @@
 
                               </div>
                               <button type="submit" [disabled]="loginformulaire.invalid" (click)="login(loginformulaire.value)" class="form__submit" >Connexion</button>
-                                <div class="form__options"><a>Mot de passe oublié ?</a>
+                                <div class="form__options"><a (click)="forgotPassword()">Mot de passe oublié ?</a>
                                 </div>
 
 <br><br><br>
