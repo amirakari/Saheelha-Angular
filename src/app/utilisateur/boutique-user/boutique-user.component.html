@@ -37,14 +37,13 @@
                     <span class="properties__address-street">Nom :{{boutiques.nom}}</span>
                     <span class="properties__address-city">Domaine :{{boutiques.domaine}}</span>
                     <span class="properties__address-city">Adresse :{{boutiques.adresse}}</span>
-                    <span class="properties__address-city">Horaire :{{boutiques.horaire}}</span>
                     <span class="properties__address-city">Mail :{{boutiques.mailprofessionnelle}}</span>
 
                   </a>
                     <div class="properties__offer">
                       <br>
                       <div class="properties__offer-column">
-                        <span  class="properties__more" >Afficher Profil</span>
+                        <span  class="properties__more" (click)="afficherboutique(boutiques.id)">Afficher Profil</span>
 
                       </div>
                     </div>
@@ -91,8 +90,7 @@
                   <nav class="worker__nav">
                     <ul>
 
-                      <li><a  >Profil</a></li>
-                      <li><a  >Modifier profil</a></li>
+                      <li><a (click)="gotoprofil()" >Profil</a></li>
                       <li><a  >Vos Boutiques</a></li>
                     </ul>
                   </nav>

@@ -5,7 +5,7 @@ import {Boutique} from '../../Model/Boutique';
 import {ListeService} from '../../liste-boutique/liste.service';
 import {NgForm} from '@angular/forms';
 import {UploadService} from './upload.service';
-
+import { DomSanitizer} from '@angular/platform-browser';
 @Component({
   selector: 'app-afficher',
   templateUrl: './afficher.component.html',
@@ -16,7 +16,10 @@ export class AfficherComponent implements OnInit {
   file: any;
   lat: number;
   lng: number;
+  controllerSrc: any;
+  url1: string;
   constructor(private router: Router,
+              private sanitizer: DomSanitizer,
               private activatedRoute: ActivatedRoute,
               private listeService: ListeService,
               private uploadService: UploadService) { }
@@ -28,6 +31,9 @@ export class AfficherComponent implements OnInit {
         this.listeService.getBoutiqueByid(params.id).subscribe(
           (boutique) => {
             this.boutique1 = boutique;
+            const url = this.boutique1.visite;
+            this.controllerSrc = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+            console.log(this.controllerSrc);
             this.lat = boutique.mapLat;
             this.lng = boutique.mapLng;
           }
@@ -75,4 +81,11 @@ export class AfficherComponent implements OnInit {
       }
     );
   }
+  modifier(){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        console.log(params.value);
+        const link = ['/boutique' + `/${params.id}` + '/update'];
+        this.router.navigate(link);
+  } ); }
 }

@@ -20,7 +20,8 @@ export class BoutiqueUserComponent implements OnInit {
   totalRecords: number;
   page = 1;
   constructor(private listeService: BoutiqueUserService,
-              private profiluserservice: AffService) { }
+              private profiluserservice: AffService,
+              private router: Router, ) { }
   ngOnInit(): void {
     this.profiluserservice.getUtilisateur().subscribe(
       (user) => {
@@ -31,5 +32,13 @@ export class BoutiqueUserComponent implements OnInit {
       (error) => {alert(`erreur d'accés à l'api`);
                   console.log(error); }
     ); });
+  }
+  afficherboutique(id: number){
+    const link = [ 'boutique' , id ];
+    this.router.navigate(link);
+  }
+  gotoprofil(){
+    const link = ['profilutilisateur' ];
+    this.router.navigate(link);
   }
 }

@@ -19,6 +19,7 @@ export class AjouterProduitComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private listeService: ListeService,
               private uploadService: AjProduitService) { }
+   mindate = new Date();
   value: Date;
   codeabare: any;
   ngOnInit(): void {
@@ -80,13 +81,17 @@ export class AjouterProduitComponent implements OnInit {
     this.router.navigate(link);
   }
   addProduit(formulaire: NgForm){
-    this.uploadService.addUtilisateur(formulaire.value, this.codeabare).subscribe(
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        console.log(params);
+        this.uploadService.addUtilisateur(formulaire.value, this.codeabare, params.id).subscribe(
       (response) => {
         console.log(formulaire);
       },
       (error) => {
         console.log(formulaire.value);
       }
+    ); }
     );
 
   }

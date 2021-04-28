@@ -127,21 +127,14 @@
                   </div>
                 </li>
                 <li class="navbar__item js-dropdown"><a class="navbar__link">Utilisateur
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
+                  </a>
                   <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
+
 
                     <div class="navbar__submenu">
                       <ul class="navbar__subnav">
                         <li class="navbar__subitem"><a [routerLink]="['login']" class="navbar__sublink js-navbar-sublink">Login / Créer compte</a></li>
                         <li class="navbar__subitem"><a [routerLink]="['profilutilisateur']" class="navbar__sublink js-navbar-sublink">Votre compte</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Restore</a></li>
                       </ul>
                     </div>
                   </div>
@@ -162,7 +155,7 @@
                   </div>
                 </div>
 
-                <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['commande']" routerLinkActive="active">Panier
+                <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['commande']" routerLinkActive="active">Commande
 
 
                   <svg class="navbar__arrow">
@@ -179,10 +172,8 @@
                     </div>
                   </div>
                 </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Contact
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
+                <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['contact']" routerLinkActive="active">Contact
+                  </a>
                   <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
                     <button class="navbar__back js-navbar-submenu-back">
                       <svg class="navbar__arrow">

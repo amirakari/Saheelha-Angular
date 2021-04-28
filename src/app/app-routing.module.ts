@@ -22,8 +22,11 @@ import {PdfComponent} from './pdf/pdf.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {UpdateuserComponent} from './utilisateur/updateuser/updateuser.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {UpdateBoutiqueComponent} from './boutique/update-boutique/update-boutique.component';
+import {ContactComponent} from './contact/contact.component';
 const Routes: Routes = [
   {path: '', component:  AcceuilComponent},
+  {path: 'contact', component:  ContactComponent},
   {path: 'login', component:  UtilisateurComponent, canActivate: [LogoutGuard]},
   {path: 'forgotPassword', component:  ForgotPasswordComponent, canActivate: [LogoutGuard]},
   {path: 'resetPassword/:id', component:  ResetPasswordComponent, canActivate: [LogoutGuard]},
@@ -42,6 +45,7 @@ const Routes: Routes = [
       {path: 'addBoutique', component:  ProfilComponent},
       {path: ':id', children : [
           {path: '', component:  AfficherComponent, canActivate: [LoginGuard]},
+          {path: 'update', component: UpdateBoutiqueComponent , canActivate: [LoginGuard]},
           {path: 'ajouterProduit', component:  AjouterProduitComponent},
           {path: 'produitboutique', children : [
               {path: '', component:  ProduitBoutiqueComponent},

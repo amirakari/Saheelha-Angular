@@ -14,7 +14,7 @@ export class AjProduitService {
     private http: HttpClient
   ) {
   }
-  addUtilisateur(utilisateur: Produit, codeabare): Observable<any>{
-    return  this.http.post(this.link + `/${codeabare}`, utilisateur);
+  addUtilisateur(utilisateur: Produit, codeabare , id): Observable<any>{
+    return  this.http.post(this.link + `/${codeabare}` + `/${id}`, utilisateur);
   }
 }

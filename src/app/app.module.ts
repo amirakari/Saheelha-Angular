@@ -44,6 +44,8 @@ import { PdfComponent } from './pdf/pdf.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UpdateuserComponent } from './utilisateur/updateuser/updateuser.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { UpdateBoutiqueComponent } from './boutique/update-boutique/update-boutique.component';
+import { ContactComponent } from './contact/contact.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -72,6 +74,8 @@ export function HttpLoaderFactory(http: HttpClient){
     ForgotPasswordComponent,
     UpdateuserComponent,
     ResetPasswordComponent,
+    UpdateBoutiqueComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
