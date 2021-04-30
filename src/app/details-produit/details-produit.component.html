@@ -91,9 +91,9 @@ becomes
                         </div>
                         <br>
 
-                        <div class="champ centrage"> <a  class="properties__more" type="submit" (click)="PasserUneCommande()">Supprimer</a>
+                        <div class="champ centrage"> <a  class="properties__more" type="submit" (click)="supprimerProduit()">Supprimer</a>
                         </div>
-                        <div class="droite">  <a  class="properties__more" type="submit" (click)="PasserUneCommande()">Modifer</a>
+                        <div class="droite">  <a  class="properties__more" type="submit" (click)="modifier(boutique.boutique.id,boutique.id)">Modifer</a>
                         </div>
                         <br>
                         <br>
@@ -119,8 +119,8 @@ becomes
                           <div class="comment__item-body js-comment-item">
                             <div class="comment__avatar" width="6" height="5"><img src="http://localhost:3000/utilisateur/profileimage/{{commentaires.user.photodeprofil}}" width="66" height="50" class="image-ronde"alt=""></div>
                             <div class="comment__item-right">
-                              <button class="comment__item-btn">Edit</button>
-                              <button class="comment__item-btn">Delete</button>
+                              <button class="comment__item-btn">Modifier</button>
+                              <button class="comment__item-btn" (click)="supprimerCommentaire(commentaires.id)">Supprimer</button>
                             </div>
                             <div class="comment__info">
                               <span class="comment__author"></span><span class="comment__date">{{commentaires.user.nom}} {{commentaires.user.prenom}}</span>

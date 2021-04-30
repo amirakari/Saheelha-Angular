@@ -46,6 +46,7 @@ import { UpdateuserComponent } from './utilisateur/updateuser/updateuser.compone
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UpdateBoutiqueComponent } from './boutique/update-boutique/update-boutique.component';
 import { ContactComponent } from './contact/contact.component';
+import { UpdateComponent } from './details-produit/update/update.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient){
     ResetPasswordComponent,
     UpdateBoutiqueComponent,
     ContactComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,

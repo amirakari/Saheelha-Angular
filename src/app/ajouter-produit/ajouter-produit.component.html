@@ -66,26 +66,6 @@
                     <div id="form-block-2" class="form__block js-form-block">
                       <div class="row">
                         <div class="form-group">
-                          <label for="in-7" class="control-label">Prix sans remise</label>
-                          <input ngModel name="prixsansremise" id="in-7" type="text" placeholder="" required  class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label for="in-0" class="control-label">Prix avec remise</label>
-                          <input ngModel name="prixavecremise" id="in-0" type="text" placeholder="" required  class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label for="dlc"  class="control-label">Date limite de consommation</label>
-                          <p-calendar type="date" [minDate]="mindate"  ngModel id="dlc" name="DLC" [(ngModel)]="value" dateFormat="yy-mm-dd" showButtonBar="true" ></p-calendar>
-                        </div>
-
-
-
-
-                      </div>
-                    </div>
-                    <div id="form-block-3" class="form__block js-form-block">
-                      <div class="row">
-                        <div class="form-group">
                           <label for="type" class="control-label">Status</label>
                           <select  ngModel name="status" id="type" placeholder="Type" class="form-control">
                             <option></option>
@@ -97,6 +77,28 @@
                           <label for="in-7a" class="control-label">Quantité</label>
                           <input ngModel name="quantite" id="in-7a" min="1" max="100" type="number" placeholder="" required  class="form-control">
                         </div>
+                        <div class="form-group">
+                          <label for="dlc"  class="control-label">Date limite de consommation</label>
+                          <p-calendar type="date" [minDate]="mindate"  ngModel id="dlc" name="DLC" [(ngModel)]="value" dateFormat="yy-mm-dd" showButtonBar="true" ></p-calendar>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div id="form-block-3" class="form__block js-form-block">
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="in-7" class="control-label">Prix sans remise</label>
+                          <input ngModel name="prixsansremise" id="in-7" type="text" placeholder="" required  class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="in-0" class="control-label">Prix avec remise</label>
+                          <input ngModel name="prixavecremise" id="in-0" type="text" placeholder="" required  class="form-control">
+                        </div>
+
+
+
+
+
                       </div>
                     </div>
                     <div id="form-block-4" >

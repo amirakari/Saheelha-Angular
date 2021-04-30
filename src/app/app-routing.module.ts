@@ -24,6 +24,7 @@ import {UpdateuserComponent} from './utilisateur/updateuser/updateuser.component
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {UpdateBoutiqueComponent} from './boutique/update-boutique/update-boutique.component';
 import {ContactComponent} from './contact/contact.component';
+import {UpdateComponent} from './details-produit/update/update.component';
 const Routes: Routes = [
   {path: '', component:  AcceuilComponent},
   {path: 'contact', component:  ContactComponent},
@@ -50,7 +51,10 @@ const Routes: Routes = [
           {path: 'produitboutique', children : [
               {path: '', component:  ProduitBoutiqueComponent},
               {path: 'don', component:  BoutiqueDonComponent},
-              {path: ':id' , component : DetailsProduitComponent},
+              {path: ':idproduit' , children : [
+                  {path: '', component:  DetailsProduitComponent},
+                  {path: 'update', component:  UpdateComponent},
+                ]},
             ]},
           {path: 'Abonnement' , component : AbonnementComponent},
         ]}

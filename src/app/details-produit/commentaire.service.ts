@@ -16,4 +16,6 @@ export class CommentaireService {
   }
   getBoutique(id): Observable<Commentaire[]>{
     return this.http.get<Commentaire[]>(this.link + `/produit` + `/${id}`); }
+  supprimerCommentaire(id): Observable<Commentaire[]>{
+    return this.http.delete<Commentaire[]>(this.link + `/${id}`); }
 }
