@@ -13,8 +13,8 @@ export class DetailsProduitService {
   constructor(private http: HttpClient) {}
   getBoutique(id): Observable<Produit>{
     return this.http.get<Produit>(this.link + `produit` +  `/${id}`); }
-  PasserCommande(quantite, utilisateur: Commande): Observable<any>{
-    return this.http.post<any>(this.link + `commande` +  `/${quantite}`, utilisateur); }
+  PasserCommande(quantite, id, utilisateur: Commande): Observable<any>{
+    return this.http.post<any>(this.link + `commande` +  `/${quantite}` + `/${id}`, utilisateur); }
   CommandeProduit(id, quantite, utilisateur: Produit): Observable<any>{
     return this.http.patch<any>(this.link + `produit` + `/panier` + `/${id}` + `/${quantite}`, utilisateur); }
 }

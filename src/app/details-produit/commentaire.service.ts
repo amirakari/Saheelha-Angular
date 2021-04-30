@@ -11,8 +11,8 @@ export class CommentaireService {
   private Boutique: Commentaire[];
   link = 'http://localhost:3000/commentaire';
   constructor(private http: HttpClient) { }
-  addBoutique(boutique: Commentaire): Observable<any>{
-    return  this.http.post(this.link, boutique);
+  addBoutique(boutique: Commentaire, id): Observable<any>{
+    return  this.http.post(this.link + `/${id}`, boutique);
   }
   getBoutique(id): Observable<Commentaire[]>{
     return this.http.get<Commentaire[]>(this.link + `/produit` + `/${id}`); }

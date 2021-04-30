@@ -4,6 +4,7 @@ import {ListeService} from '../../liste-boutique/liste.service';
 import {Boutique} from '../../Model/Boutique';
 import {ProduitBoutiqueService} from './produit-boutique.service';
 import {Produit} from '../../Model/Produit';
+import {EvaluationService} from '../../page-boutique/evaluation.service';
 
 @Component({
   selector: 'app-produit-boutique',
@@ -15,20 +16,19 @@ export class ProduitBoutiqueComponent implements OnInit {
   boutique1: Boutique;
   totalRecords: number;
   page = 1;
-  val: number;
+  val: object;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private listemService: ListeService,
+              private evaluationService: EvaluationService,
               private listeService: ProduitBoutiqueService, ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       (params) => {
-        console.log(params.id);
         this.listeService.getBoutique(params.id).subscribe(
       (boutique) => { this.boutique = boutique;
-                      this.totalRecords = boutique.length;
-                      console.log(this.boutique); }
+                      this.totalRecords = boutique.length; }
     );
   });
     this.activatedRoute.params.subscribe(
@@ -61,7 +61,7 @@ export class ProduitBoutiqueComponent implements OnInit {
         const link = ['boutique' + `/${params.id}` + '/produitboutique' + `/${produitId}` ];
         this.router.navigate(link);
 
-        console.log(params.id); });
+        });
 
   }
 }
