@@ -67,7 +67,7 @@
                       <div class="row">
                         <div class="form-group">
                           <label for="type" class="control-label">Status</label>
-                          <select  ngModel name="status" id="type" placeholder="Type" class="form-control">
+                          <select #status (change)="changestatus(status)" ngModel name="status" id="type" placeholder="Type" class="form-control">
                             <option></option>
                             <option value="à vendre">à vendre</option>
                             <option value="à donner">à donner</option>
@@ -84,7 +84,7 @@
                       </div>
 
                     </div>
-                    <div id="form-block-3" class="form__block js-form-block">
+                    <div *ngIf="!status1" id="form-block-3" class="form__block js-form-block">
                       <div class="row">
                         <div class="form-group">
                           <label for="in-7" class="control-label">Prix sans remise</label>
@@ -103,12 +103,12 @@
                     </div>
                     <div id="form-block-4" >
                       <div class="row">
-                        <div class="form-group form-group--description">
+                        <div class="form-group">
                           <label  class="control-label">Code à barre</label>
-
                           <div class="video" id="camera"></div>
                         </div>
                       </div>
+
                     </div>
                     <div id="form-block-5" >
                     <div class="row">

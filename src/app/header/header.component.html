@@ -60,47 +60,15 @@
                     </div>
                   </div>
                 </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Properties
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-2">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
+                <li class="navbar__item js-dropdown"><a class="navbar__link">Utilisateur
+                </a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+
+
                     <div class="navbar__submenu">
-                      <h5 class="navbar__subtitle">Details</h5>
                       <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Property</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Property projected</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Property & agent</a></li>
-                      </ul>
-                    </div>
-                    <div class="navbar__submenu">
-                      <h5 class="navbar__subtitle">Listing</h5>
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a class="navbar__sublink js-navbar-sublink">Grid
-                          <svg class="navbar__arrow">
-                            <use xlink:href="#icon-arrow-right"></use>
-                          </svg></a>
-                          <div class="navbar__submenu navbar__submenu--level">
-                            <button class="navbar__back js-navbar-submenu-back">
-                              <svg class="navbar__arrow">
-                                <use xlink:href="#icon-arrow-left"></use>
-                              </svg>Back
-                            </button>
-                            <ul class="navbar__subnav">
-                              <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sub-sublink">Large</a></li>
-                              <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sub-sublink">Medium</a></li>
-                              <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sub-sublink">Small</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">List</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Table</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Empty</a></li>
+                        <li class="navbar__subitem"><a [routerLink]="['login']" class="navbar__sublink js-navbar-sublink">Login / Créer compte</a></li>
+                        <li class="navbar__subitem"><a [routerLink]="['profilutilisateur']" class="navbar__sublink js-navbar-sublink">Votre compte</a></li>
                       </ul>
                     </div>
                   </div>
@@ -126,19 +94,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Utilisateur
-                  </a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
 
-
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a [routerLink]="['login']" class="navbar__sublink js-navbar-sublink">Login / Créer compte</a></li>
-                        <li class="navbar__subitem"><a [routerLink]="['profilutilisateur']" class="navbar__sublink js-navbar-sublink">Votre compte</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
 
                 <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
                   <button class="navbar__back js-navbar-submenu-back">

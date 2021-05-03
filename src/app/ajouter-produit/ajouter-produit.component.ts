@@ -14,15 +14,24 @@ import {$} from 'protractor';
   styleUrls: ['./ajouter-produit.component.css']
 })
 export class AjouterProduitComponent implements OnInit {
-  boutique1: Boutique;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private listeService: ListeService,
               private uploadService: AjProduitService) { }
+  boutique1: Boutique;
    mindate = new Date();
   value: Date;
   codeabare: any;
+  status: string;
+  status1: boolean;
+  urls = [];
   ngOnInit(): void {
+    console.log(this.status);
+    if (this.status === 'à donner' ){
+      this.status1 = true;
+    }else {
+      this.status1 = false;
+    }
     this.activatedRoute.params.subscribe(
       (params) => {
         console.log(params);
@@ -58,6 +67,14 @@ export class AjouterProduitComponent implements OnInit {
       });
     }
   }
+  changestatus(input){
+      console.log(input.value);
+      if (input.value === 'à donner'){
+        this.status1 = true;
+      }else {
+        this.status1 = false;
+      }
+  }
   gotoajout(){
     const link = ['boutique'];
     this.router.navigate(link);
@@ -87,6 +104,8 @@ export class AjouterProduitComponent implements OnInit {
         this.uploadService.addUtilisateur(formulaire.value, this.codeabare, params.id).subscribe(
       (response) => {
         console.log(formulaire);
+        const link = ['pageBoutique' ];
+        this.router.navigate(link);
       },
       (error) => {
         console.log(formulaire.value);

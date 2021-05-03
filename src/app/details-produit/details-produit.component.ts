@@ -8,6 +8,7 @@ import {CommentaireService} from './commentaire.service';
 import {Commentaire} from '../Model/Commentaire';
 import {EvaluationService} from '../page-boutique/evaluation.service';
 import {SupprimerproduitService} from './supprimerproduit.service';
+import {AjProduitService} from '../ajouter-produit/aj-produit.service';
 
 @Component({
   selector: 'app-details-produit',
@@ -20,12 +21,16 @@ export class DetailsProduitComponent implements OnInit {
   val: object;
   totalRecords: number;
   page = 1;
+  file1: any;
+  file2: any;
+  file3: any;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private evaluationService: EvaluationService,
               private listeService: DetailsProduitService,
               private commentaireService: CommentaireService,
-              private supprimerService: SupprimerproduitService, ) { }
+              private supprimerService: SupprimerproduitService,
+              private uploadService: AjProduitService) { }
 quantite: any;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
@@ -59,6 +64,22 @@ quantite: any;
         console.log(Ajouterboutique);
       },
       (error) => {
+        console.log(error);
+      }
+    ); });
+  }
+  UploadImage(event: any){
+    this.file1 = event.target.files[0];
+    const formData = new FormData();
+    formData.append('file', this.file1);
+    this.activatedRoute.params.subscribe(
+      (params) => {
+    this.uploadService.uploadfiles(formData, params.idproduit).subscribe(
+      () => {
+        console.log(formData);
+      } ,
+      (error) => {
+        alert(`erreur d'accés à l'api`);
         console.log(error);
       }
     ); });

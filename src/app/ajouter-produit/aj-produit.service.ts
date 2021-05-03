@@ -17,4 +17,7 @@ export class AjProduitService {
   addUtilisateur(utilisateur: Produit, codeabare , id): Observable<any>{
     return  this.http.post(this.link + `/${codeabare}` + `/${id}`, utilisateur);
   }
+  uploadfiles(formData: any, id){
+    return  this.http.post(this.link + `/upload` + `/${id}`, formData);
+  }
 }

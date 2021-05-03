@@ -37,8 +37,8 @@
               currentPage: page,
               totalItems: totalRecords}">
                 <div class="properties properties--grid">
-                  <div class="properties__thumb"><a   class="item-photo"><img src="/assets/img/0602277368516-web-tete.jpg" alt=""/>
-                    <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Douleur et fièvre</span> <span class="properties__time">Ajouter le: 09/02/2021</span><span class="properties__time">Date limite de consommation: {{boutiques.DLC}}</span><span  class="properties__more" (click)="gotoDetailsProduit(boutiques.id)">Plus d'information</span>
+                  <div class="properties__thumb"><a   class="item-photo"><img src="http://localhost:3000/produit/image/{{boutiques.photo1}}" alt=""/>
+                    <figure class="item-photo__hover item-photo__hover--params"> <span class="properties__time">Ajouter le: 09/02/2021</span><span class="properties__time">Date limite de consommation: {{boutiques.DLC}}</span><span  class="properties__more" (click)="gotoDetailsProduit(boutiques.id)">Plus d'information</span>
                     </figure></a><span class="properties__ribon">{{boutiques.categorie}}</span>
                   </div>
                   <!-- end of block .properties__thumb-->

@@ -7,7 +7,7 @@
   </div>
 
   <div class="contai" style="background-color:white">
-    <div class="right"><img src="assets/img/milka-oreo_1.jpg" alt="Avatar" class="image-ronde"></div>
+    <div class="right"><img src="http://localhost:3000/produit/image/{{boutique1.produit.photo1}}" alt="Avatar" class="image-ronde"></div>
      <h2><b>{{boutique1.produit.nom}}</b></h2>
     <p>Référence : {{boutique1.produit.reference}}</p>
     <p>Catégorie : {{boutique1.produit.categorie}}</p>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="contai">
-    <p>Prix Totale: <span class="promo">6000</span></p>
+    <p>Prix Totale: <span class="promo">{{boutique1.prixtotale}}</span></p>
     <p class="expire">Date du commande: {{boutique1.date}}</p>
   </div>
 </div>
