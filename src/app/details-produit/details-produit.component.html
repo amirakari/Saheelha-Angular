@@ -127,16 +127,20 @@ becomes
                           <div class="comment__item-body js-comment-item">
                             <div class="comment__avatar" width="6" height="5"><img src="http://localhost:3000/utilisateur/profileimage/{{commentaires.user.photodeprofil}}" width="66" height="50" class="image-ronde"alt=""></div>
                             <div class="comment__item-right">
-                              <button class="comment__item-btn">Modifier</button>
+                              <button class="comment__item-btn"  (click)="changestatus()">Modifier</button>
                               <button class="comment__item-btn" (click)="supprimerCommentaire(commentaires.id)">Supprimer</button>
                             </div>
                             <div class="comment__info">
                               <span class="comment__author"></span><span class="comment__date">{{commentaires.user.nom}} {{commentaires.user.prenom}}</span>
                               <span class="comment__author"></span><span class="comment__date">{{commentaires.createdAt}}</span>
-                              <div class="comment__content">
-                               {{commentaires.message}}
+                              <div [hidden]="status1" class="comment__content">
+                               {{commentaires.message}}</div>
+                              <form #Ajouterboutique1="ngForm" action="#" class="form form--flex js-parsley form--comment">
+                              <div [hidden]="!status1">
+                                <textarea [ngModel]="commentaires.message" name="message" id="in-comment-message1" required class="form-control form__in form__in--textarea"></textarea>
+                                <button type="submit" class="form__submit" (click)="modifierCommentaire(commentaires.id,Ajouterboutique1)">Enregistrer</button>
                               </div>
-
+                              </form>
                             </div>
 
                           </div>

@@ -47,6 +47,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { UpdateBoutiqueComponent } from './boutique/update-boutique/update-boutique.component';
 import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './details-produit/update/update.component';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import { UpdateCommandeComponent } from './commande/update-commande/update-commande.component';
+import { EvaluerProduitComponent } from './commande/evaluer-produit/evaluer-produit.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -78,35 +81,38 @@ export function HttpLoaderFactory(http: HttpClient){
     UpdateBoutiqueComponent,
     ContactComponent,
     UpdateComponent,
+    UpdateCommandeComponent,
+    EvaluerProduitComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    NgxCaptchaModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    CalendarModule,
-    GooglePlaceModule,
-    NgxPaginationModule,
-    PanelModule,
-    RatingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDyKbqeWTkZVdS99nz6SO3ypKlY_sJ2HRU',
-      libraries: ['places']
-    }),
-    OrderListModule,
-    TableModule,
-    DragDropModule,
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        NgxCaptchaModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        CalendarModule,
+        GooglePlaceModule,
+        NgxPaginationModule,
+        PanelModule,
+        RatingModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDyKbqeWTkZVdS99nz6SO3ypKlY_sJ2HRU',
+            libraries: ['places']
+        }),
+        OrderListModule,
+        TableModule,
+        DragDropModule,
+        SplitButtonModule,
+    ],
   providers: [{provide: APP_BASE_HREF , useValue: '/'},
     LoginGuard, LogoutGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]

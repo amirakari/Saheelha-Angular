@@ -11,6 +11,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import { map } from 'rxjs/operators';
 import pdfFronts from 'pdfmake/build/vfs_fonts';
 import {Router} from '@angular/router';
+import {MenuItem} from 'primeng/api';
 pdfMake.vfs = pdfFronts.pdfMake.vfs;
 @Component({
   selector: 'app-commande',
@@ -22,6 +23,7 @@ export class CommandeComponent implements OnInit {
   @Input() user1: Utilisateur;
   totalRecords: number;
   page = 1;
+  items: MenuItem[];
   @Input() boutique: Commande[];
   constructor(private listeService: CommandeService,
               private profiluserservice: AffService,
@@ -38,8 +40,28 @@ export class CommandeComponent implements OnInit {
                       console.log(error); }
         ); });
   }
+  supprimerCommande(id, idproduit, quantite, idboutique){
+        this.listeService.supprimerCommande(id).subscribe(
+          (response) => {
+            this.listeService.CommandeProduit(idproduit, quantite, null).subscribe(
+              (boutique) => {
+                const link = ['boutique' + `/${idboutique}` + '/produitboutique' + `/${idproduit}`];
+                this.router.navigate(link);
+              }
+            );
+            console.log();
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+  }
   generatePdf(id: number){
     const link = [ 'commande' , id ];
+    this.router.navigate(link);
+  }
+  ajouterEvaluation(idboutique: number, idproduit: number ){
+    const link = [ 'boutique' + `/${idboutique}` + '/produitboutique' + `/${idproduit}` + '/evaluer' ];
     this.router.navigate(link);
   }
 }

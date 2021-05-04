@@ -24,6 +24,7 @@ export class DetailsProduitComponent implements OnInit {
   file1: any;
   file2: any;
   file3: any;
+  status1 = false;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private evaluationService: EvaluationService,
@@ -68,6 +69,19 @@ quantite: any;
       }
     ); });
   }
+  modifierCommentaire(id, Ajouterboutique: NgForm){
+    console.log(id);
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        this.commentaireService.modifierBoutique(Ajouterboutique.value, id).subscribe(
+          (response) => {
+            console.log(Ajouterboutique);
+          },
+          (error) => {
+            console.log(error);
+          }
+        ); });
+  }
   UploadImage(event: any){
     this.file1 = event.target.files[0];
     const formData = new FormData();
@@ -95,6 +109,10 @@ quantite: any;
             console.log(error);
           }
         ); });
+  }
+  changestatus(){
+    console.log(this.status1);
+    this.status1 = !this.status1;
   }
   PasserUneCommande(){
     this.activatedRoute.params.subscribe(

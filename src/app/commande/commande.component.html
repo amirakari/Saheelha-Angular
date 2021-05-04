@@ -17,6 +17,7 @@
               <th class="datatable__head-8 datatable__head-sort">Prix totale</th>
               <th class="datatable__head-9 datatable__head-sort">Date du commande</th>
               <th class="datatable__head-10">Coupon de commande</th>
+              <th class="datatable__head-11"></th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +38,11 @@
 
               <td class="datatable__cell-10"> <button  type="submit" class="btn btn-blue" (click)="generatePdf(boutiques.id)"><i class="fa fa-file-pdf-o"></i></button>
                 </td>
+              <td class="datatable__cell-11">
+                <button pButton type="button" label="Evaluer" (click)="ajouterEvaluation(boutiques.produit.boutique.id,boutiques.produit.id)" icon="pi pi-heart" class="p-button-secondary"></button>
+                <br>
+                <button pButton type="button" label="Supprimer" (click)="supprimerCommande(boutiques.id,boutiques.produit.id,boutiques.quantite,boutiques.produit.boutique.id )" icon="pi pi-trash" class="p-button-danger"></button>
+              </td>
             </tr>
 
             </tbody>
@@ -55,7 +61,7 @@
       </div>
     </div>
   </div>
-</div>
+</div><br><br><br><br>
   <nav class="listing__pagination">
     <ul class="pagination-custom">
       <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
@@ -67,4 +73,5 @@
 
   <!-- END PAGINATION-->
 
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+
