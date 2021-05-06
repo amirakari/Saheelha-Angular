@@ -50,6 +50,7 @@ import { UpdateComponent } from './details-produit/update/update.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import { UpdateCommandeComponent } from './commande/update-commande/update-commande.component';
 import { EvaluerProduitComponent } from './commande/evaluer-produit/evaluer-produit.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -83,6 +84,7 @@ export function HttpLoaderFactory(http: HttpClient){
     UpdateComponent,
     UpdateCommandeComponent,
     EvaluerProduitComponent,
+    StatistiqueComponent,
   ],
     imports: [
         BrowserModule,

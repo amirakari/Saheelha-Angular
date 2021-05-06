@@ -26,6 +26,7 @@ import {UpdateBoutiqueComponent} from './boutique/update-boutique/update-boutiqu
 import {ContactComponent} from './contact/contact.component';
 import {UpdateComponent} from './details-produit/update/update.component';
 import {EvaluerProduitComponent} from './commande/evaluer-produit/evaluer-produit.component';
+import {StatistiqueComponent} from './statistique/statistique.component';
 const Routes: Routes = [
   {path: '', component:  AcceuilComponent},
   {path: 'contact', component:  ContactComponent},
@@ -47,6 +48,7 @@ const Routes: Routes = [
       {path: 'addBoutique', component:  ProfilComponent},
       {path: ':id', children : [
           {path: '', component:  AfficherComponent, canActivate: [LoginGuard]},
+          {path: 'statistique', component:  StatistiqueComponent, canActivate: [LoginGuard]},
           {path: 'update', component: UpdateBoutiqueComponent , canActivate: [LoginGuard]},
           {path: 'ajouterProduit', component:  AjouterProduitComponent},
           {path: 'produitboutique', children : [
