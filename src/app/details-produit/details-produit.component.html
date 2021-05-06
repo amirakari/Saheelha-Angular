@@ -67,7 +67,7 @@ becomes
                         <figure class="item-photo__hover item-photo__hover--params"><span class="properties__time">Réference: {{boutique.reference}}</span>
                         </figure></a>
                         <br>
-                        <div  class="form-property__upload-border">
+                        <div *ngIf="status" class="form-property__upload-border">
                           <input type="file" (change)="UploadImage($event)" class="form-property__upload-btn-choose">
 
                         </div>
@@ -99,14 +99,14 @@ becomes
                         </div>
                         <br>
 
-                        <div class="champ centrage"> <a  class="properties__more" type="submit" (click)="supprimerProduit()">Supprimer</a>
+                        <div class="champ centrage" *ngIf="status"> <a  class="properties__more" type="submit" (click)="supprimerProduit()">Supprimer</a>
                         </div>
-                        <div class="droite">  <a  class="properties__more" type="submit" (click)="modifier(boutique.boutique.id,boutique.id)">Modifer</a>
+                        <div class="droite" *ngIf="status">  <a  class="properties__more" type="submit" (click)="modifier(boutique.boutique.id,boutique.id)">Modifer</a>
                         </div>
                         <br>
                         <br>
 
-                       <div class="champ centrage"><input [(ngModel)]="quantite" name="quantite" class="champ" id="in-7a" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite"><a  class="properties__more" type="submit" (click)="PasserUneCommande()">Passer une commande</a></div>
+                       <div class="champ centrage" *ngIf="status2"><input [(ngModel)]="quantite" name="quantite" class="champ" id="in-7a" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite" *ngIf="status2"><a  class="properties__more" type="submit" (click)="PasserUneCommande()">Passer une commande</a></div>
 
                       </div>
                       <!-- end of block .properties__info-->
@@ -126,7 +126,7 @@ becomes
               totalItems: totalRecords}">
                           <div class="comment__item-body js-comment-item">
                             <div class="comment__avatar" width="6" height="5"><img src="http://localhost:3000/utilisateur/profileimage/{{commentaires.user.photodeprofil}}" width="66" height="50" class="image-ronde"alt=""></div>
-                            <div class="comment__item-right">
+                            <div class="comment__item-right" *ngIf="user.id===commentaires.user.id">
                               <button class="comment__item-btn"  (click)="changestatus()">Modifier</button>
                               <button class="comment__item-btn" (click)="supprimerCommentaire(commentaires.id)">Supprimer</button>
                             </div>

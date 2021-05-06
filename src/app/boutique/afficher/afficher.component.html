@@ -29,8 +29,8 @@
               <div class="widget js-widget widget--dashboard">
                 <div class="widget__header">
                   <h2 class="widget__title">Profil</h2>
-                  <a  class="widget__btn js-widget-btn" (click)="modifier()">Modifier Boutique</a>
-                  <a  class="widget__btn js-widget-btn" (click)="deleteBoutique()">Supprimer Boutique</a>
+                  <a *ngIf="status" class="widget__btn js-widget-btn" (click)="modifier()">Modifier Boutique</a>
+                  <a *ngIf="status" class="widget__btn js-widget-btn" (click)="deleteBoutique()">Supprimer Boutique</a>
                 </div>
                 <div class="widget__content">
                   <div class="worker worker--profile">
@@ -93,7 +93,7 @@
                       <div class="widget__header">
                         <br>
 
-                        <div  class="form-property__upload-border">
+                        <div *ngIf="status"  class="form-property__upload-border">
                           <input type="file" (change)="UploadImage($event)" class="form-property__upload-btn-choose">
 
 
@@ -111,10 +111,10 @@
                   <nav class="worker__nav">
                     <ul>
                       <li><a  (click)="gotoajout()">Profil</a></li>
-                      <li><a (click)="gotoajoutProduit()" >Ajouter produit</a></li>
+                      <li><a *ngIf="status" (click)="gotoajoutProduit()" >Ajouter produit</a></li>
                       <li><a (click)="gotoproduit()" >Vos produits</a></li>
-                      <li><a (click)="gotoabonnement()" >Faire un abonnement</a></li>
-                      <li><a  >Vos abonnement</a></li>
+                      <li><a *ngIf="status" (click)="gotoabonnement()" >Faire un abonnement</a></li>
+                      <li><a *ngIf="status" >Vos abonnement</a></li>
                     </ul>
                   </nav>
                   <!-- end of block .worker__nav-->

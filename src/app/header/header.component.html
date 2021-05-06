@@ -42,7 +42,7 @@
         <!-- end of block .header__contacts-->
 
         <div class="displayed">
-          <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
+          <div class="navbar__row js-navbar-row" ><a  class="navbar__brand">
 
             <div  class="navbar__wrap">
               <ul class="navbar__nav">
@@ -88,7 +88,7 @@
                         <li class="navbar__subitem active"><a [routerLink]="['pageBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Page Boutique</a></li>
 
                         <li class="navbar__subitem"><a [routerLink]="['boutique']" class="navbar__sublink js-navbar-sub-sublink">Liste des Boutiques</a></li>
-                        <li class="navbar__subitem active"><a [routerLink]="['boutique/addBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Ajouter Boutique</a></li>
+                        <li class="navbar__subitem active" *ngIf="status"><a [routerLink]="['boutique/addBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Ajouter Boutique</a></li>
 
                       </ul>
                     </div>
@@ -111,7 +111,7 @@
                   </div>
                 </div>
 
-                <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['commande']" routerLinkActive="active">Commande
+                <li class="navbar__item js-dropdown" *ngIf="!status"><a class="navbar__link" [routerLink]="['commande']" routerLinkActive="active">Commande
 
 
                   <svg class="navbar__arrow">

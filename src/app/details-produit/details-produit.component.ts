@@ -9,6 +9,8 @@ import {Commentaire} from '../Model/Commentaire';
 import {EvaluationService} from '../page-boutique/evaluation.service';
 import {SupprimerproduitService} from './supprimerproduit.service';
 import {AjProduitService} from '../ajouter-produit/aj-produit.service';
+import {AffService} from '../utilisateur/profilutilisateur/aff.service';
+import {Utilisateur} from '../Model/Utilisateur';
 
 @Component({
   selector: 'app-details-produit',
@@ -24,11 +26,15 @@ export class DetailsProduitComponent implements OnInit {
   file1: any;
   file2: any;
   file3: any;
+  user: Utilisateur;
   status1 = false;
+  status: boolean;
+  status2: boolean;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private evaluationService: EvaluationService,
               private listeService: DetailsProduitService,
+              private profiluserservice: AffService,
               private commentaireService: CommentaireService,
               private supprimerService: SupprimerproduitService,
               private uploadService: AjProduitService) { }
@@ -38,7 +44,25 @@ quantite: any;
       (params) => {
         this.listeService.getBoutique(params.idproduit).subscribe(
           (boutique) => { this.boutique = boutique;
-                          console.log(this.boutique); }
+                          console.log(this.boutique);
+                          this.profiluserservice.getUtilisateur().subscribe(
+              (user) => {this.user = user;
+                         if (this.user.id === this.boutique.boutique.user.id){
+                  this.status = true;
+                }else{
+                  this.status = false;
+                }
+                         console.log(this.user);
+                         console.log(this.boutique.boutique.user.id);
+                         if (this.user.type === 'user'){
+                           this.status2 = true;
+                         }else{
+                           this.status2 = false;
+                         }
+              },
+              (error) => {alert(`erreur d'accés à l'api`);
+                          console.log(error); }
+            ); }
         );
       });
     this.activatedRoute.params.subscribe(
@@ -46,7 +70,13 @@ quantite: any;
     this.commentaireService.getBoutique(params.idproduit).subscribe(
       (boutique) => { this.commentaire = boutique;
                       this.totalRecords = boutique.length;
-                       }
+                      this.profiluserservice.getUtilisateur().subscribe(
+          (user) => {this.user = user;
+          },
+          (error) => {alert(`erreur d'accés à l'api`);
+                      console.log(error); }
+        );
+      }
     ); });
     this.activatedRoute.params.subscribe(
       (params) => {

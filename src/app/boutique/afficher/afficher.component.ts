@@ -6,6 +6,8 @@ import {ListeService} from '../../liste-boutique/liste.service';
 import {NgForm} from '@angular/forms';
 import {UploadService} from './upload.service';
 import { DomSanitizer} from '@angular/platform-browser';
+import {AffService} from '../../utilisateur/profilutilisateur/aff.service';
+import {Utilisateur} from '../../Model/Utilisateur';
 @Component({
   selector: 'app-afficher',
   templateUrl: './afficher.component.html',
@@ -18,16 +20,18 @@ export class AfficherComponent implements OnInit {
   lng: number;
   controllerSrc: any;
   url1: string;
+  user: Utilisateur;
+  status: boolean;
   constructor(private router: Router,
               private sanitizer: DomSanitizer,
               private activatedRoute: ActivatedRoute,
               private listeService: ListeService,
+              private profiluserservice: AffService,
               private uploadService: UploadService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       (params) => {
-        console.log(params.value);
         this.listeService.getBoutiqueByid(params.id).subscribe(
           (boutique) => {
             this.boutique1 = boutique;
@@ -36,6 +40,19 @@ export class AfficherComponent implements OnInit {
             console.log(this.controllerSrc);
             this.lat = boutique.mapLat;
             this.lng = boutique.mapLng;
+            this.profiluserservice.getUtilisateur().subscribe(
+              (user) => {this.user = user;
+                         if (this.user.id === this.boutique1.user.id){
+                                      this.status = true;
+                                    }else{
+                                      this.status = false;
+                                    }
+                         console.log(this.user.id);
+                         console.log(this.boutique1.user.id);
+                          },
+              (error) => {alert(`erreur d'accés à l'api`);
+                          console.log(error); }
+            );
           }
         );
       }

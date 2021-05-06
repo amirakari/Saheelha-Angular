@@ -25,12 +25,18 @@ export class ProfilutilisateurComponent implements OnInit {
               private uploadService: UploadService) { }
    file: any;
    user: Utilisateur;
+  status: boolean;
    userFile;
    imgURL: any;
    public imagePath;
   ngOnInit(): void {
     this.profiluserservice.getUtilisateur().subscribe(
-      (user) => {this.user = user; },
+      (user) => {this.user = user;
+        if (this.user.type === 'user'){
+          this.status = false;
+        }else {
+          this.status = true;
+        }},
       (error) => {alert(`erreur d'accés à l'api`);
                   console.log(error); }
     );
