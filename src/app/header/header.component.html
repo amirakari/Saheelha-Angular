@@ -1,301 +1,200 @@
+<div class="box js-box">
 <header class="header header--brand">
-
   <div class="container">
+    <div class="header__row"><a href="index.html" class="header__logo">
+      <svg>
+        <use xlink:href="#icon-logo--mob"></use>
+      </svg></a>
+      <div class="header__settings">
 
-    <div class="containerr">
+        <!-- end of block .header__settings-column-->
 
-      <div class="header__row"><a href="index.html" class="header__logo">
-
-        <svg>
-          <use xlink:href="#icon-logo--mob"></use>
-        </svg></a>
-        <div class="header__settings">
-
-          <div class="header__settings-column">
-            <img src="../assets/img/zéro-gaspii-3.png" class="navbar__brand-logo">
+        <!-- end of block .header__settings-column-->
+        <div class="header__settings-column">
+          <div class="dropdown dropdown--header">
+            <button data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
+              <svg class="header__settings-icon">
+                <use xlink:href="#icon-earth"></use>
+              </svg>FR
+            </button>
+            <div class="dropdown__menu">
+              <ul>
+                <li class="dropdown__item"><a href="#" class="dropdown__link">عربية</a></li>
+              </ul>
+            </div>
           </div>
-          <!-- end of block .header__settings-column-->
+        </div>
+      </div>
+      <div class="header__contacts"><a href="tel:+12025550135" class="header__phone">
+        <svg class="header__phone-icon">
+          <use xlink:href="#icon-phone"></use>
+        </svg><span class="header__span">+1 202 555 0135</span></a></div>
+      <!-- end of block .header__contacts-->
+      <div class="header__social">
+        <div class="social social--header social--circles"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
+      </div>
+      <div class="auth auth--header">
+        <ul class="auth__nav">
+          <li class="dropdown auth__nav-item">
+            <div class="dropdown__menu auth__dropdown--restore">
+              <!-- BEGIN AUTH RESTORE-->
+              <h5 class="auth__title">Reset password</h5>
+              <form action="#" class="form form--flex form--auth form--restore js-restore-form js-parsley">
+                <div class="row">
+                  <div class="form-group">
+                    <label for="restore-email-dropdown" class="control-label">Enter your User Name or Email</label>
+                    <input type="email" name="email" id="restore-email-dropdown" required class="form-control">
+                  </div>
+                </div>
+                <div class="row">
+                  <button type="submit" class="form__submit">Reset password</button>
+                </div>
+                <div class="row">
+                  <div class="form__options">Back to
+                    <button type="button" class="js-user-login">Log In</button>or
+                    <button type="button" class="js-user-register">Registration</button>
+                  </div>
+                  <!-- end of block .auth__links-->
+                </div>
+              </form>
+              <!-- end of block .auth__form-->
+              <!-- END AUTH RESTORE-->
+            </div>
+          </li>
+          <li class="dropdown auth__nav-item" *ngIf="!loginService.islogged()">
 
-          <!-- end of block .header__settings-column-->
+            <button (click)="login()" data-toggle="dropdown" type="button" class="dropdown-toggle auth__nav-btn">
+              <svg class="auth__icon-user">
+                <use xlink:href="#icon-user"></use>
+              </svg>
+              <span class="header__span">  Login</span>
+            </button>
 
+          </li>
+          <li class="dropdown auth__nav-item" *ngIf="loginService.islogged()">
 
-          <div class="header__settings-column">
+            <button (click)="logout()" data-toggle="dropdown" type="button" class="dropdown-toggle auth__nav-btn">
+              <svg class="auth__icon-user">
+                <use xlink:href="#icon-user"></use>
+              </svg>
+              <span class="header__span">  Logout</span>
+            </button>
 
-            <div class="dropdown dropdown--header">
-
-              <button data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
-                <svg class="header__settings-icon">
-                  <use xlink:href="#icon-earth"></use>
-                </svg>fr
+          </li>
+        </ul>
+        <!-- end of block .auth header-->
+      </div>
+      <button type="button" class="header__navbar-toggle js-navbar-toggle"
+              data-toggle="collapse"
+              data-target="#navbar-collapse-1"
+              aria-controls="navbar-collapse-1"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              (click)="show()">
+        <svg class="header__navbar-show" >
+          <use xlink:href="#icon-menu"></use>
+        </svg>
+        <svg class="header__navbar-hide">
+          <use xlink:href="#icon-menu-close"></use>
+        </svg>
+      </button>
+      <!-- end of block .header__navbar-toggle-->
+    </div>
+  </div>
+</header>
+<!-- END HEADER-->
+<!-- BEGIN NAVBAR-->
+<div id="header-nav-offset"></div>
+<nav id="header-nav" class="navbar navbar--header">
+  <div class="container">
+    <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
+      <svg class="navbar__brand-logo">
+        <use xlink:href="#icon-logo"></use>
+      </svg></a>
+      <div id="navbar-collapse-1" [ngClass]="{'show':visibility}" class="navbar__wrap navbar__wrap--init">
+        <ul class="navbar__nav">
+          <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['']" routerLinkActive="active" >Acceuil
+            <svg class="navbar__arrow">
+              <use xlink:href="#icon-arrow-right"></use>
+            </svg></a>
+            <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+              <button class="navbar__back js-navbar-submenu-back">
+                <svg class="navbar__arrow">
+                  <use xlink:href="#icon-arrow-left"></use>
+                </svg>Back
               </button>
-              <div class="dropdown__menu">
-                <ul>
-                  <li class="dropdown__item"><a href="#" class="dropdown__link">عربية</a></li>
+              <div class="navbar__submenu">
+              </div>
+            </div>
+          </li>
+          <li class="navbar__item js-dropdown"><a class="navbar__link">Utilisateur
+          </a>
+            <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+
+
+              <div class="navbar__submenu">
+                <ul class="navbar__subnav">
+                  <li class="navbar__subitem"><a [routerLink]="['login']" class="navbar__sublink js-navbar-sublink">Login / Créer compte</a></li>
+                  <li class="navbar__subitem"><a [routerLink]="['profilutilisateur']" class="navbar__sublink js-navbar-sublink">Votre compte</a></li>
                 </ul>
               </div>
             </div>
+          </li>
+          <li class="navbar__item js-dropdown active" ><a class="navbar__link" [routerLink]="['pageBoutique']" routerLinkActive="active">Boutiques
+            <svg class="navbar__arrow">
+              <use xlink:href="#icon-arrow-right"></use>
+            </svg></a>
+            <div role="menu" class="js-dropdown-menu navbar__dropdown">
+              <button class="navbar__back js-navbar-submenu-back">
+                <svg class="navbar__arrow">
+                  <use xlink:href="#icon-arrow-left"></use>
+                </svg>Back
+              </button>
+              <div class="navbar__submenu">
+                <ul class="navbar__subnav">
+                  <li class="navbar__subitem active"><a [routerLink]="['pageBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Page Boutique</a></li>
 
-          </div>
+                  <li class="navbar__subitem"><a [routerLink]="['boutique']" class="navbar__sublink js-navbar-sub-sublink">Liste des Boutiques</a></li>
+                  <li class="navbar__subitem active" ><a [routerLink]="['boutique/addBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Ajouter Boutique</a></li>
 
-        </div>
-
-        <!-- end of block .header__contacts-->
-
-        <div class="displayed">
-          <div class="navbar__row js-navbar-row" ><a  class="navbar__brand">
-
-            <div  class="navbar__wrap">
-              <ul class="navbar__nav">
-                <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['']" routerLinkActive="active" >Acceuil
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Utilisateur
-                </a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-
-
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a [routerLink]="['login']" class="navbar__sublink js-navbar-sublink">Login / Créer compte</a></li>
-                        <li class="navbar__subitem"><a [routerLink]="['profilutilisateur']" class="navbar__sublink js-navbar-sublink">Votre compte</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item js-dropdown active" ><a class="navbar__link" [routerLink]="['pageBoutique']" routerLinkActive="active">Boutiques
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem active"><a [routerLink]="['pageBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Page Boutique</a></li>
-
-                        <li class="navbar__subitem"><a [routerLink]="['boutique']" class="navbar__sublink js-navbar-sub-sublink">Liste des Boutiques</a></li>
-                        <li class="navbar__subitem active" *ngIf="status"><a [routerLink]="['boutique/addBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Ajouter Boutique</a></li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-
-
-                <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                  <button class="navbar__back js-navbar-submenu-back">
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-left"></use>
-                    </svg>Back
-                  </button>
-                  <div class="navbar__submenu">
-                    <ul class="navbar__subnav">
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Blog list</a></li>
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Blog details</a></li>
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Blog empty</a></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <li class="navbar__item js-dropdown" *ngIf="!status"><a class="navbar__link" [routerLink]="['commande']" routerLinkActive="active">Commande
-
-
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['contact']" routerLinkActive="active">Contact
-                  </a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-
-                    </div>
-                  </div>
-                </li>
-
-
-
-                <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right navbar__dropdown--colls-2">
-                  <button class="navbar__back js-navbar-submenu-back">
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-left"></use>
-                    </svg>Back
-                  </button>
-                  <div class="navbar__submenu">
-                    <h5 class="navbar__subtitle">Variations</h5>
-                    <ul class="navbar__subnav">
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Feature not available</a></li>
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Layout boxed</a></li>
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Sidebar left</a></li>
-                    </ul>
-                  </div>
-                  <div class="navbar__submenu">
-                    <h5 class="navbar__subtitle">Elements</h5>
-                    <ul class="navbar__subnav">
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">UI</a></li>
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Typography</a></li>
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Feature loaders</a></li>
-                      <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Twitter Bootstrap</a></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Language
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem active"><a href="" class="navbar__sublink js-navbar-sublink">English</a></li>
-                        <li class="navbar__subitem"><a  href="" class="navbar__sublink js-navbar-sublink">French</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Italian</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">Russian</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Currency
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem active"><a href="" class="navbar__sublink js-navbar-sublink">USD</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">EURO</a></li>
-                        <li class="navbar__subitem"><a href="" class="navbar__sublink js-navbar-sublink">RUB</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Measures
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-right"></use>
-                  </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <div class="switch switch--menu">
-                        <label>M <sup>2</sup>
-                          <input type="checkbox" checked><span class="lever"></span>Sq Ft
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <!-- end of block  navbar__nav-->
-            </div>
-          </a></div></div></div>
-
-      <div class="right">
-        <div class="header__settings-column">
-        <div class="auth auth--header">
-          <ul class="auth__nav">
-            <li class="dropdown auth__nav-item">
-              <div class="dropdown__menu auth__dropdown--restore">
-                <!-- BEGIN AUTH RESTORE-->
-                <h5 class="auth__title">Reset password</h5>
-                <form action="#" class="form form--flex form--auth form--restore js-restore-form js-parsley">
-                  <div class="row">
-                    <div class="form-group">
-                      <label for="restore-email-dropdown" class="control-label">Enter your User Name or Email</label>
-                      <input type="email" name="email" id="restore-email-dropdown" required class="form-control">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <button type="submit" class="form__submit">Reset password</button>
-                  </div>
-                  <div class="row">
-                    <div class="form__options">Back to
-                      <button type="button" class="js-user-login">Log In</button>or
-                      <button type="button" class="js-user-register">Registration</button>
-                    </div>
-                    <!-- end of block .auth__links-->
-                  </div>
-                </form>
-                <!-- end of block .auth__form-->
-                <!-- END AUTH RESTORE-->
+                </ul>
               </div>
-            </li>
-            <li class="dropdown auth__nav-item" *ngIf="!loginService.islogged()">
+            </div>
+          </li>
+          <li class="navbar__item js-dropdown" ><a class="navbar__link" [routerLink]="['commande']" routerLinkActive="active">Commande
 
-              <button (click)="login()" data-toggle="dropdown" type="button" class="dropdown-toggle auth__nav-btn">
-                <svg class="auth__icon-user">
-                  <use xlink:href="#icon-user"></use>
-                </svg>
-                <span class="header__span">  Login</span>
+
+            <svg class="navbar__arrow">
+              <use xlink:href="#icon-arrow-right"></use>
+            </svg></a>
+            <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+              <button class="navbar__back js-navbar-submenu-back">
+                <svg class="navbar__arrow">
+                  <use xlink:href="#icon-arrow-left"></use>
+                </svg>Back
               </button>
+              <div class="navbar__submenu">
 
-            </li>
-            <li class="dropdown auth__nav-item" *ngIf="loginService.islogged()">
-
-              <button (click)="logout()" data-toggle="dropdown" type="button" class="dropdown-toggle auth__nav-btn">
-                <svg class="auth__icon-user">
-                  <use xlink:href="#icon-user"></use>
-                </svg>
-                <span class="header__span">  Logout</span>
+              </div>
+            </div>
+          </li>
+          <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['contact']" routerLinkActive="active">Contact
+          </a>
+            <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+              <button class="navbar__back js-navbar-submenu-back">
+                <svg class="navbar__arrow">
+                  <use xlink:href="#icon-arrow-left"></use>
+                </svg>Back
               </button>
+              <div class="navbar__submenu">
 
-            </li>
-          </ul>
-          <!-- end of block .auth header-->
-        </div></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- end of block  navbar__nav-->
       </div>
-
-    <button type="button" class="header__navbar-toggle js-navbar-toggle">
-      <svg class="header__navbar-show">
-        <use xlink:href="#icon-menu"></use>
-      </svg>
-      <svg class="header__navbar-hide">
-        <use xlink:href="#icon-menu-close"></use>
-      </svg>
-    </button>
-    <!-- end of block .header__navbar-toggle-->
-
-
-    </div></div> </header>
+    </div>
+  </div>
+</nav>
+</div>

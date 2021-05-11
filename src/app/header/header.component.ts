@@ -11,6 +11,7 @@ import {AffService} from '../utilisateur/profilutilisateur/aff.service';
 })
 export class HeaderComponent implements OnInit {
   user: Utilisateur;
+  visibility = false;
   status: boolean;
   constructor(public loginService: LoginService,
               private profiluserservice: AffService,
@@ -36,5 +37,10 @@ logout(){
 login(){
   const link = ['login'];
   this.router.navigate(link);
+}
+show(){
+    console.log(this.visibility);
+    this.visibility = !this.visibility;
+    console.log(this.visibility);
 }
 }
