@@ -3,7 +3,7 @@
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,50%);
+  transform: translate(-50%,40%);
 }
 .cont span{
   text-transform: uppercase;
@@ -20,7 +20,7 @@
 }
 .text2{
   font-size: 30px;
-  color: #6ab04c;
+  color: #4c56b0;
 }
 
 @keyframes text {

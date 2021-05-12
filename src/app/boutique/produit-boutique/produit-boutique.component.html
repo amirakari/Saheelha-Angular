@@ -89,11 +89,13 @@
                   </div>
                   <nav class="worker__nav">
                     <ul>
-                      <li><a (click)="gotoajout()" >Ajouter Boutique</a></li>
-                      <li><a  >Profil</a></li>
-                      <li><a (click)="gotomodifier()" >Modifier profil</a></li>
-                      <li><a (click)="gotoproduit()" >Vos produits</a></li>
-                      <li><a (click)="gotoabonnement()" >Faire un abonnement</a></li>
+                      <li><a  (click)="gotoajout()">Profil</a></li>
+                      <li><a *ngIf="statis" (click)="gotoajoutProduit()" >Ajouter produit</a></li>
+                      <li><a (click)="gotoproduit()" >produits (à vendre)</a></li>
+                      <li><a (click)="gotodon()" >produits (à donner)</a></li>
+                      <li><a *ngIf="statis" (click)="gotoabonnement()" >Faire un abonnement</a></li>
+                      <li><a *ngIf="statis" >Vos abonnement</a></li>
+                      <li><a *ngIf="statis"  (click)="gotostatistique()">Statistique</a></li>
                     </ul>
                   </nav>
                   <!-- end of block .worker__nav-->

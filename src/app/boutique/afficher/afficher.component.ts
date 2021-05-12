@@ -22,6 +22,7 @@ export class AfficherComponent implements OnInit {
   url1: string;
   user: Utilisateur;
   status: boolean;
+  statis: boolean;
   constructor(private router: Router,
               private sanitizer: DomSanitizer,
               private activatedRoute: ActivatedRoute,
@@ -30,6 +31,27 @@ export class AfficherComponent implements OnInit {
               private uploadService: UploadService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        console.log(params);
+        this.listeService.getBoutiqueByid(params.id).subscribe(
+          (boutique) => {
+            this.boutique1 = boutique;
+            this.profiluserservice.getUtilisateur().subscribe(
+              (user) => {this.user = user;
+                         if (this.user.id === this.boutique1.user.id){
+                  this.statis = true;
+                }else{
+                  this.statis = false;
+                }
+              },
+              (error) => {alert(`erreur d'accés à l'api`);
+                          console.log(error); }
+            );
+          }
+        );
+      }
+    );
     this.activatedRoute.params.subscribe(
       (params) => {
         this.listeService.getBoutiqueByid(params.id).subscribe(
@@ -66,8 +88,16 @@ export class AfficherComponent implements OnInit {
       }
     );
   }
+  gotostatistique(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'statistique'];
+    this.router.navigate(link);
+  }
+  gotodon(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'produitboutique' + '/' + 'don'];
+    this.router.navigate(link);
+  }
   gotoajout(){
-    const link = ['boutique'];
+    const link = ['boutique' + `/${this.boutique1.id}`];
     this.router.navigate(link);
   }
   gotoajoutProduit(){

@@ -8,6 +8,8 @@ import {NgForm} from '@angular/forms';
 import {AjProduitService} from './aj-produit.service';
 import Quagga from 'quagga';
 import {$} from 'protractor';
+import {AffService} from '../utilisateur/profilutilisateur/aff.service';
+import {Utilisateur} from '../Model/Utilisateur';
 @Component({
   selector: 'app-ajouter-produit',
   templateUrl: './ajouter-produit.component.html',
@@ -16,14 +18,17 @@ import {$} from 'protractor';
 export class AjouterProduitComponent implements OnInit {
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
+              private profiluserservice: AffService,
               private listeService: ListeService,
               private uploadService: AjProduitService) { }
   boutique1: Boutique;
    mindate = new Date();
   value: Date;
+  user: Utilisateur;
   codeabare: any;
   status: string;
   status1: boolean;
+  statis: boolean;
   urls = [];
   ngOnInit(): void {
     console.log(this.status);
@@ -38,6 +43,17 @@ export class AjouterProduitComponent implements OnInit {
         this.listeService.getBoutiqueByid(params.id).subscribe(
           (boutique) => {
             this.boutique1 = boutique;
+            this.profiluserservice.getUtilisateur().subscribe(
+              (user) => {this.user = user;
+                         if (this.user.id === this.boutique1.user.id){
+                  this.statis = true;
+                }else{
+                  this.statis = false;
+                }
+              },
+              (error) => {alert(`erreur d'accés à l'api`);
+                          console.log(error); }
+            );
           }
         );
       }
@@ -76,11 +92,15 @@ export class AjouterProduitComponent implements OnInit {
       }
   }
   gotoajout(){
-    const link = ['boutique'];
+    const link = ['boutique' + `/${this.boutique1.id}`];
     this.router.navigate(link);
   }
   gotodon(){
     const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'produitboutique' + '/' + 'don'];
+    this.router.navigate(link);
+  }
+  gotostatistique(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'statistique'];
     this.router.navigate(link);
   }
   gotoajoutProduit(){

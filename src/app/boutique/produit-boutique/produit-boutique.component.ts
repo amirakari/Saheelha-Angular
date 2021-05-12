@@ -5,6 +5,8 @@ import {Boutique} from '../../Model/Boutique';
 import {ProduitBoutiqueService} from './produit-boutique.service';
 import {Produit} from '../../Model/Produit';
 import {EvaluationService} from '../../page-boutique/evaluation.service';
+import {Utilisateur} from '../../Model/Utilisateur';
+import {AffService} from '../../utilisateur/profilutilisateur/aff.service';
 
 @Component({
   selector: 'app-produit-boutique',
@@ -17,13 +19,37 @@ export class ProduitBoutiqueComponent implements OnInit {
   totalRecords: number;
   page = 1;
   val: object;
+  user: Utilisateur;
+  statis: boolean;
   constructor(private router: Router,
+              private profiluserservice: AffService,
               private activatedRoute: ActivatedRoute,
               private listemService: ListeService,
               private evaluationService: EvaluationService,
               private listeService: ProduitBoutiqueService, ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        console.log(params);
+        this.listemService.getBoutiqueByid(params.id).subscribe(
+          (boutique) => {
+            this.boutique1 = boutique;
+            this.profiluserservice.getUtilisateur().subscribe(
+              (user) => {this.user = user;
+                         if (this.user.id === this.boutique1.user.id){
+                  this.statis = true;
+                }else{
+                  this.statis = false;
+                }
+              },
+              (error) => {alert(`erreur d'accés à l'api`);
+                          console.log(error); }
+            );
+          }
+        );
+      }
+    );
     this.activatedRoute.params.subscribe(
       (params) => {
         this.listeService.getBoutique(params.id).subscribe(
@@ -42,8 +68,20 @@ export class ProduitBoutiqueComponent implements OnInit {
       }
     );
   }
+  gotoajoutProduit(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'ajouterProduit'];
+    this.router.navigate(link);
+  }
+  gotodon(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'produitboutique' + '/' + 'don'];
+    this.router.navigate(link);
+  }
   gotoajout(){
-    const link = ['boutique'];
+    const link = ['boutique' + `/${this.boutique1.id}`];
+    this.router.navigate(link);
+  }
+  gotostatistique(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'statistique'];
     this.router.navigate(link);
   }
   gotomodifier(){}

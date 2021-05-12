@@ -11,6 +11,8 @@ import {SupprimerproduitService} from './supprimerproduit.service';
 import {AjProduitService} from '../ajouter-produit/aj-produit.service';
 import {AffService} from '../utilisateur/profilutilisateur/aff.service';
 import {Utilisateur} from '../Model/Utilisateur';
+import {ListeService} from '../liste-boutique/liste.service';
+import {Boutique} from '../Model/Boutique';
 
 @Component({
   selector: 'app-details-produit',
@@ -31,15 +33,28 @@ export class DetailsProduitComponent implements OnInit {
   status: boolean;
   status2: boolean;
   constructor(private router: Router,
+              private listeService1: ListeService,
               private activatedRoute: ActivatedRoute,
               private evaluationService: EvaluationService,
               private listeService: DetailsProduitService,
               private profiluserservice: AffService,
               private commentaireService: CommentaireService,
               private supprimerService: SupprimerproduitService,
-              private uploadService: AjProduitService) { }
+              private uploadService: AjProduitService
+              ) { }
 quantite: any;
+  boutique1: Boutique;
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        console.log(params);
+        this.listeService1.getBoutiqueByid(params.id).subscribe(
+          (boutique) => {
+            this.boutique1 = boutique;
+          }
+        );
+      }
+    );
     this.activatedRoute.params.subscribe(
       (params) => {
         this.listeService.getBoutique(params.idproduit).subscribe(
@@ -86,6 +101,32 @@ quantite: any;
           }
         );
       });
+  }
+  gotodon(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'produitboutique' + '/' + 'don'];
+    this.router.navigate(link);
+  }
+  gotoajout(){
+    const link = ['boutique' + `/${this.boutique1.id}`];
+    this.router.navigate(link);
+  }
+  gotoajoutProduit(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'ajouterProduit'];
+    this.router.navigate(link);
+  }
+  gotomodifier(){
+  }
+  gotoproduit(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'produitboutique'];
+    this.router.navigate(link);
+  }
+  gotoabonnement(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'Abonnement'];
+    this.router.navigate(link);
+  }
+  gotostatistique(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'statistique'];
+    this.router.navigate(link);
   }
   addCommentaire(Ajouterboutique: NgForm){
     this.activatedRoute.params.subscribe(

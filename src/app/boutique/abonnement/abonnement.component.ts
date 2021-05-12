@@ -33,8 +33,12 @@ export class AbonnementComponent implements OnInit {
       }
     );
   }
+  gotodon(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'produitboutique' + '/' + 'don'];
+    this.router.navigate(link);
+  }
   gotoajout(){
-    const link = ['boutique'];
+    const link = ['boutique' + `/${this.boutique1.id}`];
     this.router.navigate(link);
   }
   gotoajoutProduit(){
@@ -42,6 +46,10 @@ export class AbonnementComponent implements OnInit {
     this.router.navigate(link);
   }
   gotomodifier(){
+  }
+  gotostatistique(){
+    const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'statistique'];
+    this.router.navigate(link);
   }
   gotoproduit(){
     const link = ['boutique' + `/${this.boutique1.id}` + '/' + 'produitboutique'];
