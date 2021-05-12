@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Utilisateur} from '../Model/Utilisateur';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
+import {AffService} from './profilutilisateur/aff.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,11 @@ import {Router} from '@angular/router';
 export class LoginService {
   private utilisateurs: Utilisateur[];
   link = 'http://localhost:3000/utilisateur/login';
+  link1 = 'http://localhost:3000/utilisateur/userconnecte';
+  user: Utilisateur;
+  status: boolean;
   constructor(
+    private profiluserservice: AffService,
     private http: HttpClient,
     private router: Router
   ) {

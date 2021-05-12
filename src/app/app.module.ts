@@ -51,6 +51,8 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import { UpdateCommandeComponent } from './commande/update-commande/update-commande.component';
 import { EvaluerProduitComponent } from './commande/evaluer-produit/evaluer-produit.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
+import {UserGuard} from './guard/user.guard';
+import {LoginService} from './utilisateur/login.service';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -116,7 +118,7 @@ export function HttpLoaderFactory(http: HttpClient){
         SplitButtonModule,
     ],
   providers: [{provide: APP_BASE_HREF , useValue: '/'},
-    LoginGuard, LogoutGuard, LoginInterceptorProvider],
+    LoginGuard, LogoutGuard, UserGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

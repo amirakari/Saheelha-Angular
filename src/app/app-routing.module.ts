@@ -40,12 +40,12 @@ const Routes: Routes = [
     ]},
   {path: 'pageBoutique', component:  PageBoutiqueComponent},
   {path: 'commande', children : [
-      {path: '', component:  CommandeComponent},
-      {path: ':id', component:  PdfComponent},
+      {path: '', component:  CommandeComponent , canActivate: [LoginGuard]},
+      {path: ':id', component:  PdfComponent , canActivate: [LoginGuard]},
     ]},
   {path: 'boutique', children : [
       {path: '' , component : ListeBoutiqueComponent},
-      {path: 'addBoutique', component:  ProfilComponent},
+      {path: 'addBoutique', component:  ProfilComponent , canActivate: [LoginGuard]},
       {path: ':id', children : [
           {path: '', component:  AfficherComponent, canActivate: [LoginGuard]},
           {path: 'statistique', component:  StatistiqueComponent, canActivate: [LoginGuard]},

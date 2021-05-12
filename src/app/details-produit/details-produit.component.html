@@ -1,3 +1,4 @@
+<app-header></app-header>
 <body class="agent_profile menu-default hover-default ">
 <!--
 SVG icons from sprite-inline.svg
@@ -135,8 +136,8 @@ becomes
                               <span class="comment__author"></span><span class="comment__date">{{commentaires.createdAt}}</span>
                               <div [hidden]="status1" class="comment__content">
                                {{commentaires.message}}</div>
-                              <form #Ajouterboutique1="ngForm" action="#" class="form form--flex js-parsley form--comment">
-                              <div [hidden]="!status1">
+                              <form  #Ajouterboutique1="ngForm" action="#" class="form form--flex js-parsley form--comment">
+                              <div *ngIf="user.id===commentaires.user.id" [hidden]="!status1">
                                 <textarea [ngModel]="commentaires.message" name="message" id="in-comment-message1" required class="form-control form__in form__in--textarea"></textarea>
                                 <button type="submit" class="form__submit" (click)="modifierCommentaire(commentaires.id,Ajouterboutique1)">Enregistrer</button>
                               </div>

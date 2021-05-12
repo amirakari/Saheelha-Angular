@@ -46,6 +46,13 @@ export class UtilisateurComponent implements OnInit {
       document.getElementById('password1').setAttribute('type', 'password');
     }
   }
+  logout(){
+    this.loginService.logout();
+  }
+  login1(){
+    const link = ['login'];
+    this.router.navigate(link);
+  }
   addUtilisateur(formulaire: NgForm){
     this.userService.addUtilisateur(formulaire.value).subscribe(
       (response) => {

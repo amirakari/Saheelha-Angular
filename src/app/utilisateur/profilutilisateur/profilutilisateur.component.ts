@@ -32,7 +32,7 @@ export class ProfilutilisateurComponent implements OnInit {
   ngOnInit(): void {
     this.profiluserservice.getUtilisateur().subscribe(
       (user) => {this.user = user;
-        if (this.user.type === 'user'){
+                 if (this.user.type === 'user'){
           this.status = false;
         }else {
           this.status = true;

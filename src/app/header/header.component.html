@@ -25,10 +25,10 @@
           </div>
         </div>
       </div>
-      <div class="header__contacts"><a href="tel:+12025550135" class="header__phone">
+      <div class="header__contacts"><a href="tel:+21652817963" class="header__phone">
         <svg class="header__phone-icon">
           <use xlink:href="#icon-phone"></use>
-        </svg><span class="header__span">+1 202 555 0135</span></a></div>
+        </svg><span class="header__span">+216 52 817 963</span></a></div>
       <!-- end of block .header__contacts-->
       <div class="header__social">
         <div class="social social--header social--circles"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
@@ -135,12 +135,12 @@
               <div class="navbar__submenu">
                 <ul class="navbar__subnav">
                   <li class="navbar__subitem"><a [routerLink]="['login']" class="navbar__sublink js-navbar-sublink">Login / Créer compte</a></li>
-                  <li class="navbar__subitem"><a [routerLink]="['profilutilisateur']" class="navbar__sublink js-navbar-sublink">Votre compte</a></li>
+                  <li class="navbar__subitem"><a (click)="gotoprofilutilisateur()" class="navbar__sublink js-navbar-sublink">Votre compte</a></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li class="navbar__item js-dropdown active" ><a class="navbar__link" [routerLink]="['pageBoutique']" routerLinkActive="active">Boutiques
+          <li class="navbar__item js-dropdown active" ><a class="navbar__link" (click)="gotopageboutique()" routerLinkActive="active">Boutiques
             <svg class="navbar__arrow">
               <use xlink:href="#icon-arrow-right"></use>
             </svg></a>
@@ -152,16 +152,16 @@
               </button>
               <div class="navbar__submenu">
                 <ul class="navbar__subnav">
-                  <li class="navbar__subitem active"><a [routerLink]="['pageBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Page Boutique</a></li>
+                  <li class="navbar__subitem active"><a (click)="gotopageboutique()"  class="navbar__sublink js-navbar-sub-sublink">Page Boutique</a></li>
 
-                  <li class="navbar__subitem"><a [routerLink]="['boutique']" class="navbar__sublink js-navbar-sub-sublink">Liste des Boutiques</a></li>
-                  <li class="navbar__subitem active" ><a [routerLink]="['boutique/addBoutique']"  class="navbar__sublink js-navbar-sub-sublink">Ajouter Boutique</a></li>
+                  <li class="navbar__subitem"><a (click)="gotoboutique()" class="navbar__sublink js-navbar-sub-sublink">Liste des Boutiques</a></li>
+                  <li class="navbar__subitem active" *ngIf="!status" ><a (click)="gotoajboutique()"  class="navbar__sublink js-navbar-sub-sublink">Ajouter Boutique</a></li>
 
                 </ul>
               </div>
             </div>
           </li>
-          <li class="navbar__item js-dropdown" ><a class="navbar__link" [routerLink]="['commande']" routerLinkActive="active">Commande
+          <li class="navbar__item js-dropdown" *ngIf="status" ><a class="navbar__link"  (click)="gotocommande()" routerLinkActive="active">Commande
 
 
             <svg class="navbar__arrow">
@@ -178,7 +178,7 @@
               </div>
             </div>
           </li>
-          <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['contact']" routerLinkActive="active">Contact
+          <li class="navbar__item js-dropdown"><a class="navbar__link" (click)="gotocontact()" routerLinkActive="active">Contact
           </a>
             <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
               <button class="navbar__back js-navbar-submenu-back">
