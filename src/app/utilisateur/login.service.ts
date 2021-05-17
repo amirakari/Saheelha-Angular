@@ -29,7 +29,7 @@ export class LoginService {
   }
   logout(){
     localStorage.removeItem('token');
-    const link = ['login'];
+    const link = [''];
     this.router.navigate(link);
   }
 }

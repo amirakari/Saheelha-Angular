@@ -416,7 +416,7 @@ becomes
                   <!-- end of block .properties__thumb-->
                   <div class="properties__details">
                     <div class="properties__info"><a class="properties__address"><span class="properties__address-street">{{boutiques.nom}}</span> <span  class="properties__more" (click)="gotodetails(boutiques.boutique.id,boutiques.id)">Plus d'information</span></a>
-                      <div class="properties__offer">
+                      <div class="properties__offer" *ngIf="boutiques.status==='à vendre'">
                         <div class="properties__offer-column">
                           <div class="properties__offer-label">Prix sans remise</div>
                           <div class="properties__offer-value"><strong> {{boutiques.prixsansremise}}</strong>
@@ -427,6 +427,14 @@ becomes
                           <div class="properties__offer-label">Prix avec remise</div>
                           <div class="properties__offer-value"><strong>{{boutiques.prixavecremise}}</strong>
                           </div>
+                        </div>
+                      </div>
+                      <div class="properties__offer" *ngIf="boutiques.status==='à donner'">
+                        <div class="properties__offer-column">
+                          <div class="properties__offer-label"></div>
+                          <div class="properties__offer-value"><strong> Gratuit</strong>
+                          </div>
+
                         </div>
                       </div>
                       <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 153 Sq Ft</span></div>

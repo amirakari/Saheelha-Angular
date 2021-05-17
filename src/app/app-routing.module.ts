@@ -28,9 +28,9 @@ import {UpdateComponent} from './details-produit/update/update.component';
 import {EvaluerProduitComponent} from './commande/evaluer-produit/evaluer-produit.component';
 import {StatistiqueComponent} from './statistique/statistique.component';
 const Routes: Routes = [
-  {path: '', component:  AcceuilComponent},
+  {path: 'acceuil', component:  AcceuilComponent},
   {path: 'contact', component:  ContactComponent},
-  {path: 'login', component:  UtilisateurComponent, canActivate: [LogoutGuard]},
+  {path: '', component:  UtilisateurComponent},
   {path: 'forgotPassword', component:  ForgotPasswordComponent, canActivate: [LogoutGuard]},
   {path: 'resetPassword/:id', component:  ResetPasswordComponent, canActivate: [LogoutGuard]},
   {path: 'profilutilisateur', children : [

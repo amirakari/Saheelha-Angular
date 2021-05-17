@@ -1,0 +1,34 @@
+{
+  "header" : {
+    "acceuil": "الصفحة الرئيسية",
+    "utilisateur": "المستخدمين",
+    "login": "تسجيل الدخول / إنشاء حساب",
+    "compte": "حسابك",
+    "boutique": "المتجر",
+    "pageboutique": "صفحات التسوق",
+    "listeboutiques": "قائمة المتاجر",
+    "ajouterboutique": "أضف متجر",
+    "commande": "طلب الشراء",
+    "contact": "اتصال"
+  },
+  "acceuil":{
+    "bienvenue": "مرحبا"
+  },
+  "user" : {
+    "nom": "الاسم",
+    "prenom": "اللقب",
+    "mdp": "كلمة السر",
+    "profil": "الملف الشخصي",
+    "modifier": "تحرير الحساب",
+    "supprimer": "حذف الحساب",
+    "telephone": "الهاتف",
+    "email": "بريد إلكتروني",
+    "adresse": "عنوان",
+    "type": "نوع المستعمل",
+    "choisirf": "اختيار ملف",
+    "boutique": "المتاجر الخاصة بك",
+    "utilisateur": "حريف",
+    "fournisseur": "مزود",
+    "enregistrer": "سجل"
+  }
+}

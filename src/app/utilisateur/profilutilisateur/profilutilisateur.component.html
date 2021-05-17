@@ -12,8 +12,8 @@
     <nav class="breadcrumbs">
       <div class="container">
         <ul>
-          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Acceuil</a></li>
-          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Ajouter Boutique</a></li>
+          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">{{ 'header.acceuil' | translate }}</a></li>
+          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">{{ 'header.compte' | translate }}</a></li>
         </ul>
       </div>
     </nav>
@@ -26,9 +26,9 @@
 <br><br><br><br>
             <div class="widget js-widget widget--dashboard" *ngIf="user">
               <div class="widget__header">
-                <h2 class="widget__title">Profile</h2>
-                <a  class="widget__btn js-widget-btn" (click)="modifier(user.id)" >Modifier Compte</a>
-                <a  class="widget__btn js-widget-btn" (click)="supprimerUtilisateur(user.id)" >Supprimer Compte</a>
+                <h2 class="widget__title">{{ 'user.profil' | translate }}</h2>
+                <a  class="widget__btn js-widget-btn" (click)="modifier(user.id)" >{{ 'user.modifier' | translate }}</a>
+                <a  class="widget__btn js-widget-btn" (click)="supprimerUtilisateur(user.id)" >{{ 'user.supprimer' | translate }}</a>
               </div>
               <div class="widget__content">
                 <div class="worker worker--profile">
@@ -42,12 +42,12 @@
                       <div class="clearfix"></div>
                       <div class="worker__contacts">
                         <div class="worker__intro-col">
-                          <div class="tel"><span class="type">Telephone</span>{{user.numtel}}</div>
-                          <div class="text"><span class="type">Adresse</span>{{user.adresse}}</div>
+                          <div class="tel"><span class="type">{{ 'user.telephone' | translate }}</span>{{user.numtel}}</div>
+                          <div class="text"><span class="type">{{ 'user.email' | translate }}</span>{{user.adresse}}</div>
                         </div>
                         <div class="worker__intro-col">
-                          <div class="email"><span class="type">Email</span>{{user.mail}}</div>
-                          <div class="skype"><span class="type">Type</span>{{user.type}}</div>
+                          <div class="email"><span class="type">{{ 'user.adresse' | translate }}</span>{{user.mail}}</div>
+                          <div class="skype"><span class="type">{{ 'user.type' | translate }}</span>{{user.type}}</div>
                         </div>
                         <!-- end of block .worker__contacts-->
                       </div>
@@ -92,8 +92,8 @@
                   <nav class="worker__nav">
                     <ul>
 
-                      <li><a  >Profil</a></li>
-                      <li><a *ngIf="status" (click)="gotoboutique()" >Vos Boutiques</a></li>
+                      <li><a  >{{ 'user.profil' | translate }}</a></li>
+                      <li><a *ngIf="status" (click)="gotoboutique()" >{{ 'user.boutique' | translate }}</a></li>
                     </ul>
                   </nav>
                   <!-- end of block .worker__nav-->

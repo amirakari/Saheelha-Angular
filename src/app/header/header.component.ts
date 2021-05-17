@@ -3,6 +3,7 @@ import {LoginService} from '../utilisateur/login.service';
 import {Router} from '@angular/router';
 import {Utilisateur} from '../Model/Utilisateur';
 import {AffService} from '../utilisateur/profilutilisateur/aff.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,10 @@ export class HeaderComponent implements OnInit {
   status: boolean;
   constructor(public loginService: LoginService,
               private profiluserservice: AffService,
-              private router: Router) { }
+              private translate: TranslateService,
+              private router: Router) {
+    translate.setDefaultLang('fr');
+  }
 
   ngOnInit(): void {
     this.profiluserservice.getUtilisateur().subscribe(
@@ -60,7 +64,7 @@ logout(){
     this.loginService.logout();
 }
 login(){
-  const link = ['login'];
+  const link = [''];
   this.router.navigate(link);
 }
 show(){
@@ -78,4 +82,10 @@ getRole(): boolean{
   );
   return this.status;
 }
+  changeLang1(): void{
+    this.translate.use('fr');
+  }
+  changeLang2(): void{
+    this.translate.use('ar');
+  }
 }

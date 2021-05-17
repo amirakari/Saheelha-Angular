@@ -1,0 +1,34 @@
+{
+  "header" : {
+    "acceuil": "Acceuil",
+    "utilisateur": "Utilisateur",
+    "login": "Login / Créer Compte",
+    "compte": "Votre Compte",
+    "boutique": "Boutiques",
+    "pageboutique": "Page Boutique",
+    "listeboutiques": "Liste Boutiques",
+    "ajouterboutique": "Ajouter Boutique",
+    "commande": "Commande",
+    "contact": "Contact"
+  },
+  "acceuil":{
+    "bienvenue": "Bienvenue"
+  },
+  "user" : {
+    "nom": "Nom",
+    "prenom": "Prénom",
+    "mdp": "Mot de passe",
+    "profil": "Profil",
+    "modifier": "Modifier Compte",
+    "supprimer": "Supprimer Compte",
+    "telephone": "Numéro Téléphonique",
+    "email": "Email",
+    "adresse": "Adresse",
+    "type": "Type d'utilisateur",
+    "choisirf": "Choisir un fichier",
+    "boutique": "Vos Boutiques",
+    "utilisateur": "utilisateur",
+    "fournisseur": "fournisseur",
+    "enregistrer": "Enregistrer"
+  }
+}

@@ -50,7 +50,7 @@ export class UtilisateurComponent implements OnInit {
     this.loginService.logout();
   }
   login1(){
-    const link = ['login'];
+    const link = [''];
     this.router.navigate(link);
   }
   addUtilisateur(formulaire: NgForm){
@@ -70,7 +70,7 @@ export class UtilisateurComponent implements OnInit {
       (response) => {
         localStorage.setItem('token', response.access_token);
         this.message = '';
-        this.router.navigate(['']);
+        this.router.navigate(['acceuil']);
       },
       (error) => {
         console.log(error);
