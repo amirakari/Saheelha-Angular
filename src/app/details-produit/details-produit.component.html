@@ -79,12 +79,12 @@ becomes
                         <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">{{boutique.nom}}</span><span class="properties__address-city">{{boutique.boutique.adresse}}</span></a>
                           <div class="properties__offer" *ngIf="boutique.status==='à vendre'">
                             <div class="properties__offer-column">
-                              <div class="properties__offer-label">Prix sans remise</div>
+                              <div class="properties__offer-label">{{ 'pageboutique.prixsansremise' | translate }}</div>
                               <div class="properties__offer-value"><strong> {{boutique.prixsansremise}} </strong>
                               </div>
                             </div>
                             <div class="properties__offer-column">
-                              <div class="properties__offer-label">Prix avec remise</div>
+                              <div class="properties__offer-label">{{ 'pageboutique.prixavecremise' | translate }}</div>
                               <div class="properties__offer-value"><strong>{{boutique.prixavecremise}} </strong>
                               </div>
                             </div>
@@ -92,7 +92,7 @@ becomes
                           <div class="properties__offer" *ngIf="boutique.status==='à donner'">
                             <div class="properties__offer-column">
                               <div class="properties__offer-label"></div>
-                              <div class="properties__offer-value"><strong> Gratuit</strong>
+                              <div class="properties__offer-value"><strong> {{ 'pageboutique.gratuit' | translate }}</strong>
                               </div>
 
                             </div>
@@ -100,9 +100,9 @@ becomes
                           <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span></div>
                         </div>
                         <div class="properties__intro">
-                          Date Limite de consommation : {{boutique.DLC}}
+                          {{ 'pageboutique.dlc' | translate }} : {{boutique.DLC}}
                           <br>
-                          Quantité : {{boutique.quantite}}
+                          {{ 'pageboutique.quantite' | translate }} : {{boutique.quantite}}
                           <p-rating cancel="false" readonly="true" [(ngModel)]="val"></p-rating>
 
                         </div>
