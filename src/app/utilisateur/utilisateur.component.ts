@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {LoginService} from './login.service';
 import {Router} from '@angular/router';
 import {GoogleService} from './google.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-utilisateur',
@@ -25,7 +26,9 @@ export class UtilisateurComponent implements OnInit {
               private loginService: LoginService,
               private googleService: GoogleService,
               private router: Router,
+              private translate: TranslateService,
               private http: HttpClient) {
+    translate.setDefaultLang('fr');
     this.siteKey = '6LfcvH0aAAAAAJHHlhuW547XmFI6Mz4oga1Z_k3h';
   }
 
@@ -85,5 +88,11 @@ export class UtilisateurComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  changeLang1(): void{
+    this.translate.use('fr');
+  }
+  changeLang2(): void{
+    this.translate.use('ar');
   }
 }

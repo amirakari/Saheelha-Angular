@@ -2,9 +2,9 @@
   <header class="header header--brand">
     <div class="container">
       <div class="header__row"><a href="index.html" class="header__logo">
-        <svg>
-          <use xlink:href="#icon-logo--mob"></use>
-        </svg></a>
+        <div>
+          <img src="/assets/img/acceuil/zéro-gaspii-3 (2).png" height="30" width="200">
+        </div></a>
         <div class="header__settings">
 
           <!-- end of block .header__settings-column-->
@@ -12,14 +12,14 @@
           <!-- end of block .header__settings-column-->
           <div class="header__settings-column">
             <div class="dropdown dropdown--header">
-              <button data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
+              <button (click)="changeLang1()" data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
                 <svg class="header__settings-icon">
                   <use xlink:href="#icon-earth"></use>
                 </svg>FR
               </button>
               <div class="dropdown__menu">
                 <ul>
-                  <li class="dropdown__item"><a href="#" class="dropdown__link">عربية</a></li>
+                  <li class="dropdown__item"><a (click)="changeLang2()" class="dropdown__link">عربية</a></li>
                 </ul>
               </div>
             </div>
@@ -98,9 +98,9 @@
   <nav id="header-nav" class="navbar navbar--header">
     <div class="container">
       <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
-        <svg class="navbar__brand-logo">
-          <use xlink:href="#icon-logo"></use>
-        </svg></a>
+        <div class="navbar__brand-logo">
+          <img src="/assets/img/acceuil/CHARTE-GRAPHIQUE-ZERO-GASPII-3.png" height="90" width="200">
+        </div></a>
       </div>
     </div>
   </nav>
@@ -142,7 +142,7 @@
 
 
                     <li class="dropdown auth__nav-item">
-                      <button class="form__" data-toggle="dropdown" type="button" ><span class="header__span">  Créer un compte</span></button>
+                      <button class="form__" data-toggle="dropdown" type="button" ><span class="header__span">  {{ 'login.creer' | translate }}</span></button>
                      <div class="dropdown__menu auth__dropdown--register">
                         <!-- BEGIN AUTH REGISTER-->
                         <br><br><br>
@@ -151,32 +151,32 @@
                           <div class="row">
                             <div class="form-group form-group--col-6">
 
-                              <input type="text" ngModel name="nom" id="nom" placeholder="Nom" required class="form-control">
+                              <input type="text" ngModel name="nom" id="nom" placeholder="{{ 'login.nom' | translate }}" required class="form-control">
                             </div>
                             <div class="form-group form-group--col-6">
 
-                              <input type="text" ngModel name="prenom" id="prenom" placeholder="Prénom" required class="form-control">
+                              <input type="text" ngModel name="prenom" id="prenom" placeholder="{{ 'login.prenom' | translate }}" required class="form-control">
                             </div>
                           </div>
                           <div class="row">
                             <div class="form-group form-group--col-6">
 
-                              <input type="email" ngModel name="mail" id="mail" placeholder="E-mail" required class="form-control">
+                              <input type="email" ngModel name="mail" id="mail" placeholder="{{ 'login.email' | translate }}" required class="form-control">
                             </div>
                             <div class="form-group form-group--col-6">
 
-                              <input type="password" ngModel name="password" id="password" placeholder="Mode de passe" required class="form-control">
+                              <input type="password" ngModel name="password" id="password" placeholder="{{ 'login.mdp' | translate }}" required class="form-control">
                             </div>
 
                           </div>
                           <div class="row">
                             <div class="form-group form-group--col-6">
 
-                              <input type="text" ngModel name="adresse" id="adresse" placeholder="Adresse" required class="form-control">
+                              <input type="text" ngModel name="adresse" id="adresse" placeholder="{{ 'login.adresse' | translate }}" required class="form-control">
                             </div>
                             <div class="form-group form-group--col-6">
 
-                              <input type="text" ngModel name="numtel" id="numtel" placeholder="Numéro de téléphone" required class="form-control">
+                              <input type="text" ngModel name="numtel" id="numtel" placeholder="{{ 'login.num' | translate }}" required class="form-control">
                             </div>
 
                           </div>
@@ -185,9 +185,9 @@
 
                               <select  ngModel name="type" id="type" placeholder="Type" class="form-control">
                                 <option></option>
-                                <option value="user">Utilisateur</option>
-                                <option value="fournisseur">Fournisseur</option>
-                                <option value="admin">Admin</option>
+                                <option value="user">{{ 'login.user' | translate }}</option>
+                                <option value="fournisseur">{{ 'login.fournisseur' | translate }}</option>
+                                <option value="admin">{{ 'login.admin' | translate }}</option>
                               </select>
 
                             </div>
@@ -202,7 +202,7 @@
                           </form>
                           <div class="row">
 
-                            <button  type="submit" class="form__submit" (click)="addUtilisateur(formulaire)">Ajouter</button>
+                            <button  type="submit" class="form__submit" (click)="addUtilisateur(formulaire)">{{ 'login.ajout' | translate }}</button>
                           </div>
 <br><br><br>
                         </form>
@@ -226,7 +226,7 @@
                                 <div class="form-group">
 
 
-                                  <input email ngModel name="mail" #inputMail="ngModel" type="text"   placeholder="Adresse e-mail" id="mail1" required data-parsley-trigger="keyup" data-parsley-minlength="6" data-parsley-validation-threshold="5" data-parsley-minlength-message="Login should be at least 6 chars" class="form-control">
+                                  <input email ngModel name="mail" #inputMail="ngModel" type="text"   placeholder="{{ 'login.mail' | translate }}" id="mail1" required data-parsley-trigger="keyup" data-parsley-minlength="6" data-parsley-validation-threshold="5" data-parsley-minlength-message="Login should be at least 6 chars" class="form-control">
                                   <div class="alert alert-danger" role="alert" *ngIf="inputMail.invalid && inputMail.dirty" >
                                    Votre  adresse  e-mail  n'est  pas  valide (Entrer une adresse de cette forme : ***@****.**)
                                   </div>
@@ -235,7 +235,7 @@
                                 <div class="form-group">
 
 
-                                  <input ngModel name="password"  #pwdInput="ngModel"  type="password"  id="password1" placeholder="Mot de passe" required class="form-control">
+                                  <input ngModel name="password"  #pwdInput="ngModel"  type="password"  id="password1" placeholder="{{ 'login.mot' | translate }}" required class="form-control">
 
                                   <div class="alert alert-danger" role="alert" *ngIf="pwdInput.invalid && pwdInput.touched" >
                                     le mode passe doit au minimum 4 caratéres et au maximum 8 caractéres
@@ -245,11 +245,11 @@
                               <div class="form__remember">
                                 <input type="checkbox" id="remember-in-inline" class="in-checkbox">
 
-                                <label for="remember-in-inline" (click)="changer()" class="in-label">Afficher mot de passe</label>
+                                <label for="remember-in-inline" (click)="changer()" class="in-label">{{ 'login.mot' | translate }}</label>
 
                               </div>
-                              <button type="submit" [disabled]="loginformulaire.invalid" (click)="login(loginformulaire.value)" class="form__submit" >Connexion</button>
-                                <div class="form__options"><a (click)="forgotPassword()">Mot de passe oublié ?</a>
+                              <button type="submit" [disabled]="loginformulaire.invalid" (click)="login(loginformulaire.value)" class="form__submit" >{{ 'login.Connexion' | translate }}</button>
+                                <div class="form__options"><a (click)="forgotPassword()">{{ 'login.oublie' | translate }}</a>
                                 </div>
 
 <br><br><br>

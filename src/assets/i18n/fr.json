@@ -354,5 +354,27 @@
     "prixt": "Prix totale",
     "dc": "Date du commande",
     "coupon": "Coupon de commande"
+  },
+  "login" : {
+    "creer": " Créer un compte",
+    "nom": "Nom",
+    "prenom": "Prénom",
+    "email": "E-mail",
+    "mdp": "Mode de passe",
+    "adresse": "Adresse",
+    "num": "Numéro de téléphone",
+    "user": "Utilisateur",
+    "fournisseur": "Fournisseur",
+    "admin": "Admin",
+    "ajout": "Ajouter",
+    "mail": "Adresse e-mail",
+    "mot": "Afficher mot de passe",
+    "Connexion": "Connexion",
+    "oublie": "Mot de passe oublié ?"
+  },
+  "forgotpassword" : {
+    "titre": "Retrouvez votre compte",
+    "desc": "Veuillez entrer votre adresse  mail pour rechercher votre compte.",
+    "bouton": "Chercher"
   }
 }

@@ -208,6 +208,11 @@ quantite: any;
         this.router.navigate(link);
 
    }
+  commandes(boutiqueId: number, produitId: number){
+    const link = ['boutique' + `/${boutiqueId}` + '/produitboutique' + `/${produitId}` + `/commandes` ];
+    this.router.navigate(link);
+
+  }
   supprimerProduit(){
     this.activatedRoute.params.subscribe(
       (params) => {

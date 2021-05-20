@@ -1,10 +1,11 @@
 <div class="box js-box">
 <header class="header header--brand">
   <div class="container">
-    <div class="header__row"><a href="index.html" class="header__logo">
-      <svg>
-        <use xlink:href="#icon-logo--mob"></use>
-      </svg></a>
+    <div class="header__row">
+      <a href="index.html" class="header__logo">
+      <div>
+        <img src="/assets/img/acceuil/zéro-gaspii-3 (2).png" height="30" width="200">
+      </div></a>
       <div class="header__settings">
 
         <!-- end of block .header__settings-column-->
@@ -67,7 +68,7 @@
               <svg class="auth__icon-user">
                 <use xlink:href="#icon-user"></use>
               </svg>
-              <span class="header__span">  Login</span>
+              <span class="header__span">  connexion</span>
             </button>
 
           </li>
@@ -77,7 +78,7 @@
               <svg class="auth__icon-user">
                 <use xlink:href="#icon-user"></use>
               </svg>
-              <span class="header__span">  Logout</span>
+              <span class="header__span">  Se déconnecter</span>
             </button>
 
           </li>
@@ -107,10 +108,11 @@
 <div id="header-nav-offset"></div>
 <nav id="header-nav" class="navbar navbar--header">
   <div class="container">
-    <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
-      <svg class="navbar__brand-logo">
-        <use xlink:href="#icon-logo"></use>
-      </svg></a>
+    <div class="navbar__row js-navbar-row">
+      <a href="index.html" class="navbar__brand">
+      <div class="navbar__brand-logo">
+        <img src="/assets/img/acceuil/CHARTE-GRAPHIQUE-ZERO-GASPII-3.png" height="90" width="200">
+      </div></a>
       <div id="navbar-collapse-1" [ngClass]="{'show':visibility}" class="navbar__wrap navbar__wrap--init">
         <ul class="navbar__nav">
           <li class="navbar__item js-dropdown"><a class="navbar__link" [routerLink]="['acceuil']" routerLinkActive="active" >{{ 'header.acceuil' | translate }}
