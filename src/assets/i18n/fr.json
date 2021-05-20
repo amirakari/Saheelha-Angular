@@ -342,5 +342,17 @@
     "description": "Zéro Gaspii : Une plateforme web et mobile qui sert à diminuer les gaspi âges : des médicaments , des produits cosmétiques et des produits alimentaires…",
     "social": "réseau sociaux",
     "dest": "Tous les droits sont réservés"
+  },
+  "commande" : {
+    "photo": "Photo de produit",
+    "nom": "Nom de produit",
+    "categorie": "Catégorie",
+    "status": "Status",
+    "dlc": "Date limite de consommation",
+    "quantite": "Quantité",
+    "prix": "Prix du produit",
+    "prixt": "Prix totale",
+    "dc": "Date du commande",
+    "coupon": "Coupon de commande"
   }
 }

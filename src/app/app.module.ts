@@ -53,6 +53,7 @@ import { EvaluerProduitComponent } from './commande/evaluer-produit/evaluer-prod
 import { StatistiqueComponent } from './statistique/statistique.component';
 import {UserGuard} from './guard/user.guard';
 import {LoginService} from './utilisateur/login.service';
+import { CommandesComponent } from './details-produit/commandes/commandes.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -87,6 +88,7 @@ export function HttpLoaderFactory(http: HttpClient){
     UpdateCommandeComponent,
     EvaluerProduitComponent,
     StatistiqueComponent,
+    CommandesComponent,
   ],
     imports: [
         BrowserModule,

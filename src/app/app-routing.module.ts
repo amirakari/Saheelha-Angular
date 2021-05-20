@@ -27,6 +27,7 @@ import {ContactComponent} from './contact/contact.component';
 import {UpdateComponent} from './details-produit/update/update.component';
 import {EvaluerProduitComponent} from './commande/evaluer-produit/evaluer-produit.component';
 import {StatistiqueComponent} from './statistique/statistique.component';
+import {CommandesComponent} from './details-produit/commandes/commandes.component';
 const Routes: Routes = [
   {path: 'acceuil', component:  AcceuilComponent},
   {path: 'contact', component:  ContactComponent},
@@ -58,6 +59,7 @@ const Routes: Routes = [
                   {path: '', component:  DetailsProduitComponent},
                   {path: 'evaluer', component:  EvaluerProduitComponent},
                   {path: 'update', component:  UpdateComponent},
+                  {path: 'commandes', component:  CommandesComponent},
                 ]},
             ]},
           {path: 'Abonnement' , component : AbonnementComponent},
