@@ -376,5 +376,33 @@
     "titre": "جد حسابك",
     "desc": " يرجى إدخال عنوان بريدك الإلكتروني للبحث عن حسابك",
     "bouton": "يبحث"
+  },
+  "profilboutique" : {
+    "modifier": " تحرير المتجر",
+    "supprimer": "حذف المتجر",
+    "horaire": "اوقات الفتح",
+    "ajoutP": "أضف منتوج",
+    "vendre": "المنتجات (للبيع)",
+    "don": "المنتجات (للتبرع)",
+    "abo": "قم بالاشتراك",
+    "abon": "اشتراكاتك",
+    "stat": "إحصائيات"
+  },
+  "produit" : {
+    "reference": "رمز",
+    "quantite": "كمية",
+    "code": "الباركود"
+  },
+  "detailsproduit" : {
+    "supprimer": "إزالة",
+    "modifier": "تعديل",
+    "message": "رسالة",
+    "enregistrer": "سجل",
+    "pcommande": "اجراء طلبية",
+    "commande": "الطلبات"
+  },
+  "login1" : {
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج"
   }
 }

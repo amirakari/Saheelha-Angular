@@ -376,5 +376,33 @@
     "titre": "Retrouvez votre compte",
     "desc": "Veuillez entrer votre adresse  mail pour rechercher votre compte.",
     "bouton": "Chercher"
+  },
+  "profilboutique" : {
+    "modifier": " Modifier Boutique",
+    "supprimer": "Supprimer Boutique",
+    "horaire": "Horaires D'ouverture",
+    "ajoutP": "Ajouter produit",
+    "vendre": "produits (à vendre)",
+    "don": "produits (à donner)",
+    "abo": "Faire un abonnement",
+    "abon": "Vos abonnement",
+    "stat": "Statistique"
+  },
+  "produit" : {
+    "reference": "Référence",
+    "quantite": "Quantité",
+    "code": "Code à barre"
+  },
+  "detailsproduit" : {
+    "supprimer": "Supprimer",
+    "modifier": "Modifer",
+    "message": "Message",
+    "enregistrer": "Enregistrer",
+    "pcommande": "Passer une commande",
+    "commande": "Commandes"
+  },
+  "login1" : {
+    "login": "Login",
+    "logout": "Logout"
   }
 }

@@ -17,7 +17,7 @@
       <div class="container">
         <ul>
           <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Acceuil</a></li>
-          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Ajouter Boutique</a></li>
+          <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Produits Boutique</a></li>
         </ul>
       </div>
     </nav>
@@ -38,7 +38,7 @@
               totalItems: totalRecords}">
                 <div class="properties properties--grid">
                   <div class="properties__thumb"><a   class="item-photo"><img src="http://localhost:3000/produit/image/{{boutiques.photo1}}" alt=""/>
-                    <figure class="item-photo__hover item-photo__hover--params"> <span class="properties__time">Ajouter le: 09/02/2021</span><span class="properties__time">Date limite de consommation: {{boutiques.DLC}}</span><span  class="properties__more" (click)="gotoDetailsProduit(boutiques.id)">Plus d'information</span>
+                    <figure class="item-photo__hover item-photo__hover--params"> <span class="properties__time">{{ 'pageboutique.ajouter' | translate }}: {{boutiques.createdAt}}</span><span class="properties__time">{{ 'pageboutique.dlc' | translate }}: {{boutiques.DLC}}</span><span  class="properties__more" (click)="gotoDetailsProduit(boutiques.id)">{{ 'pageboutique.info' | translate }}</span>
                     </figure></a><span class="properties__ribon">{{boutiques.categorie}}</span>
                   </div>
                   <!-- end of block .properties__thumb-->
@@ -46,18 +46,21 @@
                     <div class="properties__info"><span class="properties__address-street">{{boutiques.nom}}</span>
                       <div class="properties__offer">
                         <div class="properties__offer-column">
-                          <div class="properties__offer-label">Prix sans remise</div>
+                          <div class="properties__offer-label">{{ 'pageboutique.prixsansremise' | translate }}</div>
                           <div class="properties__offer-value"><strong> {{boutiques.prixsansremise}}</strong>
                           </div>
 
                         </div>
                         <div class="properties__offer-column">
-                          <div class="properties__offer-label">Prix avec remise</div>
+                          <div class="properties__offer-label">{{ 'pageboutique.prixavecremise' | translate }}</div>
                           <div class="properties__offer-value"><strong>{{boutiques.prixavecremise}}</strong>
                           </div>
                         </div>
                       </div>
-                      <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 153 Sq Ft</span></div>
+                      <div class="properties__params--mob">
+                        <span  class="properties__more" (click)="gotoDetailsProduit(boutiques.id)">{{ 'pageboutique.info' | translate }}</span>
+                        <br>
+                      </div>
                     </div>
                   </div>
                   <!-- end of block .properties__info-->
@@ -89,13 +92,13 @@
                   </div>
                   <nav class="worker__nav">
                     <ul>
-                      <li><a  (click)="gotoajout()">Profil</a></li>
-                      <li><a *ngIf="statis" (click)="gotoajoutProduit()" >Ajouter produit</a></li>
-                      <li><a (click)="gotoproduit()" >produits (à vendre)</a></li>
-                      <li><a (click)="gotodon()" >produits (à donner)</a></li>
-                      <li><a *ngIf="statis" (click)="gotoabonnement()" >Faire un abonnement</a></li>
-                      <li><a *ngIf="statis" >Vos abonnement</a></li>
-                      <li><a *ngIf="statis"  (click)="gotostatistique()">Statistique</a></li>
+                      <li><a  (click)="gotoajout()">{{ 'user.profil' | translate }}</a></li>
+                      <li><a *ngIf="statis" (click)="gotoajoutProduit()" >{{ 'profilboutique.ajoutP' | translate }}</a></li>
+                      <li><a (click)="gotoproduit()" >{{ 'profilboutique.vendre' | translate }}</a></li>
+                      <li><a (click)="gotodon()" >{{ 'profilboutique.don' | translate }}</a></li>
+                      <li><a *ngIf="statis" (click)="gotoabonnement()" >{{ 'profilboutique.abo' | translate }}</a></li>
+                      <li><a *ngIf="statis" >{{ 'profilboutique.abon' | translate }}</a></li>
+                      <li><a *ngIf="statis"  (click)="gotostatistique()">{{ 'profilboutique.stat' | translate }}</a></li>
                     </ul>
                   </nav>
                   <!-- end of block .worker__nav-->

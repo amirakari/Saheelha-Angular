@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
     this.profiluserservice.getUtilisateur().subscribe(
       (user) => {this.user = user;
                  console.log(this.user);
-                 if (this.user.type === 'user'){
+                 if (this.user.type === 'user' || this.user.type === 'admin'){
                    this.status = true;
                  }else{
                    this.status = false;
@@ -38,6 +38,10 @@ export class HeaderComponent implements OnInit {
   }
   gotoprofilutilisateur(){
     const link = ['profilutilisateur'];
+    this.router.navigate(link);
+  }
+  gotoacceuil(){
+    const link = ['acceuil'];
     this.router.navigate(link);
   }
   gotopageboutique(){

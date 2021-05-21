@@ -97,29 +97,49 @@ becomes
 
                             </div>
                           </div>
-                          <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span></div>
+                          <div class="properties__params--mob">
+                            {{ 'pageboutique.dlc' | translate }} : {{boutique.DLC}}
+                            <br>
+                            {{ 'pageboutique.quantite' | translate }} : {{boutique.quantite}}
+                            <p-rating cancel="false" readonly="true" [(ngModel)]="val"></p-rating>
+                            <br>
+
+                            <div class="droite" *ngIf="status"> <a  class="properties__more" type="submit" (click)="supprimerProduit()">{{ 'detailsproduit.supprimer' | translate }}</a>
+                            </div>
+
+                            <div class="droite" *ngIf="status">  <a  class="properties__more" type="submit" (click)="modifier(boutique.boutique.id,boutique.id)">{{ 'detailsproduit.modifier' | translate }}</a>
+                            </div>
+                            <br>
+                            <div class="droite" *ngIf="status"> <a  class="properties__more" type="submit" (click)="commandes(boutique.boutique.id,boutique.id)">{{ 'detailsproduit.commande' | translate }}</a>
+                            </div>
+                            <br>
+                            <br>
+
+                            <div class="champ centrage" *ngIf="status2"><input [(ngModel)]="quantite" name="quantite" class="champ" id="in-7aa" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite" *ngIf="status2"><a  class="properties__more" type="submit" (click)="PasserUneCommande()">{{ 'detailsproduit.pcommande' | translate }}</a></div>
+
+                          </div>
                         </div>
                         <div class="properties__intro">
                           {{ 'pageboutique.dlc' | translate }} : {{boutique.DLC}}
                           <br>
                           {{ 'pageboutique.quantite' | translate }} : {{boutique.quantite}}
                           <p-rating cancel="false" readonly="true" [(ngModel)]="val"></p-rating>
+                          <br>
+
+                          <div class="champ centrage" *ngIf="status"> <a  class="properties__more" type="submit" (click)="supprimerProduit()">{{ 'detailsproduit.supprimer' | translate }}</a>
+                          </div>
+
+                          <div class="droite" *ngIf="status">  <a  class="properties__more" type="submit" (click)="modifier(boutique.boutique.id,boutique.id)">{{ 'detailsproduit.modifier' | translate }}</a>
+                          </div>
+                          <br>
+                          <div class="champ centrage" *ngIf="status"> <a  class="properties__more" type="submit" (click)="commandes(boutique.boutique.id,boutique.id)">{{ 'detailsproduit.commande' | translate }}</a>
+                          </div>
+                          <br>
+                          <br>
+
+                          <div class="champ centrage" *ngIf="status2"><input [(ngModel)]="quantite" name="quantite" class="champ" id="in-7a" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite" *ngIf="status2"><a  class="properties__more" type="submit" (click)="PasserUneCommande()">{{ 'detailsproduit.pcommande' | translate }}</a></div>
 
                         </div>
-                        <br>
-
-                        <div class="champ centrage" *ngIf="status"> <a  class="properties__more" type="submit" (click)="supprimerProduit()">Supprimer</a>
-                        </div>
-
-                        <div class="droite" *ngIf="status">  <a  class="properties__more" type="submit" (click)="modifier(boutique.boutique.id,boutique.id)">Modifer</a>
-                        </div>
-                        <br>
-                        <div class="champ centrage" *ngIf="status"> <a  class="properties__more" type="submit" (click)="commandes(boutique.boutique.id,boutique.id)">Commandes</a>
-                        </div>
-                        <br>
-                        <br>
-
-                       <div class="champ centrage" *ngIf="status2"><input [(ngModel)]="quantite" name="quantite" class="champ" id="in-7a" min="1" max="{{boutique.quantite}}" type="number" placeholder="" required  class="form-control"></div><div class="droite" *ngIf="status2"><a  class="properties__more" type="submit" (click)="PasserUneCommande()">Passer une commande</a></div>
 
                       </div>
                       <!-- end of block .properties__info-->
@@ -140,8 +160,8 @@ becomes
                           <div class="comment__item-body js-comment-item">
                             <div class="comment__avatar" width="6" height="5"><img src="http://localhost:3000/utilisateur/profileimage/{{commentaires.user.photodeprofil}}" width="66" height="50" class="image-ronde"alt=""></div>
                             <div class="comment__item-right" *ngIf="user.id===commentaires.user.id">
-                              <button class="comment__item-btn"  (click)="changestatus()">Modifier</button>
-                              <button class="comment__item-btn" (click)="supprimerCommentaire(commentaires.id)">Supprimer</button>
+                              <button class="comment__item-btn"  (click)="changestatus()">{{ 'detailsproduit.modifier' | translate }}</button>
+                              <button class="comment__item-btn" (click)="supprimerCommentaire(commentaires.id)">{{ 'detailsproduit.supprimer' | translate }}</button>
                             </div>
                             <div class="comment__info">
                               <span class="comment__author"></span><span class="comment__date">{{commentaires.user.nom}} {{commentaires.user.prenom}}</span>
@@ -186,12 +206,12 @@ becomes
 
 
                                 <div  class="form-group">
-                                  <label for="in-comment-message" class="form__label control-label">Message</label>
+                                  <label for="in-comment-message" class="form__label control-label">{{ 'detailsproduit.message' | translate }}</label>
                                   <textarea ngModel name="message" id="in-comment-message" required class="form-control form__in form__in--textarea"></textarea>
                                 </div>
                               </div>
                               <div class="row row--buttons">
-                                <button type="submit" class="form__submit" (click)="addCommentaire(Ajouterboutique)">Enregistrer</button>
+                                <button type="submit" class="form__submit" (click)="addCommentaire(Ajouterboutique)">{{ 'detailsproduit.enregistrer' | translate }}</button>
                               </div>
                             </form>
                           </div>
@@ -247,13 +267,13 @@ becomes
                 </div>
                 <nav class="worker__nav">
                   <ul>
-                    <li><a  (click)="gotoajout()">Profil</a></li>
-                    <li><a *ngIf="status" (click)="gotoajoutProduit()" >Ajouter produit</a></li>
-                    <li><a (click)="gotoproduit()" >produits (à vendre)</a></li>
-                    <li><a (click)="gotodon()" >produits (à donner)</a></li>
-                    <li><a *ngIf="status" (click)="gotoabonnement()" >Faire un abonnement</a></li>
-                    <li><a *ngIf="status"  >Vos abonnement</a></li>
-                    <li><a *ngIf="status"  (click)="gotostatistique()">Statistique</a></li>
+                    <li><a  (click)="gotoajout()">{{ 'user.profil' | translate }}</a></li>
+                    <li><a *ngIf="status" (click)="gotoajoutProduit()" >{{ 'profilboutique.ajoutP' | translate }}</a></li>
+                    <li><a (click)="gotoproduit()" >{{ 'profilboutique.vendre' | translate }}</a></li>
+                    <li><a (click)="gotodon()" >{{ 'profilboutique.don' | translate }}</a></li>
+                    <li><a *ngIf="status" (click)="gotoabonnement()" >{{ 'profilboutique.abo' | translate }}</a></li>
+                    <li><a *ngIf="status"  >{{ 'profilboutique.abon' | translate }}</a></li>
+                    <li><a *ngIf="status"  (click)="gotostatistique()">{{ 'profilboutique.stat' | translate }}</a></li>
                   </ul>
                 </nav>
                 <!-- end of block .worker__nav-->
